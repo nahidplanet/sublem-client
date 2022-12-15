@@ -18,7 +18,7 @@ const RequireAdmin = ({ children }) => {
 		method: "GET",
 		headers: {
 			"content-type": "application/json",
-			"authorization": `Bearer ${localStorage.getItem('accessToken')}`
+			"authorization": `Bearer ${localStorage.getItem('activeToken')}`
 		},
 	}).then(res => res.json())
 		.then(data => {

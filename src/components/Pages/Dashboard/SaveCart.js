@@ -1,28 +1,24 @@
 import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
-import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router';
 import auth from '../../../firebaseAuth/firebase.init';
-import {useCart} from '../../../hooks/useCart';
 import useLoadCart from '../../../hooks/useLoadCart';
-import axiosInst from '../../axios';
+import Loader from '../../Shared/Loader';
 import SaveCartSingle from './SaveCartSingle';
 
 const SaveCart = () => {
 	const [user] = useAuthState(auth);
-	// const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useCart(user)
-	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
-	// const [catProduct,setCartProducts] = useState([]);
-
-	const [signOut, signOutLoading, signOutError] = useSignOut(auth);
 	const navigate = useNavigate()
-	
+	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
 
 	const products = catProduct?.cartItems;
+	if (isLoading) {
+		<Loader></Loader>
+	}
+	if (!products) {
+		navigate('/login');
 
-
+	}
 	return (
 		<div>
 			<div className="overflow-x-auto w-full">

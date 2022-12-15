@@ -8,7 +8,7 @@ const AdminDashboard = () => {
 	const navigate = useNavigate();
 
 	const handleLogOut = () =>{
-		localStorage.removeItem('accessToken')
+		localStorage.removeItem('activeToken')
 		navigate('login')
 
 	}

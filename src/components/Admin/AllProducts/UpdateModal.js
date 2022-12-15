@@ -31,7 +31,7 @@ const UpdateModal = ({ updateItem, refetch, setUpdateItem }) => {
 		const UPDATE_PRODUCT = {
 			method: 'PUT',
 			headers: {
-				"authorization": `Bearer ${localStorage.getItem('accessToken')}`
+				"authorization": `Bearer ${localStorage.getItem('activeToken')}`
 			},
 			body: formData
 		};

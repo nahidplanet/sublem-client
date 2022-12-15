@@ -30,7 +30,7 @@ const SignIn = () => {
 	const email = user?.email;
 	const username = user?.displayName;
 	const data = { email, username }
-	// 'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+	// 'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
 
 
 	const handleGoogleSignIn = async () => {
@@ -43,7 +43,9 @@ const SignIn = () => {
 		}
 	}
 
-
+if (user) {
+	navigate(from, { replace: true });
+}
 
 	return (
 		<div>

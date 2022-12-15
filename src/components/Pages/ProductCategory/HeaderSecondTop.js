@@ -21,7 +21,7 @@ const HeaderSecondTop = () => {
 		fetch('http://localhost:5000/api/v1/product', {
 			method: "GET",
 			headers: {
-				'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
 				'content-type': 'application/json'
 			}
 		})
@@ -89,7 +89,7 @@ const HeaderSecondTop = () => {
 									<li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/order-history"}>Order History</Link></li>
 									{user ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={async () => {
 										await signOut()
-										localStorage.removeItem("accessToken");
+										localStorage.removeItem("activeToken");
 										navigate('/login')
 									}}> Sign Out</Link></li> :
 										<li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"/login"}>Sign In</Link></li>

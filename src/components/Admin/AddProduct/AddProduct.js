@@ -29,7 +29,7 @@ const AddProduct = () => {
 		const requestOptions = {
 			method: 'POST',
 			headers:{
-				"authorization":`Bearer ${localStorage.getItem('accessToken')}`
+				"authorization":`Bearer ${localStorage.getItem('activeToken')}`
 			},
 			body: formData
 		};

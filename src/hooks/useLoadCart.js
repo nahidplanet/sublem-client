@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import axiosInst from '../components/axios';
+import Loader from '../components/Shared/Loader';
 
 const useLoadCart = (user) => {
 	const { isLoading, data:products, refetch } = useQuery(

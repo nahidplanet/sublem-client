@@ -1,22 +1,20 @@
 import React from 'react';
 import { HeartIcon, PhoneIcon, ShoppingBagIcon } from '@heroicons/react/24/solid'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseAuth/firebase.init';
-import {useCart} from '../../hooks/useCart';
-import Loader from '../Shared/Loader';
-import { useQuery } from 'react-query';
-import axiosInst from '../axios';
 import useLoadCart from '../../hooks/useLoadCart';
 
 
 const HeaderTop = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
+    const location = useLocation();
     const [signOut, signOutLoading, signOutError] = useSignOut(auth);
-    // const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useCart(user)
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
-
+    if (user) {
+        // window.location.reload();
+    }
 
 
 
@@ -48,7 +46,7 @@ const HeaderTop = () => {
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/order-history"}>Order History</Link></li>
                                     {user ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={async () => {
                                         await signOut()
-                                        localStorage.removeItem("accessToken");
+                                        localStorage.removeItem("activeToken");
                                         navigate('/login')
                                     }}> Sign Out</Link></li> :
                                         <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"/login"}>Sign In</Link></li>

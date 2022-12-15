@@ -87,7 +87,7 @@
 // 		// 	method: "POST",
 // 		// 	headers: {
 // 		// 		"content-type": "multipart/form-data",
-// 		// 		"authorization": `Bearer ${localStorage.getItem('accessToken')}`
+// 		// 		"authorization": `Bearer ${localStorage.getItem('activeToken')}`
 // 		// 	}, body: formData
 // 		// }).then(res => res.json()).then(data => console.log(data))
 
@@ -255,7 +255,7 @@ const UpdateModal = ({ updateItem, refetch, setUpdateItem }) => {
 		const UPDATE_PRODUCT = {
 			method: 'PUT',
 			headers: {
-				"authorization": `Bearer ${localStorage.getItem('accessToken')}`
+				"authorization": `Bearer ${localStorage.getItem('activeToken')}`
 			},
 			body: formData
 		};

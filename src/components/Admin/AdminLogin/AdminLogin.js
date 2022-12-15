@@ -34,7 +34,7 @@ const AdminLogin = () => {
 					toast.error(data?.message);
 				};
 				if (data.status) {
-					localStorage.setItem("accessToken", data.accessToken)
+					localStorage.setItem("activeToken", data.activeToken)
 					toast.success("Welcome To Admin");
 					navigate('/developer');
 				}

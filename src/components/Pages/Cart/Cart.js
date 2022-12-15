@@ -4,13 +4,10 @@ import SingleCart from './SingleCart';
 import { ChevronDownIcon, ChevronRightIcon, ShoppingBagIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import Loader from '../../Shared/Loader';
-import { useQuery } from 'react-query';
-import axiosInst from '../../axios';
-import { useCart, cartIncrease, cartDecrease, cartDelete } from '../../../hooks/useCart';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebaseAuth/firebase.init';
 import useLoadCart from '../../../hooks/useLoadCart';
+import Loader from '../../Shared/Loader';
 
 const Cart = () => {
 	const [open, setOpen] = useState(false)
@@ -19,6 +16,13 @@ const Cart = () => {
 	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
 	const navigate = useNavigate()
 
+	if (isLoading) {
+		<Loader></Loader>
+	}
+	if(!catProduct){
+		navigate('/login')
+	}
+
 
 	const handleProductIncrease = (id, price) => {
 		// cartIncrease(id, price)
@@ -26,7 +30,7 @@ const Cart = () => {
 		fetch('http://localhost:5000/api/v1/product/cart/user', {
 			method: "POST",
 			headers: {
-				'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
 				'content-type': 'application/json'
 			},
 			body: JSON.stringify(addToCartInfo)
@@ -38,6 +42,7 @@ const Cart = () => {
 					refetch()
 				} else {
 					toast.error("Product added failed");
+					
 				}
 			})
 
@@ -50,7 +55,7 @@ const Cart = () => {
 		fetch('http://localhost:5000/api/v1/product/cart/user/decrement', {
 			method: "POST",
 			headers: {
-				'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
 				'content-type': 'application/json'
 			},
 			body: JSON.stringify(addToCartInfo)
@@ -62,6 +67,7 @@ const Cart = () => {
 					refetch()
 				} else {
 					toast.error("Product added failed");
+					navigate('/login')
 				}
 			})
 
@@ -72,7 +78,7 @@ const Cart = () => {
 		fetch(`http://localhost:5000/api/v1/product/cart/delete/${id}`, {
 			method: 'DELETE',
 			headers: {
-				"authorization": `Bearer ${localStorage.getItem('accessToken')}`
+				"authorization": `Bearer ${localStorage.getItem('activeToken')}`
 			},
 		}).then(response => response.json())
 			.then(data => {

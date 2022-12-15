@@ -4,7 +4,7 @@ import { api } from "../urlConfig";
 const axiosInst = axios.create({
 	baseURL: api,
 	headers: {
-		'authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+		'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
 		'content-type': 'application/json'
 	}
 });
