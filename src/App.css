@@ -1,0 +1,12 @@
+.pagination ul{
+	display: flex;
+}
+.pagination ul{
+	background: aqua;
+}
+.pagination ul li{
+	background: gray;
+}
+.pagination ul li .page-num{
+	color:#333;
+}

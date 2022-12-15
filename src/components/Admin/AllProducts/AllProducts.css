@@ -1,0 +1,23 @@
+
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	gap: 14px;
+	color:rgb(18, 17, 17);
+	margin-top: 15px;
+}
+.pagination .page-num .active{
+	background: rgb(126, 232, 236);
+	border:1px solid gray ;
+	padding: 5px 10px;
+}
+.pagination .page-num:hover {
+	background: rgb(126, 232, 236);
+	border:1px solid gray ;
+	padding: 5px 10px;
+}
+.pagination .page-num {
+	padding: 5px 10px;
+	border:1px solid transparent
+}

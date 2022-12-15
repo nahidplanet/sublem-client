@@ -1,0 +1,72 @@
+body {
+	background: linear-gradient(to left, green, white);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: white;
+}
+.submitBtn:disabled{
+	background-color:#6a717c;
+	color:#f8e4e4
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+}
+
+.form-box {
+	width: 380px;
+	height: 450px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	border-radius: 2%;
+}
+.input-group:focus{
+	border:2px;
+}
+input:focus {
+	outline: none;
+}
+
+.form-box {
+	background: gray;
+	background-image: url('https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2563.jpg?w=2000');
+	/* background: rgb(2,0,36);
+	background: linear-gradient(174deg, rgba(2,0,36,1) 0%, rgba(9,111,121,0.9444152661064426) 41%, rgba(255,0,104,1) 100%); */
+background-repeat: no-repeat;
+}
+
+.header-form {
+	margin-bottom: 15px;
+}
+
+button {
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
+
+.message {
+	display: flex;
+	justify-content: space-between
+}
+
+.social {
+	display: flex;
+	justify-content: space-around;
+	padding: 30px;
+}
+
+.social i {
+	font-size: 35px;
+}
+
+.social i:hover {
+	color: red;
+	cursor: pointer;
+}
