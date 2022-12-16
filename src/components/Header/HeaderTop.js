@@ -12,9 +12,9 @@ const HeaderTop = () => {
     const location = useLocation();
     const [signOut, signOutLoading, signOutError] = useSignOut(auth);
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
-    if (user) {
-        // window.location.reload();
-    }
+    setTimeout(() => {
+        // window.location.reload()
+    }, 2000)
 
 
 
@@ -45,9 +45,9 @@ const HeaderTop = () => {
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/save-cart"}>Save Cart</Link></li>
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/order-history"}>Order History</Link></li>
                                     {user ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={async () => {
-                                        await signOut()
+                                        signOut()
                                         localStorage.removeItem("activeToken");
-                                        navigate('/login')
+                                        await navigate('/login')
                                     }}> Sign Out</Link></li> :
                                         <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"/login"}>Sign In</Link></li>
 

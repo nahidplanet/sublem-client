@@ -1,11 +1,14 @@
 import React from 'react';
-import { Outlet, useNavigate } from 'react-router';
+import { Outlet, useLocation, useNavigate } from 'react-router';
 import DesktopHeader from './AdminHeader/DesktopHeader';
 import MobileHeader from './AdminHeader/MobileHeader';
 import AdminSidebar from './AdminSidebar/AdminSidebar';
 
 const AdminDashboard = () => {
 	const navigate = useNavigate();
+	const location = useLocation();
+	console.log(location.pathname);
+
 
 	const handleLogOut = () =>{
 		localStorage.removeItem('activeToken')

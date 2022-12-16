@@ -3,12 +3,14 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import "./AdminLogin.css"
-import {  useNavigate } from 'react-router';
+import {  useLocation, useNavigate } from 'react-router';
 
 const AdminLogin = () => {
 	const navigate = useNavigate()
 	// let from = location.state?.from?.pathname || "/";
-	const [open, setOpen] = useState(false)
+	const [open, setOpen] = useState(false);
+	const location = useLocation();
+	console.log(location.pathname);
 
 	const emailRef = useRef('');
 	const passwordRef = useRef('')

@@ -9,41 +9,26 @@ import { useRef } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useEffect } from 'react';
+import useToken from '../../../hooks/useToken';
 
 
 const SignIn = () => {
 	const [open, setOpen] = useState(false)
+	const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 	let navigate = useNavigate();
 	let location = useLocation();
-	const [user] = useAuthState(auth);
+	let from = location?.state?.from?.pathname || "/";
+
+	const [token] = useToken(user)
+
 
 
 	// from input value 
 	const emailRef = useRef('');
 	const passwordRef = useRef('')
 
-	// for firebase auth
-	const [signInWithGoogle, xuser, loading, error] = useSignInWithGoogle(auth);
-	let from = location?.state?.from?.pathname || "/";
-
-
-	const email = user?.email;
-	const username = user?.displayName;
-	const data = { email, username }
-	// 'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
-
-
-	const handleGoogleSignIn = async () => {
-		await signInWithGoogle();
-		const res = await axios.post(`http://localhost:5000/api/v1/create-user`, data);
-		if (res?.data?.status) {
-			toast.success(res?.data?.message);
-			localStorage.setItem("activeToken", res?.data?.activeToken);
-			navigate(from, { replace: true });
-		}
-	}
-
-if (user) {
+if (token) {
+	console.log("ddddddddddddddd",token);
 	navigate(from, { replace: true });
 }
 
@@ -82,7 +67,7 @@ if (user) {
 							</div>
 						</form>
 						<div className='flex gap-5 items-center justify-center my-3'>
-							<button onClick={handleGoogleSignIn} className='w-8 h-8 m-0'><img src={google} alt="google" /></button>
+							<button onClick={()=> signInWithGoogle()} className='w-8 h-8 m-0'><img src={google} alt="google" /></button>
 							<button className='w-8 h-8 m-0'><img src={facebook} alt="facebook" /></button>
 						</div>
 					</div>

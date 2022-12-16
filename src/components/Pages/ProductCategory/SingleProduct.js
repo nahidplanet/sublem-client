@@ -24,7 +24,6 @@ const SingleProduct = ({ data }) => {
 		})
 		.then(res=>res.json())
 		.then(data =>{
-			console.log(data);
 			if (data.status) {
 				toast.success("Product added successful");
 				refetch();

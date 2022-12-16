@@ -107,7 +107,7 @@ const Cart = () => {
 					<div className='col-span-3 m-2'>
 						{/* single cart  */}
 
-						{catProduct?.cartItems === undefined &&
+						{catProduct?.cartItems.length <1 &&
 							<div className='h-full'>
 								<div className='border flex flex-col justify-center items-center h-full'>
 									<h1 className='text-gray-800 capitalize text-3xl font-bold'>Your Bag is blank</h1>
@@ -154,7 +154,8 @@ const Cart = () => {
 							<div className={`${open ? "block" : "hidden"} flex items-center w-full`}>
 								<input type="text" placeholder='Please Enter Your Voucher Code' className='p-1 w-full  bg-white text-gray-800 border border-r-0 rounded-l' /> <button className='bg-black ml-[-2px] text-white text-md p-1  my-6 rounded-r'>Apply</button>
 							</div>
-							<button onClick={handlePressOrder} className='text-white text-center rounded-sm bg-green-600 hover:bg-green-700 w-full px-3 py-2 border border-gray-500 font-bold text-lg block' >Checkout & Pay</button>
+							{/* { ? } */}
+							<button disabled={catProduct?.cartItems.length <1} onClick={handlePressOrder} className='text-white text-center rounded-sm bg-green-600 hover:bg-green-700 w-full px-3 py-2 border border-gray-500 font-bold text-lg block' >Continue</button>
 						</div>
 					</div>
 				</div>

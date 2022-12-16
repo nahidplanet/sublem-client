@@ -2,20 +2,33 @@ import axios from 'axios';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { Navigate, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import auth from '../../../firebaseAuth/firebase.init';
+import axiosInst from '../../axios';
 
 const CheckOutDetails = () => {
 	const { register, handleSubmit, formState: { errors }, reset } = useForm();
 	const [user, loading, error] = useAuthState(auth);
-	// console.log(user);
+	const navigate = useNavigate()
 	const onSubmit = async (products) => {
-		const res = await axios.put('http://localhost:5000/api/v1/user-create/',products);
-		if (!res) {
-			toast.error('something went wrong')
-		}else{
-			toast.success('Order has been submitted')
-		}
+
+		fetch(`http://localhost:5000/api/v1/order-info`, {
+			method: "PUT",
+			headers: {
+				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(products)
+
+		}).then(res => res.json()).then(data => {
+			
+			if (data.status) {
+				
+				navigate('/checkout/order');
+			}
+		})
+
 	}
 	return (
 		<div>
@@ -28,14 +41,14 @@ const CheckOutDetails = () => {
 						{/* full name  */}
 						<div className="">
 							<label className="block text-sm text-gray-600" >Full Name</label>
-							<input {...register("fullName", { required: true, minLength: 3})} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" type="text" placeholder="Full Name" />
+							<input {...register("fullName", { required: true, minLength: 3 })} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" type="text" placeholder="Full Name" />
 							{errors.fullName?.type === "required" && <span className="label-text-alt capitalize text-red-600">Name is Required</span>}
 							{errors.fullName?.type === "minLength" && <span className="label-text-alt capitalize text-red-600">Name at lest 6 characters</span>}
 						</div>
 						{/* username */}
 						<div className="mt-2">
 							<label className="text-sm block text-gray-600" >User Name</label>
-							<input readOnly  value={user?.displayName ? user.displayName :user?.email.slice(0,5)}{...register("username", { required: false })} className="w-full px-5  py-1  text-gray-700 bg-gray-200 rounded" type="text" placeholder="User Name" />
+							<input readOnly value={user?.displayName ? user.displayName : user?.email.slice(0, 5)}{...register("username", { required: false })} className="w-full px-5  py-1  text-gray-700 bg-gray-200 rounded" type="text" placeholder="User Name" />
 							{errors.username?.type === "required" && <span className="label-text-alt capitalize text-red-600">User Name is required</span>}
 						</div>
 
@@ -65,7 +78,7 @@ const CheckOutDetails = () => {
 						<div className="mt-2 ">
 							<label className="block text-sm text-gray-600" >Address 2 (optional)</label>
 							<input {...register("addressTwo", { required: false, minLength: 3 })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" type="text" placeholder="Address 2" />
-							
+
 							{errors.addressTwo?.type === "minLength" && <span className="label-text-alt capitalize text-red-600">Address 2 at lest 3 characters</span>}
 						</div>
 
