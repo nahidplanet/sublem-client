@@ -61,6 +61,7 @@ import Cart from "./components/Pages/Cart/Cart";
 import SignIn from "./components/Pages/SignIn/SignIn";
 import CheckOutDetails from "./components/Pages/CheckoutDetails/CheckOutDetails";
 import UserOrderSubmit from "./components/Pages/UserOrderSubmit/UserOrderSubmit";
+import RequireAdmin from "./components/Shared/RequireAdmin";
 
 
 function App() {
@@ -85,12 +86,12 @@ function App() {
         </Route> */}
 
           {/* admin dashboard  */}
-          <Route path="/developer" element={<AdminDashboard></AdminDashboard>}>
-            <Route index element={<AdminIndex></AdminIndex>}></Route>
-            <Route path="add-product" element={<AddProduct></AddProduct>}></Route>
-            <Route path="all-product" element={<AllProducts></AllProducts>}></Route>
-            <Route path="all-order" element={<Orders></Orders>}></Route>
-            <Route path="all-user" element={<Users></Users>}></Route>
+          <Route path="/developer" element={<RequireAuth><RequireAdmin><AdminDashboard></AdminDashboard></RequireAdmin></RequireAuth>}>
+            <Route index element={<RequireAuth><RequireAdmin><AdminIndex></AdminIndex></RequireAdmin></RequireAuth>}></Route>
+            <Route path="add-product" element={<RequireAuth><RequireAdmin><AddProduct></AddProduct></RequireAdmin></RequireAuth>}></Route>
+            <Route path="all-product" element={<RequireAuth><RequireAdmin><AllProducts></AllProducts></RequireAdmin></RequireAuth>}></Route>
+            <Route path="all-order" element={<RequireAuth><RequireAdmin><Orders></Orders></RequireAdmin></RequireAuth>}></Route>
+            <Route path="all-user" element={<RequireAuth><RequireAdmin><Users></Users></RequireAdmin></RequireAuth>}></Route>
           </Route>
 
 

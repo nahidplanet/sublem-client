@@ -70,6 +70,7 @@ if (token) {
 							<button onClick={()=> signInWithGoogle()} className='w-8 h-8 m-0'><img src={google} alt="google" /></button>
 							<button className='w-8 h-8 m-0'><img src={facebook} alt="facebook" /></button>
 						</div>
+						<Link to={'/developer'} className="text-black p-5">admin</Link>
 					</div>
 
 				</div>
