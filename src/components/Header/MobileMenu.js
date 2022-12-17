@@ -29,7 +29,7 @@ const MobileMenu = ({ handelMobileMenu }) => {
                     <div className='flex flex-col justify-center items-center cursor-pointer'>
                         <div className='w-6 h-6 text-gray-800'>
                             <a
-                                href="https://wa.me/2348100000000"
+                                href="https://wa.me/+971562572168"
                                 className="whatsapp_float"
                                 target="_blank"
                                 rel="noopener noreferrer"

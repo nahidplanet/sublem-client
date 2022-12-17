@@ -23,13 +23,22 @@ const HeaderTop = () => {
             <div className='bg-gray-800 h-12 flex justify-end  gap-5 items-center p-4'>
                 <div className='flex items-center justify-start'>
                     <PhoneIcon className='w-4 h-4 mr-1 text-normal'></PhoneIcon>
-                    <p>contact us ( +88 01791180333 )</p>
+                    <a
+                                href="https://wa.me/+971562572168"
+                                className="whatsapp_float"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >Contact Us (+971562572168)
+                            </a>
+                    
                 </div>
+                <Link to={'/dashboard/wishlist'}>
                 <div className='flex items-center justify-start'>
                     <HeartIcon className='w-4 h-4 mr-1'></HeartIcon>
                     <p>Wishlist
                     </p>
                 </div>
+                </Link>
                 <div className='flex items-center justify-start'>
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className=" cursor-pointer pr-2">

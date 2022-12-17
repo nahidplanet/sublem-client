@@ -9,7 +9,6 @@ const useLoadCart = (user) => {
 	)
 
 	const catProduct =  products?.data?.result;
-
 	const totalProduct = catProduct?.cartItems.reduce((x, y) => x + y.quantity, 0);
 	const totalPrice = catProduct?.cartItems.reduce((x, y) => x + (y.price * y.quantity), 0);
 	
