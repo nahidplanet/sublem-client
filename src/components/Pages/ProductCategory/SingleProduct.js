@@ -4,7 +4,6 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import useLoadCart from '../../../hooks/useLoadCart';
-import { addToDb } from '../../../utils/manageCartProducat';
 
 const SingleProduct = ({ data }) => {
 	const [products,totalProduct,totalPrice,isLoading,refetch] = useLoadCart();

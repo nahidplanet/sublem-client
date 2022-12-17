@@ -117,7 +117,6 @@ const MainMenu = () => {
                             </li>
                         </ul>
                     </div>
-                    {/* {menuData?.map(data => <MainNavbar key={data.id} data={data}></MainNavbar>)} */}
                 </div>
 
                 <Search></Search>

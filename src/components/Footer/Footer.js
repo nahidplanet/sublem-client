@@ -17,7 +17,7 @@ const Footer = () => {
 
     const [list, setList] = useState([]);
     useEffect(() => {
-        fetch('footerlist.json')
+        fetch('menuData.json')
             .then(res => res.json())
             .then(data => setList(data))
     }, [])
@@ -77,7 +77,7 @@ const Footer = () => {
 
                 {/* showing in pc device */}
                 <div className='hidden lg:block lg:w-9/12 '>
-                    <div className='grid grid-cols-4'>
+                    <div className='grid grid-cols-5'>
                         {list.map(item => <FooterListMain key={item.id} data={item}> </FooterListMain>)}
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './SignIn.css'
 import auth from '../../../firebaseAuth/firebase.init';
 import google from '../../../assets/icon/google.svg'
@@ -12,6 +12,7 @@ const SignIn = () => {
 	const [open, setOpen] = useState(false)
 	const [user] = useAuthState(auth)
 	const [signInWithGoogle, suser, loading, error] = useSignInWithGoogle(auth);
+	const [signInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
 	let navigate = useNavigate();
 	let location = useLocation();
 	let from = location?.state?.from?.pathname || "/";
@@ -38,11 +39,11 @@ const SignIn = () => {
 						<div className='flex flex-col gap-5 items-center justify-center my-3 '>
 							<div className='border flex items-center rounded-md bg-[#007ACC] cursor-pointer hover:bg-[#1f00cc]' onClick={() => signInWithGoogle()}>
 								<button className='m-0 bg-white px-5 py-3' id='google'><img src={google} alt="google" /></button>
-								<label className='text-white px-5 py-3 capitalize text-xl font-bold cursor-pointer' htmlFor="google">Sign in with google</label>
+								<label className='text-white px-5 py-3 capitalize text-lg font-semibold cursor-pointer' htmlFor="google">SignIn with google</label>
 							</div>
-							<div className='border flex items-center rounded-md bg-[#007ACC] cursor-pointer hover:bg-[#1f00cc]' onClick={() => signInWithGoogle()}>
+							<div className='border flex items-center rounded-md bg-[#007ACC] cursor-pointer hover:bg-[#1f00cc]' onClick={() => signInWithFacebook()}>
 								<button className='m-0 bg-white px-5 py-3'><img src={facebook} alt="facebook" /></button>
-								<label className='text-white px-5 py-3 capitalize text-xl font-bold cursor-pointer' htmlFor="google">Sign in with google</label>
+								<label className='text-white px-5 py-3 capitalize text-lg font-semibold cursor-pointer' htmlFor="google">SignIn with Facebook</label>
 							</div>
 							<div></div>
 						</div>

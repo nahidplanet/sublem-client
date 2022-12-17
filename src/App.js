@@ -132,10 +132,10 @@ function App() {
           <Route path="office-category/sofa/:id" element={<ProductDetails></ProductDetails>}></Route>
           <Route path="office-category/wallpaper" element={<OfficeWallpaper></OfficeWallpaper>}></Route>
           <Route path="office-category/wallpaper/:id" element={<ProductDetails></ProductDetails>}></Route>
-          <Route path="office-category/bed" element={<OfficeBed></OfficeBed>}></Route>
+          {/* <Route path="office-category/bed" element={<OfficeBed></OfficeBed>}></Route>
           <Route path="office-category/bed/:id" element={<ProductDetails></ProductDetails>}></Route>
           <Route path="office-category/bed_mattress" element={<OfficeBedMattress></OfficeBedMattress>}></Route>
-          <Route path="office-category/bed_mattress/:id" element={<ProductDetails></ProductDetails>}></Route>
+          <Route path="office-category/bed_mattress/:id" element={<ProductDetails></ProductDetails>}></Route> */}
           {/* arabic category  */}
           <Route path="arabic-category/" element={<AllArabicFurniture></AllArabicFurniture>}></Route>
           <Route path="arabic-category/:id" element={<ProductDetails></ProductDetails>}></Route>
