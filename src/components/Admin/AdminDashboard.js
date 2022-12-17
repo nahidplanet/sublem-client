@@ -6,13 +6,10 @@ import AdminSidebar from './AdminSidebar/AdminSidebar';
 
 const AdminDashboard = () => {
 	const navigate = useNavigate();
-	const location = useLocation();
-	console.log(location.pathname);
-
 
 	const handleLogOut = () =>{
 		localStorage.removeItem('activeToken')
-		navigate('login')
+		navigate('/login')
 
 	}
 	return (

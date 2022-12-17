@@ -7,35 +7,67 @@ import axios from 'axios';
 import Loader from '../../Shared/Loader';
 import './ProductDetails.css'
 import { useState } from 'react';
-import axiosInst from '../../axios';
-import { addToDb } from '../../../utils/manageCartProducat';
+import useLoadCart from '../../../hooks/useLoadCart';
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
 	const [cartCount, setCartCount] = useState(0)
+	const [catProduct, totalProduct, totalPrice, sisLoading, refetch] =  useLoadCart()
+	
+
+
 	var baseUrl = `http://localhost:5000/images/product/`;
 	const { id } = useParams();
 	const { isLoading, data } = useQuery(
 		['singleProduct'], () => axios.get(`http://localhost:5000/api/v1/product/${id}`)
 			.then(data => data)
 	)
-	if (isLoading) {
+
+
+
+	if (isLoading ) {
 		return <Loader></Loader>
 	}
 	const { _id, name, productImage, code, category, type, sortDescription, longDescription, price, discount } = data?.data?.data[0];
+
+
 	const handleCartDecrease = () => {
 		setCartCount(cartCount - 1)
 	}
-	const handleCartIncrease = (id) => {
-		addToDb(id)
-		setCartCount(cartCount + 1)
+	const handleCartIncrease = () => {
+	setCartCount(cartCount + 1)	
 	}
-	const handleAddToCart = (productId, price, quantity) => {
 
-		const product = { productId, price, quantity }
-		axiosInst.post(`/product/cart/add`, { productId, price, quantity }).then(res => {
-			console.log(res);
+	
+		
+	
+	const handleAddToCart = (_id, price, cartCount) => {
+
+		const addToCartInfo = { productId: _id, price,  quantity:cartCount }
+
+		fetch('http://localhost:5000/api/v1/product/cart/productDetails', {
+			method: "POST",
+			headers: {
+				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(addToCartInfo)
 		})
+			.then(res => res.json())
+			.then(data => {
+				if (data.status) {
+					toast.success("Add To cart");
+					
+					refetch()
+				} else {
+					toast.error("Product added failed");
+					
+				}
+			})
 	}
+
+
+	// slider single image 
 	const settings = {
 		customPaging: function (i) {
 			return (
@@ -84,21 +116,19 @@ const ProductDetails = () => {
 								<h1 className='text-2xl font-semibold text-green-600 '>2 In Stock Now</h1>
 								<div>
 									<div className='flex justify-center items-center'>
-										<table>
-											<tbody>
-												<tr>
-													<td>
-														<button onClick={handleCartDecrease} className='border rounded-sm text-gray-900 font-bold text-xl w-10 h-10 hover:bg-gray-500 hover:text-white'>-</button>
-													</td>
-													<td>
-														<input value={cartCount} onChange={(e) => setCartCount(toString(e.target.value))} className='w-14 h-10 mx-4 p-2 bg-white border rounded-sm font-bold' type="number" name="" id="incriecInput" />
-													</td>
-													<td>
-														<button onClick={()=>handleCartIncrease(_id)} className='border rounded-sm text-gray-900 font-bold text-xl w-10 h-10 hover:bg-gray-500 hover:text-white'>+</button>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+										<div>
+											<div className='flex justify-center items-center mt-10'>
+												<div>
+													<button disabled={cartCount < 1} onClick={handleCartDecrease} className='mt-0 border w-10 h-10 bg-white text-gray-900 text-2xl font-bold rounded-sm mr-2 hover:bg-gray-200  '>-</button>
+												</div>
+												<div>
+													<input value={cartCount} readOnly onChange={(e) => setCartCount(toString(e.target.value))} className='mt-[-13px] border w-12 h-10 bg-white text-gray-900 text-xl font-bold rounded-sm mr-2 px-2' type="number"  />
+												</div>
+												<div>
+													<button onClick={() => handleCartIncrease(_id,price)} className='mt-0 border w-10 h-10 bg-white text-gray-900 text-2xl font-bold rounded-sm mr-2 hover:bg-gray-200  '>+</button>
+												</div>
+											</div>
+										</div>
 									</div>
 									<button onClick={() => handleAddToCart(_id, price, cartCount)} className='block mx-auto my-5 rounded-sm hover:bg-gray-300 bg-gray-200 w-7/12 py-4 text-lg text-gray-800 capitalize font-semibold text-center'>add to cart</button>
 									{/* WishList */}

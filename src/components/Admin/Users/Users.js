@@ -1,14 +1,49 @@
 import React, { useState } from 'react';
+import ReactPaginate from 'react-paginate';
+import { useQuery } from 'react-query';
+import axiosInst from '../../axios';
+import Loader from '../../Shared/Loader';
+import UserDeleteModal from './UserDeleteModal';
 import UserSingleRow from './UserSingleRow';
+import UserToAdminModal from './UserToAdminModal';
 
 const Users = () => {
 	const [modalData, setModalData] = useState(null);
 
-	const userHandler = (data) => {
+	const [deleteUser, setDeleteUser] = useState(null);
+
+	const [page, setPage] = useState(1);
+	const [limit, setLimit] = useState(10);
+	const getFacts = () => {
+		const res = axiosInst.get(`/all-users?limit=${limit}&page=${page}`).then(res => res);
+		return res;
+	};
+	const { data, isLoading, refetch } = useQuery(['allUsers', limit, page], getFacts);
+	const users = data?.data?.users?.users;
+	// console.log(users);
+	if (isLoading) {
+		return <Loader></Loader>
+	}
+	const handleUserDelete = (user) => {
+		setDeleteUser(user)
+	}
+	
+	const handlePageClick = (data) => {
+		setPage(data.selected + 1);
+
+	}
+
+	const UserToAdminModal = (data) => {
 		setModalData(data);
 	}
 	return (
 		<>
+		{
+				deleteUser && <UserDeleteModal deleteUser={deleteUser} setDeleteUser={setDeleteUser} refetch={refetch}></UserDeleteModal>
+			}
+			{
+				// updateItem && <UserToAdminModal handleUserDelete={handleUserDelete} setUpdateItem={setUpdateItem} refetch={refetch}></UserToAdminModal>
+			}
 			<div>
 				<input type="checkbox" id="userAdminModal" className="modal-toggle" />
 				<div className="modal modal-bottom sm:modal-middle">
@@ -21,37 +56,51 @@ const Users = () => {
 					</div>
 				</div>
 			</div>
-			<div className="overflow-x-auto w-full ">
-				<table className="table w-full ">
+			<div className="overflow-x-auto  ">
+				<table className="table table-compact w-full">
 					{/* <!-- head --> */}
 					<thead>
 						<tr>
 							<th>
 								Number
 							</th>
-							<th>Image</th>
-							<th>Name</th>
-							<th>ID</th>
-							<th>Code</th>
-							<th>Price</th>
-							<th>action</th>
+							<th>Full Name</th>
+							<th>Mobile</th>
+							<th>Email</th>
+							<th>Address 1</th>
+							<th>Address 2</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody className=' text-white'>
+						{
+							users?.map((user,index) => <UserSingleRow key={user._id} page={page} limit={limit} index={index}  user={user} handleUserDelete={handleUserDelete} UserToAdminModal={UserToAdminModal}></UserSingleRow>)
+						}
 
-						<UserSingleRow userHandler={userHandler}></UserSingleRow>
 					</tbody>
 					{/* <!-- foot --> */}
 					<tfoot className='bg-gray-800'>
 					</tfoot>
 				</table>
 			</div>
-			<div className='flex justify-end'>
-				<div className=" flex items-center justify-center">
-					<button className=" bg-gray-600 text-white border-r py-2 px-3 font-bold text-sm  cursor-pointer ">1</button>
-					<button className=" bg-gray-600 text-white border-r py-2 px-3 font-bold text-sm  cursor-pointer ">2</button>
-					<button className=" bg-gray-600 text-white border-r py-2 px-3 font-bold text-sm  cursor-pointer ">3</button>
-					<button className=" bg-gray-600 text-white border-r py-2 px-3 font-bold text-sm  cursor-pointer ">4</button>
+			<div className='flex justify-end mt-5'>
+				<div className="flex items-center justify-center  h-6">
+					<ReactPaginate
+						breakLabel="..."
+						nextLabel="next >"
+						onPageChange={handlePageClick}
+						pageRangeDisplayed={3}
+						pageCount={data?.data?.users?.totalPage}
+						previousLabel="< previous"
+						marginPagesDisplayed={2}
+						// renderOnZeroPageCount={null}
+						activeLinkClassName="active"
+						previousLinkClassName="page-num"
+						nextLinkClassName="page-num"
+						containerClassName="pagination"
+						pageLinkClassName='page-num'
+					/>
+
 				</div>
 			</div>
 		</>

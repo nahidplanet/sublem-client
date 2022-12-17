@@ -4,9 +4,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 
 import { Route, Routes, useLocation } from 'react-router';
-import './App.css';
 import Home from './components/Pages/Home/Home';
 import NotFoundPage from "./components/Shared/NotFoundPage";
 
@@ -24,8 +24,6 @@ import AddProduct from "./components/Admin/AddProduct/AddProduct";
 import AllProducts from "./components/Admin/AllProducts/AllProducts";
 import Orders from "./components/Admin/Orders/Orders";
 import Users from "./components/Admin/Users/Users";
-import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
-// import RequireAdmin from "./components/Admin/RequireAdmin";
 
 // category product page 
 import RequireAuth from "./components/Shared/RequireAuth";
@@ -75,15 +73,8 @@ function App() {
           {/* default route  */}
           <Route path="/" element={<Home></Home>}></Route>
 
-          {/* for admin panel  */}
-          <Route path="/developer/login" element={<AdminLogin></AdminLogin>}></Route>
-          {/* <Route path="/developer" element={<RequireAdmin><AdminDashboard></AdminDashboard></RequireAdmin>}>
-          <Route index element={<RequireAdmin><AdminIndex></AdminIndex></RequireAdmin>}></Route>
-          <Route path="add-product" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
-          <Route path="all-product" element={<RequireAdmin><AllProducts></AllProducts></RequireAdmin>}></Route>
-          <Route path="all-order" element={<RequireAdmin><Orders></Orders></RequireAdmin>}></Route>
-          <Route path="all-user" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
-        </Route> */}
+          
+     
 
           {/* admin dashboard  */}
           <Route path="/developer" element={<RequireAuth><RequireAdmin><AdminDashboard></AdminDashboard></RequireAdmin></RequireAuth>}>

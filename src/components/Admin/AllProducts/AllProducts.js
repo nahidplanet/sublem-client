@@ -25,7 +25,8 @@ const AllProducts = () => {
 		})
 		return res;
 	};
-	const { data, isLoading, refetch } = useQuery(['AllProducts',limit,page], getFacts);
+	const { data, isLoading, refetch } = useQuery(['AllProducts', limit, page], getFacts);
+	const products = data?.data?.data;
 	if (isLoading) {
 		return <Loader></Loader>
 	}
@@ -37,7 +38,7 @@ const AllProducts = () => {
 
 	}
 	const handlePageClick = (data) => {
-		setPage(data.selected +1);
+		setPage(data.selected + 1);
 
 	}
 
@@ -61,8 +62,8 @@ const AllProducts = () => {
 					</div>
 				</div>
 			</div>
-			<div className="overflow-x-auto w-full ">
-				<table className="table w-full ">
+			<div className="overflow-x-auto ">
+				<table className="table table-compact w-full bg-white ">
 					{/* <!-- head --> */}
 					<thead>
 						<tr>
@@ -82,7 +83,7 @@ const AllProducts = () => {
 					</thead>
 					<tbody className=' text-white'>
 						{
-							data?.data?.data?.products?.map((item, index) =>
+							products?.products?.map((item, index) =>
 								<ProductSingleRow key={item._id} page={page} limit={limit} index={index} item={item} handleUpdate={handleUpdate} handleDelete={handleDelete}></ProductSingleRow>
 							)
 						}
@@ -100,7 +101,7 @@ const AllProducts = () => {
 						nextLabel="next >"
 						onPageChange={handlePageClick}
 						pageRangeDisplayed={3}
-						pageCount={data?.data?.data?.totalPage}
+						pageCount={products?.totalPage}
 						previousLabel="< previous"
 						marginPagesDisplayed={2}
 						// renderOnZeroPageCount={null}
@@ -110,13 +111,7 @@ const AllProducts = () => {
 						containerClassName="pagination"
 						pageLinkClassName='page-num'
 					/>
-					<select onChange={(e)=>setLimit(e.target.value)}
-							className="px-2 py-2 text-gray-700 bg-transparent rounded-none cursor-pointer">
-							<option selected value="10">10</option>
-							<option value="15">15</option>
-							<option value="25">25</option>
-							<option value="50">50</option>
-						</select>
+
 				</div>
 			</div>
 		</>

@@ -1,7 +1,6 @@
-import React from 'react';
+
 import { useQuery } from 'react-query';
 import axiosInst from '../components/axios';
-import Loader from '../components/Shared/Loader';
 
 const useLoadCart = (user) => {
 	const { isLoading, data:products, refetch } = useQuery(
@@ -15,6 +14,7 @@ const useLoadCart = (user) => {
 	const totalPrice = catProduct?.cartItems.reduce((x, y) => x + (y.price * y.quantity), 0);
 	
 	return [catProduct, totalProduct, totalPrice, isLoading, refetch]
+	// const [catProduct, totalProduct, totalPrice, isLoading, refetch] =  useLoadCart
 };
 
 export default useLoadCart;
