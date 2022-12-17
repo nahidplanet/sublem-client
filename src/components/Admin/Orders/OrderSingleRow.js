@@ -1,32 +1,39 @@
 import React from 'react';
 
-const OrderSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit}) => {
+const OrderSingleRow = ({handelShowProduct,handleOrderStatus, handleDelete, handleUpdate, item, index, page, limit }) => {
+	
+	const {orderStatus,userId} = item;
+	const {_id,email,fullName,mobileNumber,username,addressOne ,addressTwo} = userId;
 	const num = (page - 1) * parseInt(limit);
+let style = "bg-green-600";
+	if (orderStatus === "pending") {
+		style = "bg-green-600"
+	}
+	if (orderStatus === "cancel") {
+		style = "bg-red-500"
+	}
+	if (orderStatus === "delivered") {
+		style = "bg-gray-400"
+	}
+	if (orderStatus === "accepted") {
+		style = "bg-yellow-500"
+	}
+	console.log(orderStatus);
 	return (
 		<tr>
 			<td><p>{1 + num + index++}</p></td>
-			<td>
-				<div className="flex items-center space-x-3">
-					<div className="avatar">
-						<div className="mask mask-squircle w-12 h-12">
-						{/* <img src={`http://localhost:5000/images/product/${item.productImage[0].productImagePath}`} alt={item.name} /> */}
-						</div>
-					</div>
-				</div>
-			</td>
-			<td>
-				<p>name</p>
-				{/* <span className="badge badge-ghost badge-sm">name</span> */}
-			</td>
-			{/* <td>{`${item?.name.slice(0, 20)} . . .`}</td>
-			<td>{item?._id}</td>
-			<td>{item?.category}</td>
-			<td>{item?.code}</td>
-			<td>{item?.price}</td>
-			<th className=''>
-				<button className="btn btn-ghost btn-xs bg-blue-400 mr-3">update</button>
-				<label onClick={() => handleUpdate(item)} htmlFor="productUpdate" className="btn btn-ghost btn-xs bg-sky-500 ml-5">{item?.status}</label>
-			</th> */}
+			
+			<td>{_id}</td>
+			<td>{fullName}</td>
+			<td>{username}</td>
+			<td><label onClick={()=>handleOrderStatus(item)} htmlFor="OrderStatus" className={`${style} btn py-0 my-0 btn-xs text-white`}>{orderStatus ? orderStatus:"pending"}</label></td>
+			<td>{email}</td>
+			<td>{mobileNumber}</td>
+			<td>{addressOne}</td>
+			<td>{addressTwo ? addressTwo :"Null"}</td>
+			<td><label onClick={()=>handelShowProduct(item?.orderItems)} htmlFor="showOrderItemsModal" className="btn btn-ghost btn-xs bg-sky-500 ml-5">Show Details</label></td>
+			
+			
 		</tr>
 	);
 };

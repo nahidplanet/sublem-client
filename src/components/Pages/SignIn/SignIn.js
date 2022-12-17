@@ -22,6 +22,7 @@ const SignIn = () => {
 
 	if (token) {
 		console.log("ddddddddddddddd", token);
+		window.location.reload()
 		navigate(from, { replace: true });
 	}
 

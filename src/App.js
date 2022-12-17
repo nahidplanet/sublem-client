@@ -41,8 +41,6 @@ import OfficeCurtains from "./components/Pages/ProductCategory/OfficeFurniture/O
 import OfficeCarpets from "./components/Pages/ProductCategory/OfficeFurniture/OfficeCarpets";
 import OfficeSofa from "./components/Pages/ProductCategory/OfficeFurniture/OfficeSofa";
 import OfficeWallpaper from "./components/Pages/ProductCategory/OfficeFurniture/OfficeWallpaper";
-import OfficeBed from "./components/Pages/ProductCategory/OfficeFurniture/OfficeBed";
-import OfficeBedMattress from "./components/Pages/ProductCategory/OfficeFurniture/OfficeBedMattress";
 import AllArabicFurniture from "./components/Pages/ProductCategory/ArabicFurniture/AllArabicFurniture";
 import ArabicCurtains from "./components/Pages/ProductCategory/ArabicFurniture/ArabicCurtains";
 import ArabicCarpets from "./components/Pages/ProductCategory/ArabicFurniture/ArabicCarpets";

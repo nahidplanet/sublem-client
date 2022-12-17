@@ -5,13 +5,17 @@ import { useQuery } from 'react-query';
 import axiosInst from '../../axios';
 import Loader from '../../Shared/Loader';
 import OrderSingleRow from './OrderSingleRow';
+import OrderStatusModal from './OrderStatusModal';
 import OrderUpdateModal from './OrderUpdateModal';
+import ShowOrderItemsModal from './ShowOrderItemsModal';
 
 const Orders = () => {
 	const [modalData, setModalData] = useState(null);
 
 	const [deleteItem, setDeleteItem] = useState(null);
 	const [updateItem, setUpdateItem] = useState(null);
+	const [orderItems, setOrderItems] = useState(null);
+	const [orderStatus, setOrderStatus] = useState(null);
 
 	const [page, setPage] = useState(1);
 	const [limit, setLimit] = useState(10);
@@ -21,8 +25,8 @@ const Orders = () => {
 	};
 	// 
 	const { data, isLoading, refetch } = useQuery(['receiveAllOrder', limit, page], getFacts);
-	const orders = data?.data?.orders;
-	// console.log("ssssssssssssssss", ?.orders);
+	const orders = data?.data?.orders?.orders;
+
 	if (isLoading) {
 		return <Loader></Loader>
 	}
@@ -37,10 +41,22 @@ const Orders = () => {
 		setPage(data.selected + 1);
 
 	}
+	const handelShowProduct = (orders) => {
+		setOrderItems(orders)
+	}
+	const handleOrderStatus = (item) => {
+		setOrderStatus(item)
+	}
 
 	return (
 		<>
+		{
+			orderStatus && <OrderStatusModal refetch={refetch} orderStatus={orderStatus} setOrderStatus={setOrderStatus} ></OrderStatusModal>
+		}
+			{
+				orderItems && <ShowOrderItemsModal orderItems={orderItems} setOrderItems={setOrderItems} refetch={refetch}></ShowOrderItemsModal>
 
+			}
 			{
 				updateItem && <OrderUpdateModal updateItem={updateItem} setUpdateItem={setUpdateItem} refetch={refetch}></OrderUpdateModal>
 			}
@@ -56,26 +72,37 @@ const Orders = () => {
 					</div>
 				</div>
 			</div>
-			<div className="overflow-x-auto  ">
-				<table className="table table-compact w-full ">
+			<div className="overflow-x-auto ">
+				<table border="1" className="table text-start  table-compact w-full ">
 					{/* <!-- head --> */}
 					<thead>
 						<tr>
-							<th>
-								Number
-							</th>
-							<th>Image</th>
-							<th>Name</th>
-							<th>ID</th>
-							<th>Category</th>
-							<th>Code</th>
-							<th>Price</th>
-							<th>action</th>
+							<th>Serial</th>
+							<th>User ID</th>
+							<th>Full Name</th>
+							<th>User Name</th>
+							<th>Status</th>
+							<th>Email</th>
+							<th>Phone Number</th>
+							<th>Address One</th>
+							<th>Address Two (Optional)</th>
+							<th>Product Details</th>
+
 						</tr>
 					</thead>
 					<tbody className=' text-white'>
 						{
-							orders?.orders.map((item, index) => <OrderSingleRow key={item._id} page={page} limit={limit} index={index} item={item} handleUpdate={handleUpdate} handleDelete={handleDelete}></OrderSingleRow>)
+							orders?.map((item, index) => <OrderSingleRow
+								key={item._id}
+								page={page}
+								limit={limit}
+								index={index}
+								item={item}
+								handleUpdate={handleUpdate}
+								handleDelete={handleDelete}
+								handelShowProduct={handelShowProduct}
+								handleOrderStatus={handleOrderStatus}
+							></OrderSingleRow>)
 						}
 
 					</tbody>
