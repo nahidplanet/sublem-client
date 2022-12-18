@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router';
 
 const WishListSingle = ({ product,index,handleWishlistDeleteItem }) => {
 const navigate = useNavigate()
-	console.log(product);
 	const handleHomeCategoryProductDetails = (id) => {
 		navigate(`/home-category/${id}`);
 	}

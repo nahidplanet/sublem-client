@@ -2,7 +2,7 @@ import React from 'react';
 import ModalTableSingleRow from './ModalTableSingleRow';
 
 const ShowOrderItemsModal = ({ orderItems, setOrderItems }) => {
-	console.log(orderItems);
+	
 	return (
 		<>
 			<input type="checkbox" id="showOrderItemsModal" className="modal-toggle" />

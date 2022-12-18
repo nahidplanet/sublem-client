@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SaveCartSingle = ({ product }) => {
 	const { price, productId, quantity } = product;
@@ -15,18 +16,19 @@ const SaveCartSingle = ({ product }) => {
 					<div className="avatar w-10 h-10">
 						<img className='' src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt=" " />
 					</div>
-					<div>
-						<div className="font-bold">{name}</div>
-					</div>
 				</div>
 			</td>
 			<td>
-				{quantity}
+			{name}
 			</td>
 			<td>{price}</td>
 			<th>
-				<button className="btn btn-ghost btn-xs">{price*quantity}</button>
+				<td>{price*quantity}</td>
 			</th>
+			<th>
+				<td  ><Link  to={'/cart'} className="btn btn-ghost btn-xs bg-blue-400">Order Now</Link></td>
+			</th>
+			
 		</tr>
 	);
 };

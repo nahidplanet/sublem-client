@@ -50,9 +50,9 @@ const Orders = () => {
 
 	return (
 		<>
-		{
-			orderStatus && <OrderStatusModal refetch={refetch} orderStatus={orderStatus} setOrderStatus={setOrderStatus} ></OrderStatusModal>
-		}
+			{
+				orderStatus && <OrderStatusModal refetch={refetch} orderStatus={orderStatus} setOrderStatus={setOrderStatus} ></OrderStatusModal>
+			}
 			{
 				orderItems && <ShowOrderItemsModal orderItems={orderItems} setOrderItems={setOrderItems} refetch={refetch}></ShowOrderItemsModal>
 
@@ -91,6 +91,7 @@ const Orders = () => {
 						</tr>
 					</thead>
 					<tbody className=' text-white'>
+
 						{
 							orders?.map((item, index) => <OrderSingleRow
 								key={item._id}
@@ -111,6 +112,9 @@ const Orders = () => {
 					</tfoot>
 				</table>
 			</div>
+			{
+				orders.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> No Order Found</p>
+			}
 			<div className={`${data?.data?.data?.products.length < 1 ? 'hidden' : 'block'}`}  >
 				<div className="paginationContainer block bg-gray-50 px-3 py-1 rounded-sm">
 					<ReactPaginate className='flex justify-center items-center text-gray-800 font-semibold gap-5'
@@ -118,7 +122,7 @@ const Orders = () => {
 						nextLabel="next >"
 						onPageChange={handlePageClick}
 						pageRangeDisplayed={3}
-						pageCount={data?.data?.data?.totalPage}
+						pageCount={data?.data?.orders?.totalPage}
 						previousLabel="< previous"
 						marginPagesDisplayed={2}
 						// renderOnZeroPageCount={null}

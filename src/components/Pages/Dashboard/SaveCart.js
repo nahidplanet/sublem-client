@@ -16,7 +16,7 @@ const SaveCart = () => {
 		<Loader></Loader>
 	}
 	if (!products) {
-		navigate('/login');
+		// navigate('/login');
 
 	}
 	return (
@@ -30,10 +30,11 @@ const SaveCart = () => {
 									<input type="checkbox" className="checkbox" />
 								</label>
 							</th>
-							<th>productImage</th>
-							<th>name</th>
+							<th>Product Image</th>
+							<th>Product Name</th>
 							<th>Quantity</th>
-							<th>price</th>
+							<th>Price</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>

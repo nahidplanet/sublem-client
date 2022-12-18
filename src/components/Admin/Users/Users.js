@@ -3,14 +3,13 @@ import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import axiosInst from '../../axios';
 import Loader from '../../Shared/Loader';
-import UserDeleteModal from './UserDeleteModal';
 import UserSingleRow from './UserSingleRow';
-import UserToAdminModal from './UserToAdminModal';
+import UserUpdateRoleModal from './UserUpdateRoleModal';
 
 const Users = () => {
 	const [modalData, setModalData] = useState(null);
 
-	const [deleteUser, setDeleteUser] = useState(null);
+	const [updateRole, setUpdateRole] = useState(null);
 
 	const [page, setPage] = useState(1);
 	const [limit, setLimit] = useState(10);
@@ -20,12 +19,11 @@ const Users = () => {
 	};
 	const { data, isLoading, refetch } = useQuery(['allUsers', limit, page], getFacts);
 	const users = data?.data?.users?.users;
-	// console.log(users);
 	if (isLoading) {
 		return <Loader></Loader>
 	}
 	const handleUserDelete = (user) => {
-		setDeleteUser(user)
+		setUpdateRole(user)
 	}
 	
 	const handlePageClick = (data) => {
@@ -39,7 +37,7 @@ const Users = () => {
 	return (
 		<>
 		{
-				deleteUser && <UserDeleteModal deleteUser={deleteUser} setDeleteUser={setDeleteUser} refetch={refetch}></UserDeleteModal>
+				updateRole && <UserUpdateRoleModal updateRole={updateRole} setUpdateRole={setUpdateRole} refetch={refetch}></UserUpdateRoleModal>
 			}
 			{
 				// updateItem && <UserToAdminModal handleUserDelete={handleUserDelete} setUpdateItem={setUpdateItem} refetch={refetch}></UserToAdminModal>
@@ -83,6 +81,9 @@ const Users = () => {
 					</tfoot>
 				</table>
 			</div>
+			{
+				users?.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> No User Found</p>
+			}
 			<div className='flex justify-end mt-5'>
 				<div className="flex items-center justify-center  h-6">
 					<ReactPaginate

@@ -95,6 +95,9 @@ const AllProducts = () => {
 					</tfoot>
 				</table>
 			</div>
+			{
+				products?.products?.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> No Product Found</p>
+			}
 			<div className='flex justify-end mt-5'>
 				<div className="flex items-center justify-center  h-6">
 					<ReactPaginate

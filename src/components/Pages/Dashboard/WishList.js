@@ -9,14 +9,14 @@ import WishListSingle from './WishListSingle';
 
 const WishList = () => {
 	const [user] = useAuthState(auth)
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const [userinfo, isLoading, refetch] = useLoadWishlist(user);
 	const products = userinfo?.wishlist;
 	if (isLoading) {
 		<Loader></Loader>
 	}
 	if (!products) {
-		navigate('/login');
+		// localStorage.removeItem("activeToken")
 
 	}
 	const handleWishlistDeleteItem = (id) => {

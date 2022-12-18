@@ -5,15 +5,13 @@ import { toast } from 'react-toastify';
 import axiosInst from '../../axios';
 
 const OrderStatusModal = ({ orderStatus, setOrderStatus,refetch}) => {
-	console.log(orderStatus);
+	
 	const [status,setStatus] =useState("");
 
 
 	const handleUpdateOrderStatus = (e) => {
 		e.preventDefault();
-		// fetch(`http://localhost:5000/api/v1/order-submitted?id${orderStatus._id}&status=${status}`,{
-		// 	p
-		// })
+		
 		axiosInst.put(`/order-submitted?id=${orderStatus._id}&status=${status}`).then(res=>{
 			if(res?.data?.status){
 				refetch();

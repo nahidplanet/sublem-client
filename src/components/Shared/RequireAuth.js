@@ -8,7 +8,6 @@ import Loader from './Loader';
 
 function RequireAuth({ children }) {
 	const [user, loading, error] = useAuthState(auth);
-// console.log("checkigh gor requireAuth",user);
 
 	let location = useLocation();
 	if ( loading) {

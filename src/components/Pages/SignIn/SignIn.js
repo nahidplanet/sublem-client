@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {  useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './SignIn.css'
 import auth from '../../../firebaseAuth/firebase.init';
@@ -9,7 +9,6 @@ import useToken from '../../../hooks/useToken';
 
 
 const SignIn = () => {
-	const [open, setOpen] = useState(false)
 	const [user] = useAuthState(auth)
 	const [signInWithGoogle, suser, loading, error] = useSignInWithGoogle(auth);
 	const [signInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
@@ -18,12 +17,14 @@ const SignIn = () => {
 	let from = location?.state?.from?.pathname || "/";
 
 	const [token] = useToken(user)
-
+	useEffect(()=>{
+		// navigate(from, { replace: true });
+	},[user])
 
 	if (token) {
-		console.log("ddddddddddddddd", token);
 		window.location.reload()
-		navigate(from, { replace: true });
+		navigate('/');
+		
 	}
 
 	return (
