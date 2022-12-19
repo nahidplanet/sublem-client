@@ -8,7 +8,7 @@ import Loader from '../../../Shared/Loader';
 import SingleProduct from '../SingleProduct';
 
 const HomeCarpets = () => {
-	const [limit, setLimit] = useState(10);
+	const [limit, setLimit] = useState(9);
 
 
 	const getFacts = () => {
@@ -44,7 +44,7 @@ const HomeCarpets = () => {
 				</div>
 				<div className={`${data?.data?.data?.products.length < 1 ? 'hidden' : 'block'}`} >
 					<div className="paginationContainer block bg-gray-50 px-3 py-1 rounded-sm">
-						<ReactPaginate className='flex justify-center items-center text-gray-800 font-semibold gap-5'
+						<ReactPaginate className='flex my-10 justify-center items-center text-gray-800 font-semibold gap-5'
 							breakLabel="..."
 							nextLabel="next >"
 							onPageChange={handlePageClick}

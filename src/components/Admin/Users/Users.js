@@ -12,7 +12,7 @@ const Users = () => {
 	const [updateRole, setUpdateRole] = useState(null);
 
 	const [page, setPage] = useState(1);
-	const [limit, setLimit] = useState(10);
+	const [limit, setLimit] = useState(9);
 	const getFacts = () => {
 		const res = axiosInst.get(`/all-users?limit=${limit}&page=${page}`).then(res => res);
 		return res;

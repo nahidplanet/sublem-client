@@ -18,7 +18,7 @@ const AllProducts = () => {
 	const [updateItem, setUpdateItem] = useState(null);
 
 	const [page, setPage] = useState(1);
-	const [limit, setLimit] = useState(10);
+	const [limit, setLimit] = useState(9);
 	const getFacts = () => {
 		const res = axios.get(`/product?limit=${limit}&page=${page}`).then((response) => {
 			return response

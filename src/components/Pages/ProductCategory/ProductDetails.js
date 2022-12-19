@@ -120,14 +120,14 @@ const ProductDetails = () => {
 					</div>
 					<div className='col-span-2 text-center text-gray-900 my-5'>
 						<div>
-							<h1 className='font-normal text-xl capitalize'>{name}</h1>
+							<h1 className='font-normal text-xl capitalize' style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}>{name}</h1>
 							<h1 className='font-semibold my-2 flex justify-around px-14'>
 								<span className='text-red-600'>{discount ? price - discount : '00'} AED</span>
 								<del className='text-gray-600'>{price}AED </del>
 								<span>Save {discount ? discount : '00'}AED</span>
 							</h1>
 							<p className='text-lg my-2'>Code:{code}</p>
-							<p style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}> {sortDescription}</p>
+							<p className=' text-black h-auto bg-transparent w-full '  style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}> {sortDescription}</p>
 							<p className='mt-5 text-lg font-semibold'>Prices are inclusive of Tax/VAT</p>
 							<p className=' text-lg font-semibold'>Delivery Within 48 hours*</p>
 							<div className=''>
