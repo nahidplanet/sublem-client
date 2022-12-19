@@ -27,7 +27,7 @@ const AllService = () => {
 		<div className='min-h-screen'>
 			<div className=''>
 				<h1 className='capitalize text-3xl text-gray-900 text-center my-5 font-semibold'>Our Service</h1>
-				<p className='text-md px-10 text-gray-900 my-3 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime earum, ipsum eum expedita rem repudiandae veniam aliquam cumque unde itaque quasi cupiditate fugiat maiores laborum quod voluptatum repellat suscipit! Pariatur dolores necessitatibus totam illum quae aut sint accusamus enim. Eum quo corrupti perspiciatis incidunt officia quas a expedita at maxime!</p>
+				<p className='text-md px-10 text-gray-900 my-3 text-center'><div className="my-5"></div></p>
 				<div className="divider"></div>
 				<div className={`${data?.data?.data?.products.length < 1 ? 'flex justify-center items-center h-screen mt-[-60px]' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'}`}>
 					{
