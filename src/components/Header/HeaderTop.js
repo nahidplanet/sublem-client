@@ -24,20 +24,20 @@ const HeaderTop = () => {
                 <div className='flex items-center justify-start'>
                     <PhoneIcon className='w-4 h-4 mr-1 text-normal'></PhoneIcon>
                     <a
-                                href="https://wa.me/+971562572168"
-                                className="whatsapp_float"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >Contact Us (+971562572168)
-                            </a>
-                    
+                        href="https://wa.me/+971562572168"
+                        className="whatsapp_float"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Contact Us (+971562572168)
+                    </a>
+
                 </div>
                 <Link to={'/dashboard/wishlist'}>
-                <div className='flex items-center justify-start'>
-                    <HeartIcon className='w-4 h-4 mr-1'></HeartIcon>
-                    <p>Wishlist
-                    </p>
-                </div>
+                    <div className='flex items-center justify-start'>
+                        <HeartIcon className='w-4 h-4 mr-1'></HeartIcon>
+                        <p>Wishlist
+                        </p>
+                    </div>
                 </Link>
                 <div className='flex items-center justify-start'>
                     <div className="dropdown dropdown-end">
@@ -56,7 +56,9 @@ const HeaderTop = () => {
                                     {user ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={async () => {
                                         signOut()
                                         localStorage.removeItem("activeToken");
-                                        await navigate('/login')
+                                        window.location.reload()
+
+                                        navigate('/login')
                                     }}> Sign Out</Link></li> :
                                         <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"/login"}>Sign In</Link></li>
 

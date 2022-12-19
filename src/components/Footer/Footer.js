@@ -26,8 +26,8 @@ const Footer = () => {
         <div className=''>
             {/* footer top  */}
 
-
-            <div className="bg-gray-300 py-5 flex justify-start items-center gap-10">
+            <div className="bg-gray-300 py-5 flex justify-start items-center gap-10 w-full">
+                <div className='flex items-center justify-center w-full'>
                 <div className="hidden lg:block">
                     <h1 className='text-gray-800 text-bold text-xl'>Sign up to receive updates and exclusive offers by email</h1>
                 </div>
@@ -36,6 +36,7 @@ const Footer = () => {
                     <button className='border w-[40px] mt-[10px] border-l-0 bg-black text-white  border-black rounded rounded-l-none'>
                         <CheckIcon className='w-5 h-[46px] mx-2 ' />
                     </button>
+                </div>
                 </div>
             </div>
             <p className='text-gray-700 font-sm md:font-md lg:font-lg text-center py-5'>To see how we process your data view our </p>

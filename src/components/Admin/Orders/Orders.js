@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
 import axiosInst from '../../axios';
 import Loader from '../../Shared/Loader';
 import OrderSingleRow from './OrderSingleRow';
@@ -23,10 +24,9 @@ const Orders = () => {
 		const res = axiosInst.get(`/receive-all-order?limit=${limit}&page=${page}`).then((res) => res)
 		return res;
 	};
-	// 
 	const { data, isLoading, refetch } = useQuery(['receiveAllOrder', limit, page], getFacts);
 	const orders = data?.data?.orders?.orders;
-
+	console.log(orders);
 	if (isLoading) {
 		return <Loader></Loader>
 	}
@@ -46,6 +46,22 @@ const Orders = () => {
 	}
 	const handleOrderStatus = (item) => {
 		setOrderStatus(item)
+	}
+	const handleDeleteOrder = (id) => {
+		fetch(`http://localhost:5000/api/v1/receive-all-order/${id}`,{
+			method:"DELETE",
+			headers:{
+				"content-type":"application/json"
+			}
+		})
+		.then(res=>res.json())
+		.then(data=>{
+			console.log(data);
+			if (data.status) {
+				refetch();
+				toast.success(data.message)
+			}
+		})
 	}
 
 	return (
@@ -87,6 +103,7 @@ const Orders = () => {
 							<th>Address One</th>
 							<th>Address Two (Optional)</th>
 							<th>Product Details</th>
+							<th>Delete Order</th>
 
 						</tr>
 					</thead>
@@ -103,6 +120,7 @@ const Orders = () => {
 								handleDelete={handleDelete}
 								handelShowProduct={handelShowProduct}
 								handleOrderStatus={handleOrderStatus}
+								handleDeleteOrder={handleDeleteOrder}
 							></OrderSingleRow>)
 						}
 
