@@ -58,12 +58,14 @@ import SignIn from "./components/Pages/SignIn/SignIn";
 import CheckOutDetails from "./components/Pages/CheckoutDetails/CheckOutDetails";
 import UserOrderSubmit from "./components/Pages/UserOrderSubmit/UserOrderSubmit";
 import RequireAdmin from "./components/Shared/RequireAdmin";
+import WhatsApp from "./components/Shared/WhatsApp";
+import Call from "./components/Shared/Call";
 
 
 function App() {
   const location = useLocation();
   return (
-    <div className="App bg-white ">
+    <div className="App bg-white relative ">
       {location.pathname === '/developer' && '/developer/login' ? <></> : <Header></Header>}
 
       <div className="max-w-[1430px] mx-auto">
@@ -165,7 +167,11 @@ function App() {
 
       {location.pathname === '/developer' && '/developer/login' ? <></> : <Footer></Footer>}
 
+      <div className="flex"> 
       <ToastContainer></ToastContainer>
+      <WhatsApp></WhatsApp>
+      </div>
+      <Call></Call>
     </div>
   );
 }

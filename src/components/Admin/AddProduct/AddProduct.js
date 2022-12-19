@@ -22,7 +22,7 @@ const AddProduct = () => {
 		formData.append("discount", products.discount);
 		formData.append("category", products.category);
 		formData.append("type", products.type);
-		formData.append("quantity", products.quantity);
+		// formData.append("quantity", products.quantity);
 		formData.append("color", products.color);
 		formData.append("feature", products.feature);
 
@@ -91,7 +91,7 @@ const AddProduct = () => {
 
 					<div className="inline-block mt-2 -mx-1 pl-1 w-1/2">
 						<label className="block text-sm text-gray-600" >Discount</label>
-						<input {...register("discount", { required: true, minLength: 2 })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" type="number" placeholder="Discount" />
+						<input {...register("discount", { required: true,  })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" type="number" placeholder="Discount" />
 						{errors.discount?.type === "required" && <span className="label-text-alt capitalize text-red-600">This field is required</span>}
 						{errors.discount?.type === "minLength" && <span className="label-text-alt capitalize text-red-600">at lest 2 characters</span>}
 					</div>
@@ -134,20 +134,20 @@ const AddProduct = () => {
 						{errors.feature?.type === "minLength" && <span className="label-text-alt capitalize text-red-600">at lest 6 characters</span>}
 					</div>
 
-					<div className="w-full grid md:grid-cols-2 grid-cols-1 gap-2">
+					<div className="w-full grid  grid-cols-1">
 					<div className="inline-block mt-2  ">
 						<label className="block text-sm text-gray-600" >Color (optional) </label>
-						<input {...register("color", { required: false, minLength: 1 })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" type="text" placeholder="Color" />
+						<input {...register("color", { required: false, minLength: 1 })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" type="color" placeholder="Color" />
 						{errors.color?.type === "required" && <span className="label-text-alt capitalize text-red-600">This field is required</span>}
 						{errors.color?.type === "minLength" && <span className="label-text-alt capitalize text-red-600">at lest 1 characters</span>}
 					</div>
 
-					<div className="inline-block mt-2 ">
+					{/* <div className="inline-block mt-2 ">
 						<label className="block text-sm text-gray-600" >Quantity </label>
 						<input {...register("quantity", { required: true, minLength: 1 })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" type="number" placeholder="Quantity" />
 						{errors.quantity?.type === "required" && <span className="inline-block ml-2 label-text-alt capitalize text-red-600">This field is required</span>}
 						{errors.quantity?.type === "minLength" && <span className="inline-block ml-2 label-text-alt capitalize text-red-600">at lest 1 characters</span>}
-					</div>
+					</div> */}
 					</div>
 
 					<div className="mt-2">

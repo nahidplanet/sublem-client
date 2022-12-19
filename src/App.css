@@ -10,3 +10,9 @@
 .pagination ul li .page-num{
 	color:#333;
 }
+.text-wrap{
+white-space: pre-wrap;
+overflow-wrap: break-word;
+}
+
+/* style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' } */

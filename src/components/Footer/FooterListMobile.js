@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,13 +13,13 @@ const FooterListMobile = ({data}) => {
 			<div className="collapse-title text-xl font-medium">
 				<p className='capitalize text-gray-900 font-semibold mt-2 ml-5'>{data.category}</p>
 			</div>
-			<div className="collapse-content">
+			<ul className="collapse-content">
 				{
-					data?.routes?.map((item, index) => <div key={index}>
-						{item?.name}
-					</div>)
+					data?.routes?.map((route, index) => <li key={index} className="ml-7"><Link to={`/${data.route}/${route.route}`} >
+						{route?.name}
+					</Link></li>)
 				}
-			</div>
+			</ul>
 		</div>
 	);
 };

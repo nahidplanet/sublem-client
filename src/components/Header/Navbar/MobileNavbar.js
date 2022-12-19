@@ -10,13 +10,12 @@ const MobileNavbar = ({open}) => {
 			.then(res => res.json())
 			.then(data => setMenuData(data))
 	}, [])
-	
 	return (
 		<div>
 
 		{open && <>
 			{
-				menuData.map(data => <MobileNavbarSingle key={data.id} data={data} ></MobileNavbarSingle>)
+				menuData?.map(data => <MobileNavbarSingle key={data.id} data={data} ></MobileNavbarSingle>)
 			}
 		</>}
 		</div>

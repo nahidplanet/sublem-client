@@ -9,7 +9,7 @@ import axiosInst from '../../axios';
 const SingleProduct = ({ data }) => {
 	const [products,totalProduct,totalPrice,isLoading,refetch] = useLoadCart();
 	const navigate = useNavigate();
-	const { _id, name, productImage, price } = data;
+	const { _id, name, productImage, price,discount } = data;
 	
 
 	const handleAddToCart = (id, price) => {
@@ -67,9 +67,9 @@ const SingleProduct = ({ data }) => {
 					<div className="card-actions m-0  ">
 						<p className='py-1 my-1 text-lg'>{name}</p>
 						<div className='text-xm md:text-md m-0 p-0 flex justify-between font-semibold w-full'>
-							<p className='text-red-700 font-semibold'>4,000 <span>AED</span></p>
-							<p className='font-normal'> <del>6,000</del> <span className='font-semibold'>AED</span> </p>
-							<p> <span className='text-gray-800 font-bold'>save:</span> 4,000</p>
+							<p className='text-red-700 font-semibold'>{parseInt(price)-parseInt(discount)}<span>AED</span></p>
+							<p className='font-normal'> <del>{price}</del> <span className='font-semibold'> AED</span> </p>
+							<p> <span className='text-gray-800 font-bold'>save:</span>{discount} AED</p>
 						</div>
 						<div className='text-xm md:text-md flex justify-evenly gap-5  w-full'>
 							<button onClick={() => handleHomeCategoryProductDetails(_id)} className="mt-0 border hover:bg-slate-100 p-1 rounded-sm w-5/12" >View</button>

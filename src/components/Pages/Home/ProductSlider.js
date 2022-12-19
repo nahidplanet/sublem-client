@@ -1,10 +1,20 @@
 
 import React from "react";
+import { useQuery } from "react-query";
 import Slider from "react-slick";
-import SingleProduct from "../ProductCategory/SingleProduct";
-import FeatureSingleProduct from "./FeatureSingleProduct";
+import axiosInst from "../../axios";
+// import SingleProduct from "../ProductCategory/SingleProduct";
+// import FeatureSingleProduct from "./FeatureSingleProduct";
+import SliderSingleProduct from "./SliderSingleProduct";
 
 const ProductSlider = () => {
+	const getFacts = () => {
+		const res = axiosInst.get(`/product?category=service`).then((response) => {
+			return response
+		})
+		return res;
+	};
+	const { data, isLoading } = useQuery(['ServiceSlider'], getFacts);
 	var settings = {
 		dots: false,
         prevArrow: <></>,
@@ -18,31 +28,23 @@ const ProductSlider = () => {
 		autoplaySpeed: 3000,
 		cssEase: "linear",
 		responsive: [
-			{
-				breakpoint: 1536,
-				settings: {
-					slidesToShow: 4,
-					slidesToScroll: 2,
-					infinite: true,
-					dots: false
-				}
-			},
+			
 			{
 				breakpoint: 1280,
 				settings: {
-					slidesToShow: 4,
+					slidesToShow: 2,
 					slidesToScroll: 2,
-					infinite: true,
-					dots: false
+					dots: false,
+					autoplaySpeed: 2000,
 				}
 			},
 			{
 				breakpoint: 1024,
 				settings: {
-					slidesToShow: 3,
+					slidesToShow: 2,
 					slidesToScroll: 2,
-					infinite: true,
-					dots: false
+					dots: false,
+					autoplaySpeed: 2000,
 				}
 			},
 			{
@@ -50,7 +52,8 @@ const ProductSlider = () => {
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 2,
-					initialSlide: 2
+					dots: false,
+					autoplaySpeed: 2000,
 				}
 			},
 			{
@@ -58,7 +61,8 @@ const ProductSlider = () => {
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 2,
-					initialSlide: 2
+					dots: false,
+					autoplaySpeed: 2000,
 				}
 			},
 			{
@@ -75,35 +79,21 @@ const ProductSlider = () => {
 	return (
 		<div className=" mx-auto mt-14">
 			<div className="flex flex-col items-center">
-				<h1 className="text-2xl font-semibold text-gray-900 capitalize ">Featured Products</h1>
-				<div className="divider h-[1px] bg-gray-400"></div> 
+				<h1 className="text-2xl font-semibold text-gray-900 capitalize ">Our Service</h1>
+				<div className="divider h-[1px] bg-gray-400"></div>
 			</div>
 			<Slider {...settings} className="mt-3 mb-20">
-			
-				<div className=" ">
-					<FeatureSingleProduct></FeatureSingleProduct>
-				</div>
-				<div className=" ">
-					<FeatureSingleProduct></FeatureSingleProduct>
-				</div>
-				<div className=" ">
-					<FeatureSingleProduct></FeatureSingleProduct>
-				</div>
-				<div className=" ">
-					<FeatureSingleProduct></FeatureSingleProduct>
-				</div>
-				<div className=" ">
-					<FeatureSingleProduct></FeatureSingleProduct>
-				</div>
-				<div className=" ">
-					<FeatureSingleProduct></FeatureSingleProduct>
-				</div>
-
-
-
-
+				
+				{
+					data?.data?.data?.products?.map(service =>
+						<div key={service._id} className=" ">
+							<SliderSingleProduct  key={service._id}  data={service}></SliderSingleProduct>
+						</div>
+					)
+				}
 			</Slider>
 		</div>
+	
 	);
 };
 

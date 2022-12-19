@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
-import Header from '../../Header/Header';
+import CustomLink from '../../Shared/CutomLink';
 
 
 const Dashboard = () => {
@@ -44,10 +44,10 @@ const Dashboard = () => {
 				</div>
 				<div className="drawer-side">
 					<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-					<ul className="menu p-4 w-60 bg-gray-900 text-white">
+					<ul className="menu p-4 w-60 bg-gray-300 text-white">
 						{/* <!-- Sidebar content here --> */}
 						{
-							dashBoardMenuData.map(route => <li className='text-white font-semibold' key={route.id}><Link to={route.path}> {route.name} </Link> </li>)
+							dashBoardMenuData.map(route => <li className='text-white font-semibold' key={route.id}><CustomLink to={route.path}> {route.name} </CustomLink> </li>)
 						}
 					</ul>
 
