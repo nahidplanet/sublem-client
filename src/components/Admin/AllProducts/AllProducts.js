@@ -8,6 +8,7 @@ import DeleteModal from './DeleteModal';
 import UpdateModal from './UpdateModal';
 import ReactPaginate from 'react-paginate';
 import './AllProducts.css'
+import AllFreeUpdate from './AllFreeUpdate';
 
 
 
@@ -16,6 +17,7 @@ const AllProducts = () => {
 
 	const [deleteItem, setDeleteItem] = useState(null);
 	const [updateItem, setUpdateItem] = useState(null);
+	const [updateFree, setUpdateFree] = useState(null);
 
 	const [page, setPage] = useState(1);
 	const [limit, setLimit] = useState(9);
@@ -42,9 +44,15 @@ const AllProducts = () => {
 		setPage(data.selected + 1);
 
 	}
+	const handleUpdateFreeProduct = (free) => {
+		setUpdateFree(free);
 
+	}
 	return (
 		<>
+			{
+				updateFree && <AllFreeUpdate updateFree={updateFree} setUpdateFree={setUpdateFree} refetch={refetch}></AllFreeUpdate>
+			}
 			{
 				deleteItem && <DeleteModal deleteItem={deleteItem} setDeleteItem={setDeleteItem} refetch={refetch}></DeleteModal>
 			}
@@ -85,7 +93,15 @@ const AllProducts = () => {
 					<tbody className=' text-white'>
 						{
 							products?.products?.map((item, index) =>
-								<ProductSingleRow key={item._id} page={page} limit={limit} index={index} item={item} handleUpdate={handleUpdate} handleDelete={handleDelete}></ProductSingleRow>
+								<ProductSingleRow 
+								key={item._id}
+								 page={page} 
+								 limit={limit}
+								  index={index}
+								   item={item} handleUpdate={handleUpdate}
+								    handleDelete={handleDelete}
+									handleUpdateFreeProduct={handleUpdateFreeProduct}
+									></ProductSingleRow>
 							)
 						}
 

@@ -60,6 +60,8 @@ import UserOrderSubmit from "./components/Pages/UserOrderSubmit/UserOrderSubmit"
 import RequireAdmin from "./components/Shared/RequireAdmin";
 import WhatsApp from "./components/Shared/WhatsApp";
 import Call from "./components/Shared/Call";
+import AddProductBb from "./components/Admin/AddProductBb/AddProductBb";
+import AddSlider from "./components/Admin/AddSlider.js/AddSlider";
 
 
 function App() {
@@ -80,9 +82,11 @@ function App() {
           <Route path="/developer" element={<RequireAuth><RequireAdmin><AdminDashboard></AdminDashboard></RequireAdmin></RequireAuth>}>
             <Route index element={<RequireAuth><RequireAdmin><AdminIndex></AdminIndex></RequireAdmin></RequireAuth>}></Route>
             <Route path="add-product" element={<RequireAuth><RequireAdmin><AddProduct></AddProduct></RequireAdmin></RequireAuth>}></Route>
+            <Route path="add-product-bb" element={<RequireAuth><RequireAdmin><AddProductBb></AddProductBb></RequireAdmin></RequireAuth>}></Route>
             <Route path="all-product" element={<RequireAuth><RequireAdmin><AllProducts></AllProducts></RequireAdmin></RequireAuth>}></Route>
             <Route path="all-order" element={<RequireAuth><RequireAdmin><Orders></Orders></RequireAdmin></RequireAuth>}></Route>
             <Route path="all-user" element={<RequireAuth><RequireAdmin><Users></Users></RequireAdmin></RequireAuth>}></Route>
+            <Route path="add-slider" element={<RequireAuth><RequireAdmin><AddSlider></AddSlider></RequireAdmin></RequireAuth>}></Route>
           </Route>
 
 

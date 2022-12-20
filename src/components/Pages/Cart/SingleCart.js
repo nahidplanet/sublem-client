@@ -1,27 +1,35 @@
 import React from 'react';
 import { useState } from 'react';
-import { ArrowLongRightIcon,TrashIcon } from '@heroicons/react/24/solid';
+import { ArrowLongRightIcon, TrashIcon } from '@heroicons/react/24/solid';
 
-const SingleCart = ({ data,handleCartDeleteItem ,handleProductIncrease,handleProductDecrement}) => {
+const SingleCart = ({ data, handleCartDeleteItem, handleProductIncrease, handleProductDecrement }) => {
 	const [cartCount, setCartCount] = useState(data.quantity);
-	const { price ,productId ,quantity} = data;
+	const { price, productId, quantity } = data;
 	const { name, productImage, category, type } = data.productId;
-	
-	
+	let pathIs = false;
+	if (productImage[0].productImagePath.includes("http")) {
+		pathIs = true;
+	} else {
+		pathIs = false;
+	}
+
 
 
 	const handleCartDecrease = () => {
 		setCartCount(cartCount - 1)
-		handleProductDecrement(productId._id,price)
+		handleProductDecrement(productId._id, price)
 	}
 	const handleCartIncrease = () => {
 		setCartCount(cartCount + 1);
-		handleProductIncrease(productId._id,price)
+		handleProductIncrease(productId._id, price)
 	}
 	return (
 		<div className='grid grid-cols-5 gap-3 border-gray-300 border-t border-b mb-5 text-gray-900 py-3'>
 			<div className=' flex flex-col justify-center '>
-				<img className='' src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt=" " />
+				{
+					pathIs ? <img src={`${productImage[0].productImagePath}`} alt={name} />
+						: <img src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
+				}
 			</div>
 			<div className='col-span-3'>
 				<div className='flex flex-col'>
@@ -50,7 +58,7 @@ const SingleCart = ({ data,handleCartDeleteItem ,handleProductIncrease,handlePro
 				</div>
 			</div>
 			<div className='flex flex-col items-center justify-between '>
-			<div onClick={()=>handleCartDeleteItem(productId._id)} className='flex justify-center items-center border w-10 h-10 hover:bg-slate-600 hover:text-white cursor-pointer rounded-full transition ease-out duration-900 '>
+				<div onClick={() => handleCartDeleteItem(productId._id)} className='flex justify-center items-center border w-10 h-10 hover:bg-slate-600 hover:text-white cursor-pointer rounded-full transition ease-out duration-900 '>
 					<TrashIcon className="w-6 h-6"></TrashIcon>
 				</div>
 				<div><h1 className='font-semibold text-md'>{price} <span className='font-bold text-md'>AED</span> </h1></div>

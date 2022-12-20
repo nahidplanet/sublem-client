@@ -26,7 +26,6 @@ const Orders = () => {
 	};
 	const { data, isLoading, refetch } = useQuery(['receiveAllOrder', limit, page], getFacts);
 	const orders = data?.data?.orders?.orders;
-	console.log(orders);
 	if (isLoading) {
 		return <Loader></Loader>
 	}
@@ -56,7 +55,6 @@ const Orders = () => {
 		})
 		.then(res=>res.json())
 		.then(data=>{
-			console.log(data);
 			if (data.status) {
 				refetch();
 				toast.success(data.message)

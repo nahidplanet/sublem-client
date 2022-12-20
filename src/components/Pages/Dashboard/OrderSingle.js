@@ -6,14 +6,6 @@ const OrderSingle = ({index ,singleOrder,handleViewDetails}) => {
 	
 	const{orderStatus}  = singleOrder;
 
-
-
-
-
-
-
-
-
 	let style = "bg-green-600";
 	if (orderStatus === "pending") {
 		style = "bg-green-600"

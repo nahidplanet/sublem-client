@@ -1,5 +1,14 @@
 import React from 'react';
-const ProductSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit }) => {
+const ProductSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit, handleUpdateFreeProduct }) => {
+	const ownStoragePath = "http://localhost:5000/images/product/";
+
+	let pathIs = false;
+	if (item.productImage[0].productImagePath.includes("http")) {
+		pathIs = true;
+	} else {
+		pathIs = false;
+	}
+
 	const num = (page - 1) * parseInt(limit);
 	return (
 		<tr>
@@ -8,7 +17,10 @@ const ProductSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit
 				<div className="flex items-center space-x-3">
 					<div className="avatar">
 						<div className="mask mask-squircle w-12 h-12">
-							<img src={`http://localhost:5000/images/product/${item.productImage[0].productImagePath}`} alt={item.name} />
+							{
+								pathIs ? <img src={`${item.productImage[0].productImagePath}`} alt={item.name} />
+									: <img src={`http://localhost:5000/images/product/${item.productImage[0].productImagePath}`} alt={item.name} />
+							}
 						</div>
 					</div>
 				</div>
@@ -24,7 +36,10 @@ const ProductSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit
 				<label onClick={() => handleDelete(item)} htmlFor="ProductDeleteModal" className="btn btn-ghost btn-xs bg-red-500">delete</label>
 				<label onClick={() => handleUpdate(item)} htmlFor="productUpdate" className="btn btn-ghost btn-xs bg-sky-500 ml-5">Update</label>
 			</th>
-			<td>{item?.status}</td>
+			<th>
+
+				{item?.status === "free" ? <label htmlFor='updateFreeModal' onClick={() => handleUpdateFreeProduct(item)} className="btn btn-ghost btn-xs bg-green-500">{item?.status}</label> : <td>{item.status}</td>}
+			</th>
 		</tr>
 	);
 };

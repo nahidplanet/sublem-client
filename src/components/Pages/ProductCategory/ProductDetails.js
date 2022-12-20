@@ -14,7 +14,7 @@ const ProductDetails = () => {
 	const [cartCount, setCartCount] = useState(0)
 	const [catProduct, totalProduct, totalPrice, sisLoading, refetch] = useLoadCart()
 
-
+	let pathIs = false;
 
 	var baseUrl = `http://localhost:5000/images/product/`;
 	const { id } = useParams();
@@ -29,7 +29,11 @@ const ProductDetails = () => {
 		return <Loader></Loader>
 	}
 	const { _id, name, productImage, code, color, feature, category, type, sortDescription, longDescription, price, discount } = data?.data?.data[0];
-
+	if (productImage[0].productImagePath.includes("http")) {
+		pathIs = true;
+	} else {
+		pathIs = false;
+	}
 
 	const handleCartDecrease = () => {
 		setCartCount(cartCount - 1)
@@ -66,31 +70,34 @@ const ProductDetails = () => {
 			})
 	}
 
-	const handleWishlist = (productId)=>{
+	const handleWishlist = (productId) => {
 
 		const url = `http://localhost:5000/api/v1/product/wishlist`;
-		const dataIs = {productId:productId}
-		fetch(url,{
-			method:"POST",
+		const dataIs = { productId: productId }
+		fetch(url, {
+			method: "POST",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
 				'content-type': 'application/json'
 			},
-			body:JSON.stringify(dataIs)
+			body: JSON.stringify(dataIs)
 		})
-		.then(res=>res.json())
-		.then(data=>{
-			if (data.status) {
-				toast(data?.message)
-			}
-		})
+			.then(res => res.json())
+			.then(data => {
+				if (data.status) {
+					toast(data?.message)
+				}
+			})
 	}
 	// slider single image 
 	const settings = {
 		customPaging: function (i) {
 			return (
 				<div >
-					<img src={`${baseUrl}${productImage[i].productImagePath}`} alt={name} />`
+					{
+						pathIs ? <img src={`${productImage[0].productImagePath}`} alt={name} />
+							: <img src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
+					}
 				</div>
 			);
 		},
@@ -113,7 +120,11 @@ const ProductDetails = () => {
 						<Slider {...settings}>
 							{
 								productImage.map((item, index) => <div className='lg:w-[600px] lg:h-[450px] border' key={index}>
-									<img className='w-full h-full' src={baseUrl + item.productImagePath} alt={name} />
+
+									{
+										pathIs ? <img className='w-full h-full' src={`${productImage[0].productImagePath}`} alt={name} />
+											: <img className='w-full h-full' src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
+									}
 								</div>)
 							}
 						</Slider>
@@ -127,7 +138,7 @@ const ProductDetails = () => {
 								<span>Save {discount ? discount : '00'}AED</span>
 							</h1>
 							<p className='text-lg my-2'>Code:{code}</p>
-							<p className=' text-black h-auto bg-transparent w-full '  style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}> {sortDescription}</p>
+							<p className=' text-black h-auto bg-transparent w-full ' style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}> {sortDescription}</p>
 							<p className='mt-5 text-lg font-semibold'>Prices are inclusive of Tax/VAT</p>
 							<p className=' text-lg font-semibold'>Delivery Within 48 hours*</p>
 							<div className=''>
@@ -155,7 +166,7 @@ const ProductDetails = () => {
 									<button onClick={() => handleAddToCart(_id, price, cartCount)} className='block mx-auto my-5 rounded-sm hover:bg-gray-300 bg-gray-200 w-7/12 py-4 text-lg text-gray-800 capitalize font-semibold text-center'>add to cart</button>
 									{/* WishList */}
 									<div className='w-full'>
-										<button onClick={()=>handleWishlist(_id)}  className='flex items-center mx-auto text-green-600 underline font-normal px-3 py-2 text-xl'>
+										<button onClick={() => handleWishlist(_id)} className='flex items-center mx-auto text-green-600 underline font-normal px-3 py-2 text-xl'>
 											<HeartIcon className='w-6 h-6 mr-3 ' />Add to wishlist
 										</button>
 									</div>

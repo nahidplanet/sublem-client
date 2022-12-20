@@ -20,7 +20,6 @@ const [orderDetails,setOrderDetails] = useState(null)
 	const handleViewDetails = (viewDetails) =>{
 		setOrderDetails(viewDetails)
 	}
-	console.log(firstStep);
 	return (
 		<>
 		{

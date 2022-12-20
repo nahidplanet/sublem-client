@@ -21,6 +21,10 @@ const AdminSidebar = ({handleLogOut}) => {
 					<i className="fas fa-dumpster-fire mr-3"></i>
 					Add Product
 				</CustomAdminLink>
+				<CustomAdminLink to={"add-product-bb"} href="blank.html" className=" text-orange-500 flex items-center opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+					<i className="fas fa-dumpster-fire mr-3"></i>
+					Add Product BB
+				</CustomAdminLink>
 
 				<CustomAdminLink to={"all-product"} href="tables.html" className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
 				
@@ -37,6 +41,10 @@ const AdminSidebar = ({handleLogOut}) => {
 				<CustomAdminLink to={"all-user"} href="forms.html" className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
 					<i className="fas fa-users mr-3"></i>
 					All Users
+				</CustomAdminLink>
+				<CustomAdminLink to={"add-slider"} href="forms.html" className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+					<i className="fas fa-users mr-3"></i>
+					Add Slider
 				</CustomAdminLink>
 
 			</nav>

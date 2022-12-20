@@ -24,7 +24,6 @@ const Search = () => {
  
 
     const handleNavigate = (id) => {
-        console.log(id);
         navigate(`/home-category/${id}`)
     }
     return (
