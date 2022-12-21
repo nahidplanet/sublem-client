@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import FooterMobileMenu from '../../Footer/FooterMobileMenu';
 import MobileNavbarSingle from './MobileNavbarSingle';
 
 const MobileNavbar = ({open}) => {
@@ -10,14 +11,14 @@ const MobileNavbar = ({open}) => {
 			.then(res => res.json())
 			.then(data => setMenuData(data))
 	}, [])
+
 	return (
-		<div>
+		<div className=' text-gray-800'>
 
 		{open && <>
-			{
-				menuData?.map(data => <MobileNavbarSingle key={data.id} data={data} ></MobileNavbarSingle>)
-			}
+			<FooterMobileMenu></FooterMobileMenu>
 		</>}
+		
 		</div>
 
 	);

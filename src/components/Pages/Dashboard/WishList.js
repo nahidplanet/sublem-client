@@ -64,6 +64,11 @@ const WishList = () => {
 					</tfoot>
 
 				</table>
+				{
+					
+						userinfo?.wishlist?.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> Your wishlist is blank</p>
+					
+				}
 			</div>
 		</div>
 	);

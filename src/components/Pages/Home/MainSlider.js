@@ -12,7 +12,7 @@ const MainSlider = () => {
 	};
 	const { data, isLoading,refetch } = useQuery(['Slider'], getFacts);
 	const slider = data?.data?.slider;
-	console.log(slider);
+	
     return (
         <div>
             <div className="carousel w-full h-60 lg:h-[425px] ">

@@ -1,13 +1,24 @@
 import React from 'react';
 import Logo from './Logo/Logo'
-import { GlobeAltIcon, MapPinIcon, ShoppingBagIcon } from '@heroicons/react/24/solid'
+import { GlobeAltIcon, ShoppingBagIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Search from './Search/Search';
 import { Link } from 'react-router-dom';
 import useLoadCart from '../../hooks/useLoadCart';
 import whatsApp from '../../assets/icon/whatsapp-menu.svg';
+import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+import auth from '../../firebaseAuth/firebase.init';
 
 const MobileMenu = ({ handelMobileMenu }) => {
-    const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
+    const [user] = useAuthState(auth)
+    const [signOut, signOutLoading, signOutError] = useSignOut(auth);
+
+    const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart();
+
+    const handleSignOut = () => {
+        signOut()
+        localStorage.removeItem("activeToken");
+        window.location.reload()
+    }
 
     return (
         <div className='lg:hidden'>
@@ -22,11 +33,6 @@ const MobileMenu = ({ handelMobileMenu }) => {
                         <p className='text-gray-800 text-sm'>Menu</p>
                     </div>
                     <div className='flex flex-col justify-center items-center cursor-pointer'>
-                        <p><GlobeAltIcon className='w-6 h-6 text-gray-800' /></p>
-                        <p className='text-gray-800 text-sm mt-2'>language</p>
-                    </div>
-                    <Logo className="w-full h-full"></Logo>
-                    <div className='flex flex-col justify-center items-center cursor-pointer'>
                         <div className='w-6 h-6 text-gray-800'>
                             <a
                                 href="https://wa.me/+971562572168"
@@ -38,6 +44,8 @@ const MobileMenu = ({ handelMobileMenu }) => {
                         </div>
                         <p className='text-gray-800 text-sm mt-2'>WhatsApp</p>
                     </div>
+
+                    <Logo className="w-full h-full"></Logo>
                     <div className='mt-1'>
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -45,23 +53,63 @@ const MobileMenu = ({ handelMobileMenu }) => {
                                     <ShoppingBagIcon className='w-7 h-7  text-normal text-gray-800' />
                                     <span className="badge badge-sm indicator-item">{totalProduct ? totalProduct : 0}</span>
                                 </div>
-                                <p className='text-gray-800 text-sm mt-2 font-normal capitalize'>Cart</p>
+                                <p className='text-gray-800 text-sm  font-normal capitalize'>Cart</p>
 
 
                             </label>
                             <div tabIndex={0} className=" rounded-sm card card-compact dropdown-content w-60 bg-gray-200 border-2 shadow">
                                 <div className="card-body">
-                                    <div className="font-bold text-md text-gray-900 flex items-center justify-between"><span>Total Cart Item</span> <span> {totalProduct ? totalProduct : '0'}</span></div>
-                                    <div className="font-bold text-md text-gray-900 flex items-center justify-between"><span>Estimated Total:</span> <span>{totalPrice ? totalPrice : "00"}AED</span></div>
+                                    <div className="font-bold text-md text-gray-800 flex items-center justify-between"><span>Total Cart Item</span> <span> {totalProduct ? totalProduct : '0'}</span></div>
+                                    <div className="font-bold text-md text-gray-800 flex items-center justify-between"><span>Estimated Total:</span> <span>{totalPrice ? totalPrice : "00"}AED</span></div>
                                     <div className="card-actions">
-                                        <Link to="/cart" className="btn btn-primary btn-block">View cart </Link>
+                                        <Link to="/cart" className="btn border-none  bg-gray-400 text-white btn-block">View cart </Link>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+
                     </div>
 
+
+                    {
+                        user ?
+                            <div className=''>
+                                <div className="dropdown  dropdown-end">
+                                    <label tabIndex={0} className="btn btn-ghost hover:bg-transparent btn-circle">
+                                        <div className="indicator ">
+                                            <div className=" relative z-10 w-8 h-8 cursor-pointer rounded-full overflow-hidden border-2 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none ">
+                                              { 
+                                              user?.photoURL? <img className='bg-gray-300' src={user?.photoURL} alt='profile' />
+                                              :<img className='bg-gray-300' src="https://i.ibb.co/v1TLgZn/pngegg-removebg-preview.png" alt='profile' />}
+                                            </div>
+
+                                        </div>
+                                        <p className='text-gray-800 text-sm  font-normal capitalize'>Profile</p>
+
+
+                                    </label>
+                                    <div tabIndex={0} className=" rounded-sm card card-compact dropdown-content w-60 bg-gray-200 border-2 shadow">
+                                        <div className="card-body">
+                                            <Link to={'/dashboard/profile'} className="text-gray-800 capitalize " >profile</Link>
+                                            <Link to={'/dashboard/wishlist'} className="text-gray-800 capitalize " >wishlist</Link>
+                                            <Link to={'/dashboard/order-history'} className="text-gray-800 capitalize " >order History</Link>
+                                            <Link to={'/dashboard/save-cart'} className="text-gray-800 capitalize " >Save Cart</Link>
+
+                                            <button onClick={handleSignOut} className="btn border-none  bg-gray-400 text-white btn-block my-0">sign out</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            :
+                            <Link to="/login" className='flex flex-col justify-center items-center cursor-pointer'>
+                                <p><UserCircleIcon className='w-8 -h-8 text-gray-800  font-bold'></UserCircleIcon></p>
+                                <p className='text-gray-800 text-sm '>Sign In</p>
+                            </Link >
+                    }
                 </div>
 
             </div>

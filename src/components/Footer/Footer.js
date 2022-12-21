@@ -8,8 +8,8 @@ import instagram from "../../assets/icon/instagram.svg";
 import youtube from "../../assets/icon/youtube.svg";
 import linkedin from "../../assets/icon/linkedin.svg";
 import whatsapp from "../../assets/icon/whatsapp.svg";
-import FooterListMobile from './FooterListMobile';
 import CustomLink from '../Shared/CutomLink';
+import FooterMobileMenu from './FooterMobileMenu';
 
 const Footer = () => {
 
@@ -69,7 +69,9 @@ const Footer = () => {
                 </div>
                 {/* showing in mobile device */}
                 <div className='lg:hidden'>
-                    {menuData?.map(item => <FooterListMobile key={item.id} data={item}></FooterListMobile>)}
+                    {/* {menuData?.map(item => <FooterListMobile key={item.id} data={item}></FooterListMobile>)} */}
+                <FooterMobileMenu></FooterMobileMenu>
+
                 </div>
                 {/* showing in mobile device */}
 

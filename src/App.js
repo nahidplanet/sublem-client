@@ -157,7 +157,7 @@ function App() {
           <Route path="arabic-category/bed_mattress/:id" element={<ProductDetails></ProductDetails>}></Route>
           {/* service category  */}
           <Route path="service-category/" element={<AllService></AllService>}></Route>
-          <Route path="service-category//:id" element={<ProductDetails></ProductDetails>}></Route>
+          <Route path="service-category/:id" element={<ProductDetails></ProductDetails>}></Route>
           <Route path="service-category/cabinets" element={<ServiceCabinet></ServiceCabinet>}></Route>
           <Route path="service-category/cabinets/:id" element={<ProductDetails></ProductDetails>}></Route>
           <Route path="service-category/gypsum" element={<ServiceGypsum></ServiceGypsum>}></Route>

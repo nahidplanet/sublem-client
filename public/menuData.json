@@ -1,28 +1,5 @@
 [
 	{
-		"id": 0,
-		"route": "dashboard",
-		"category": "profile",
-		"routes": [
-			{
-				"name": "profile",
-				"route": "profile"
-			},
-			{
-				"name": "wishlist",
-				"route": "wishlist"
-			},
-			{
-				"name": "save cart",
-				"route": "save-cart"
-			},
-			{
-				"name": "order history",
-				"route": "order-history"
-			}
-		]
-	},
-	{
 		"id": 1,
 		"route": "arabic-category",
 		"category": "arabian furniture",

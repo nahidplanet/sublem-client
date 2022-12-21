@@ -41,6 +41,7 @@ const SaveCart = () => {
 						{
 							products?.map(item => <SaveCartSingle key={item._id} product={item}></SaveCartSingle>)
 						}
+
 					</tbody>
 
 					<tfoot>
@@ -48,6 +49,9 @@ const SaveCart = () => {
 					</tfoot>
 
 				</table>
+				{
+					products.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> Your cart is blank</p>
+				}
 			</div>
 		</div>
 	);
