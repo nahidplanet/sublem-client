@@ -15,7 +15,7 @@ const Header = () => {
     }
 
     return (
-        <div className='my-0 py-0 max-w-[1430px] mx-auto'>
+        <div className='my-0 py-0 max-w-[1430px] mx-auto sticky '>
 
             <nav>
                 <HeaderTop></HeaderTop>

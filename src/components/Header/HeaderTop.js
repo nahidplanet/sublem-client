@@ -28,7 +28,7 @@ const HeaderTop = () => {
                         className="whatsapp_float"
                         target="_blank"
                         rel="noopener noreferrer"
-                    >Contact Us (+971562572168)
+                    >WhatsApp (+971562572168)
                     </a>
 
                 </div>

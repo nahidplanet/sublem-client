@@ -50,25 +50,25 @@ const HeaderBottom = () => {
         <div id='headerBottomSliderButton' className="bg-gray-400 lg:h-12 p-3 w-full">
             <Slider {...settings} className="">
                 <div>
-                    <div className="text-white text-sm flex items-center justify-center gap-8">
+                    <div className="text-white text-xs sm:text-xs md:text-sm flex items-center justify-center gap-5 lg:gap-8">
                         <span><TruckIcon className='w-6 h-6 text-white'></TruckIcon></span>
                         <p>Free Delivery and Fixing With No Minimum Spend*</p>
                     </div>
                 </div>
                 <div>
-                    <div className="text-white text-sm flex items-center justify-center gap-8">
+                    <div className="text-white text-xs sm:text-xs md:text-sm flex items-center justify-center gap-5 lg:gap-8">
                         <span><ArrowUturnLeftIcon className='w-6 h-6 text-white'></ArrowUturnLeftIcon></span>
                         <p>Free Delivery and Fixing With No Minimum Spend*</p>
                     </div>
                 </div>
                 <div>
-                    <div className="text-white text-sm flex items-center justify-center gap-8">
+                    <div className="text-white text-xs sm:text-xs md:text-sm flex items-center justify-center gap-5 lg:gap-8">
                         <span><TruckIcon className='w-6 h-6 text-white'></TruckIcon></span>
                         <p>Free Delivery and Fixing With No Minimum Spend*</p>
                     </div>
                 </div>
                 <div>
-                    <div className="text-white text-sm flex items-center justify-center gap-8">
+                    <div className="text-white text-xs sm:text-xs md:text-sm flex items-center justify-center gap-5 lg:gap-8">
                         <span><TruckIcon className='w-6 h-6 text-white'></TruckIcon></span>
                         <p>Free Delivery and Fixing With No Minimum Spend*</p>
                     </div>

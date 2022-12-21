@@ -171,11 +171,11 @@ function App() {
 
       {location.pathname === '/developer' && '/developer/login' ? <></> : <Footer></Footer>}
 
-      <div className="flex"> 
       <ToastContainer></ToastContainer>
+      <div className="flex"> 
       <WhatsApp></WhatsApp>
-      </div>
       <Call></Call>
+      </div>
     </div>
   );
 }

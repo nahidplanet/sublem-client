@@ -65,7 +65,7 @@ const SingleProduct = ({ data }) => {
 		<div className='p-2'>
 
 			<div className="card rounded-none border text-gray-900 ">
-				<figure className='lg:h-[300px]'>
+				<figure onClick={() => handleHomeCategoryProductDetails(_id)}  className='lg:h-[300px] cursor-pointer'>
 					{
 						pathIs ? <img className='w-full h-full mx-auto' src={`${productImage[0].productImagePath}`} alt={name} />
 							: <img className='w-full h-full mx-auto' src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
@@ -73,7 +73,7 @@ const SingleProduct = ({ data }) => {
 				</figure>
 				<div className="card-body p-2">
 					<div className="card-actions m-0  ">
-						<p className='py-1 my-1 text-lg w-full' style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}>{name}</p>
+						<p onClick={() => handleHomeCategoryProductDetails(_id)}  className='py-1 my-1 text-lg w-full cursor-pointer' style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}>{name.length>40? `${name.slice(0,35)}...More`:name}</p>
 						<div className='text-xm md:text-md m-0 p-0 flex justify-between font-semibold w-full'>
 							<p className='text-red-700 font-semibold'>{parseInt(price) - parseInt(discount)}<span>AED</span></p>
 							<p className='font-normal'> <del>{price}</del> <span className='font-semibold'> AED</span> </p>
