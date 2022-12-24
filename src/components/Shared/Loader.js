@@ -11,9 +11,8 @@ const override: CSSProperties = {
 
 const Loader = () => {
 
-
 	return (
-		<div style={{zIndex:"15",opacity:"0.5"}} className='z-10 w-full h-screen flex justify-center items-center bg-slate-400 absolute top-0 left-0 bg-gray-400'>
+		<div style={{zIndex:"15",opacity:"0.6"}} className="w-full h-screen bg-gray-800 flex justify-center items-center top-1/2 left-1/2 bottom-1/2 right-1/2 mx-auto">
 			<FadeLoader
 			className='index z-20'
 			color={"#fff"}

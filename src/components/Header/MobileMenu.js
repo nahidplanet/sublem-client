@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo/Logo'
-import { GlobeAltIcon, ShoppingBagIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import {  ShoppingBagIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Search from './Search/Search';
 import { Link } from 'react-router-dom';
 import useLoadCart from '../../hooks/useLoadCart';
@@ -45,7 +45,7 @@ const MobileMenu = ({ handelMobileMenu }) => {
                         <p className='text-gray-800 text-sm mt-2'>WhatsApp</p>
                     </div>
 
-                    <Logo className="w-full h-full"></Logo>
+                    <div className='w-[55px] h-[55px]'><Logo className="w-full h-full"></Logo></div>
                     <div className='mt-1'>
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle">

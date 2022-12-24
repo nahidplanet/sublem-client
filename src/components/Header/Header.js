@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import HeaderBottom from './HeaderBottom';
 import HeaderTop from './HeaderTop';
 import MainMenu from './MainMenu';
 import MobileMenu from './MobileMenu';
-import MobileNavbar from './Navbar/MobileNavbar';
+// import MobileNavbar from './Navbar/MobileNavbar';
 
 
 
@@ -15,7 +15,7 @@ const Header = () => {
     }
 
     return (
-        <div className='my-0 py-0 max-w-[1430px] mx-auto sticky '>
+        <div className='my-0 py-0 max-w-[1430px] mx-auto  '>
 
             <nav>
                 <HeaderTop></HeaderTop>
@@ -24,7 +24,6 @@ const Header = () => {
                     <MainMenu ></MainMenu>
                 </div>
                 <HeaderBottom></HeaderBottom>
-                <MobileNavbar open={open}></MobileNavbar>
             </nav>
         </div>
 

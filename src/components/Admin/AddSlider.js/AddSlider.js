@@ -70,7 +70,7 @@ const AddSlider = () => {
 
 
 				<div className=" mt-2 ">
-					<label className="block text-sm text-gray-600" >Slider Image Link </label>
+					<label className="block text-sm text-gray-600" >Slider Image Link (1430x425)</label>
 					<input ref={imageRef} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" type="text" placeholder="slider Image Link" />
 				</div>
 

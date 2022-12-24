@@ -5,6 +5,7 @@ import HomeServices from './HomeServices';
 import OfficeCategory from './OfficeCategory';
 
 const Categories = () => {
+	
 	return (
 		<div>
 			<ArabicCategory></ArabicCategory>

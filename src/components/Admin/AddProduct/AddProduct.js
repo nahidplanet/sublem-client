@@ -151,7 +151,7 @@ const AddProduct = () => {
 					</div>
 
 					<div className="mt-2">
-						<label className="text-sm block text-gray-600" >Product Images</label>
+						<label className="text-sm block text-gray-600" >Product Images (600x450)</label>
 						<input multiple type="file" {...register("productImage", { required: true })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
 						{errors.productImage?.type === "required" && <span className="label-text-alt capitalize text-red-600">This field is required</span>}
 					</div>

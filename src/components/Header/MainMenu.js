@@ -10,7 +10,7 @@ const MainMenu = () => {
     return (
         <div className='hidden lg:block h-22 lg:py-2' >
             <div className='flex items-center justify-around h-full bg-white text-black my-2'>
-                <div className="w-24 h-auto">
+                <div className="w-[190px] h-[62px]">
                     <Logo ></Logo>
                 </div>
                 <div className='flex gap-5'>
