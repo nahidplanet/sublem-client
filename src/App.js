@@ -62,6 +62,7 @@ import WhatsApp from "./components/Shared/WhatsApp";
 import Call from "./components/Shared/Call";
 import AddProductBb from "./components/Admin/AddProductBb/AddProductBb";
 import AddSlider from "./components/Admin/AddSlider.js/AddSlider";
+import AddCategoryAndLogo from "./components/Admin/AddCategoryAndLogo/AddCategoryAndLogo";
 
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
             <Route path="all-order" element={<RequireAuth><RequireAdmin><Orders></Orders></RequireAdmin></RequireAuth>}></Route>
             <Route path="all-user" element={<RequireAuth><RequireAdmin><Users></Users></RequireAdmin></RequireAuth>}></Route>
             <Route path="add-slider" element={<RequireAuth><RequireAdmin><AddSlider></AddSlider></RequireAdmin></RequireAuth>}></Route>
+            <Route path="add-category-and-log" element={<RequireAuth><RequireAdmin><AddCategoryAndLogo></AddCategoryAndLogo></RequireAdmin></RequireAuth>}></Route>
           </Route>
 
 

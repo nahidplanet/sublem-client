@@ -60,7 +60,7 @@ const AddSlider = () => {
 	return (
 		<>
 		<div>
-			<form className="p-10 bg-white rounded shadow-xl" onSubmit={handleSlider} >
+			<form className="p-10 bg-white border rounded shadow-xl" onSubmit={handleSlider} >
 				<p className="text-lg text-gray-800 font-medium pb-1 text-center"> AddSlider </p>
 				<p className="text-sm text-red-500 font-medium pb-4 text-center">Please use image link only</p>
 				<div className="">
@@ -83,6 +83,9 @@ const AddSlider = () => {
 				</div>
 				</div>
 			</form>
+
+			{/* category and log  */}
+			
 			
 		</div>
 		<div>

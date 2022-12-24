@@ -48,7 +48,7 @@ const MobileHeader = ({ handleLogOut }) => {
 				<div className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 				<button onClick={handleLogOut} className=" py-0 my-0 block link no-underline text-white opacity-75 hover:opacity-100 nav-item">
 					
-					<i class="fa-regular fa-fan mr-3"></i>
+					<i className="fa-regular fa-fan mr-3"></i>
 					Sign Out
 				</button>
 				</div>

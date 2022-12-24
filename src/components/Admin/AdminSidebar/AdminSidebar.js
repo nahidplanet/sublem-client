@@ -46,6 +46,10 @@ const AdminSidebar = ({handleLogOut}) => {
 					<i className="fas fa-users mr-3"></i>
 					Add Slider
 				</CustomAdminLink>
+				<CustomAdminLink to={"add-category-and-log"} href="forms.html" className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+					<i className="fas fa-users mr-3"></i>
+				Category And Logo
+				</CustomAdminLink>
 
 			</nav>
 			<a onClick={handleLogOut}  className="link absolute w-full upgrade-btn bottom-0  text-white no-underline flex items-center justify-center py-4">
