@@ -15,7 +15,7 @@ const ServiceCabinet = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['AllProducts', page, limit], getFacts);
+	const { data, isLoading } = useQuery(['Cabinets', page, limit], getFacts);
 
 	if (isLoading) {
 		return <Loader></Loader>

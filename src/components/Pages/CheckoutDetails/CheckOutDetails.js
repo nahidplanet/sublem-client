@@ -1,11 +1,10 @@
-import axios from 'axios';
+
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router';
-import { toast } from 'react-toastify';
+import {useNavigate } from 'react-router';
 import auth from '../../../firebaseAuth/firebase.init';
-import axiosInst from '../../axios';
+import PageTitle from '../../Shared/PageTitle';
 
 const CheckOutDetails = () => {
 	const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -32,6 +31,7 @@ const CheckOutDetails = () => {
 	}
 	return (
 		<div>
+			<PageTitle title={"CheckOut Info"}></PageTitle>
 			<div className="w-full mx-auto lg:w-1/2 mt-6 pl-0 lg:pl-2">
 
 				<div className="leading-loose">

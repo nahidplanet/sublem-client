@@ -1,17 +1,18 @@
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo/Logo';
 import Search from './Search/Search';
+import Logo from '../Header/Logo/Logo';
 
 const MainMenu = () => {
+
 
 
     return (
         <div className='hidden lg:block h-22 lg:py-2' >
             <div className='flex items-center justify-around h-full bg-white text-black my-2'>
                 <div className="w-[190px] h-[62px]">
-                    <Logo ></Logo>
+                   <Logo></Logo>
                 </div>
                 <div className='flex gap-5'>
                     <div className="dropdown dropdown-hover ">
@@ -23,22 +24,22 @@ const MainMenu = () => {
                         </div>
                         <ul tabIndex={0} className="dropdown-content capitalize menu p-2 bg-white w-52 absolute border-none rounded-none shadow-none">
                             <li >
-                                <Link to={"home-category/curtains"}>curtains</Link>
+                                <Link to={"home-category/curtains"}>Home curtains</Link>
                             </li>
                             <li >
-                                <Link to={"home-category/carpets"}>carpets</Link>
+                                <Link to={"home-category/carpets"}>Home carpets</Link>
                             </li>
                             <li >
-                                <Link to={"home-category/sofa"}>sofa</Link>
+                                <Link to={"home-category/sofa"}>Home sofa</Link>
                             </li>
                             <li >
-                                <Link to={"home-category/wallpaper"}>wallpaper</Link>
+                                <Link to={"home-category/wallpaper"}>Home wallpaper</Link>
                             </li>
                             <li >
-                                <Link to={"home-category/bed"}>bed</Link>
+                                <Link to={"home-category/bed"}>Home bed</Link>
                             </li>
                             <li >
-                                <Link to={"home-category/bed_mattress"}>bed mattress</Link>
+                                <Link to={"home-category/bed_mattress"}>Home bed mattress</Link>
                             </li>
                         </ul>
                     </div>
@@ -51,23 +52,18 @@ const MainMenu = () => {
                         </div>
                         <ul tabIndex={0} className="dropdown-content capitalize menu p-2 bg-white w-52 absolute border-none rounded-none shadow-none">
                             <li >
-                                <Link to={"office-category/curtains"}>curtains</Link>
+                                <Link to={"office-category/curtains"}>Office curtains</Link>
                             </li>
                             <li >
-                                <Link to={"office-category/carpets"}>carpets</Link>
+                                <Link to={"office-category/carpets"}>Office carpets</Link>
                             </li>
                             <li >
-                                <Link to={"office-category/sofa"}>sofa</Link>
+                                <Link to={"office-category/sofa"}>Office sofa</Link>
                             </li>
                             <li >
-                                <Link to={"office-category/wallpaper"}>wallpaper</Link>
+                                <Link to={"office-category/wallpaper"}>Office wallpaper</Link>
                             </li>
-                            <li >
-                                <Link to={"office-category/bed"}>bed</Link>
-                            </li>
-                            <li >
-                                <Link to={"office-category/bed_mattress"}>bed mattress</Link>
-                            </li>
+                           
                         </ul>
                     </div>
                     <div className="dropdown dropdown-hover ">
@@ -79,22 +75,22 @@ const MainMenu = () => {
                         </div>
                         <ul tabIndex={0} className="dropdown-content capitalize menu p-2 bg-white w-52 absolute border-none rounded-none shadow-none">
                             <li >
-                                <Link to={"arabic-category/curtains"}>curtains</Link>
+                                <Link to={"arabic-category/curtains"}>Arabic curtains</Link>
                             </li>
                             <li >
-                                <Link to={"arabic-category/carpets"}>carpets</Link>
+                                <Link to={"arabic-category/carpets"}>Arabic carpets</Link>
                             </li>
                             <li >
-                                <Link to={"arabic-category/sofa"}>sofa</Link>
+                                <Link to={"arabic-category/sofa"}>Arabic sofa</Link>
                             </li>
                             <li >
-                                <Link to={"arabic-category/wallpaper"}>wallpaper</Link>
+                                <Link to={"arabic-category/wallpaper"}>Arabic wallpaper</Link>
                             </li>
                             <li >
-                                <Link to={"arabic-category/bed"}>bed</Link>
+                                <Link to={"arabic-category/bed"}>Arabic bed</Link>
                             </li>
                             <li >
-                                <Link to={"arabic-category/bed_mattress"}>bed mattress</Link>
+                                <Link to={"arabic-category/bed_mattress"}>Arabic bed mattress</Link>
                             </li>
                         </ul>
                     </div>

@@ -4,7 +4,6 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import useLoadCart from '../../../hooks/useLoadCart';
-import axiosInst from '../../axios';
 
 const SliderSingleProduct = ({ data }) => {
 	const [products, totalProduct, totalPrice, isLoading, refetch] = useLoadCart();
@@ -28,7 +27,6 @@ const SliderSingleProduct = ({ data }) => {
 					refetch();
 				} else {
 					toast.error("Please login to added");
-					// navigate('/login')
 				}
 			})
 

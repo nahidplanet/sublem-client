@@ -6,14 +6,11 @@ import axiosInst from '../axios';
 import Loader from '../Shared/Loader';
 
 const RequireAdmin = ({ children }) => {
-	const location = useLocation();
+	
 	const navigate = useNavigate();
 	const [admin, setAdmin] = useState(false)
 
-	const getFacts = () => {
-		const res = axiosInst.get('/check-admin').then(res => res)
-		return res;
-	};
+	
 	const { data, isLoading } = useQuery('checkAdmin', () => fetch(`http://localhost:5000/api/v1/check-admin`, {
 		method: "GET",
 		headers: {

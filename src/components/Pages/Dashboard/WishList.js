@@ -1,26 +1,21 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import auth from '../../../firebaseAuth/firebase.init';
 import useLoadWishlist from '../../../hooks/useLoadWishlist';
 import Loader from '../../Shared/Loader';
+import PageTitle from '../../Shared/PageTitle';
 import WishListSingle from './WishListSingle';
 
 const WishList = () => {
 	const [user] = useAuthState(auth)
-	// const navigate = useNavigate()
 	const [userinfo, isLoading, refetch] = useLoadWishlist(user);
-	const products = userinfo?.wishlist;
+	
 	if (isLoading) {
 		<Loader></Loader>
 	}
-	if (!products) {
-		// localStorage.removeItem("activeToken")
-
-	}
+	
 	const handleWishlistDeleteItem = (id) => {
-		// cartDelete(id)
 		fetch(`http://localhost:5000/api/v1/product/wishlist/delete/${id}`, {
 			method: 'DELETE',
 			headers: {
@@ -39,6 +34,7 @@ const WishList = () => {
 	}
 	return (
 		<div>
+			<PageTitle title={"Wishlist"}></PageTitle>
 			<div className="overflow-x-auto w-full">
 				<table className="table table-compact w-full">
 					<thead>

@@ -9,6 +9,7 @@ import './ProductDetails.css'
 import { useState } from 'react';
 import useLoadCart from '../../../hooks/useLoadCart';
 import { toast } from 'react-toastify';
+import PageTitle from '../../Shared/PageTitle';
 
 const ProductDetails = () => {
 	const [cartCount, setCartCount] = useState(0)
@@ -110,6 +111,7 @@ const ProductDetails = () => {
 	};
 	return (
 		<>
+		<PageTitle title={"Product Details"}></PageTitle>
 			<div className='min-h-screen w-full'>
 				<div className='h-10 flex items-center mx-10 capitalize text-md font-semibold border-b'>
 					<span className=' text-normal capitalize italic text-gray-600'>Product/ {category}/ {type}/ {name}</span>

@@ -2,30 +2,30 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import axiosInst from '../../../axios';
-import Footer from '../../../Footer/Footer';
-import Header from '../../../Header/Header';
 import Loader from '../../../Shared/Loader';
 import SingleProduct from '../SingleProduct';
 
 const HomeCarpets = () => {
 	const [limit, setLimit] = useState(9);
+	const [page, setPage] = useState(1);
+	
 
 
 	const getFacts = () => {
-		const res = axiosInst.get(`/product?category=home&type=carpet`).then((response) => {
+		const res = axiosInst.get(`/product?category=home&type=carpet&page=${page}&limit=${limit}`).then((response) => {
 			return response
 		})
 		return res;
 	};
 
-	const { data, isLoading } = useQuery(['AllProducts'], getFacts);
+	const { data, isLoading } = useQuery(['homeCarpet',limit,page], getFacts);
 	// data?.data?.data?.products?.map
 
 	if (isLoading) {
 		return <Loader></Loader>
 	}
 	const handlePageClick = (data) => {
-		// setPage(data.selected +1);
+		setPage(data.selected +1);
 
 	}
 	return (

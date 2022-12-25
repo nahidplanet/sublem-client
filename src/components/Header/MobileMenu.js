@@ -1,25 +1,33 @@
 import React from 'react';
-import Logo from './Logo/Logo'
-import {  ShoppingBagIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { ShoppingBagIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Search from './Search/Search';
 import { Link } from 'react-router-dom';
 import useLoadCart from '../../hooks/useLoadCart';
 import whatsApp from '../../assets/icon/whatsapp-menu.svg';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseAuth/firebase.init';
+import Loader from '../Shared/Loader';
+import Logo from '..//Header/Logo/Logo';
 
-const MobileMenu = ({ handelMobileMenu }) => {
+const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
+
+
     const [user] = useAuthState(auth)
     const [signOut, signOutLoading, signOutError] = useSignOut(auth);
 
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart();
+
 
     const handleSignOut = () => {
         signOut()
         localStorage.removeItem("activeToken");
         window.location.reload()
     }
+    if (signOutLoading || isLoading) {
+        return <Loader></Loader>
 
+    }
+   
     return (
         <div className='lg:hidden'>
             <div className='w-full h-22 pt-3 px-3 py-2 lg:py-0 flex items-center'>
@@ -45,7 +53,9 @@ const MobileMenu = ({ handelMobileMenu }) => {
                         <p className='text-gray-800 text-sm mt-2'>WhatsApp</p>
                     </div>
 
-                    <div className='w-[55px] h-[55px]'><Logo className="w-full h-full"></Logo></div>
+                    <div className='w-[55px] h-[55px]'>
+                     <Logo></Logo>
+                    </div>
                     <div className='mt-1'>
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -79,9 +89,9 @@ const MobileMenu = ({ handelMobileMenu }) => {
                                     <label tabIndex={0} className="btn btn-ghost hover:bg-transparent btn-circle">
                                         <div className="indicator ">
                                             <div className=" relative z-10 w-8 h-8 cursor-pointer rounded-full overflow-hidden border-2 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none ">
-                                              { 
-                                              user?.photoURL? <img className='bg-gray-300' src={user?.photoURL} alt='profile' />
-                                              :<img className='bg-gray-300' src="https://i.ibb.co/v1TLgZn/pngegg-removebg-preview.png" alt='profile' />}
+                                                {
+                                                    user?.photoURL ? <img className='bg-gray-300' src={user?.photoURL} alt='profile' />
+                                                        : <img className='bg-gray-300' src="https://i.ibb.co/v1TLgZn/pngegg-removebg-preview.png" alt='profile' />}
                                             </div>
 
                                         </div>

@@ -1,9 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import axiosInst from '../../axios';
 import Loader from '../../Shared/Loader';
+import PageTitle from '../../Shared/PageTitle';
 
 const Profile = () => {
 	const { isLoading, data: userInfo, refetch } = useQuery(
@@ -15,7 +14,8 @@ const Profile = () => {
 	const user = userInfo?.data?.user
 	return (
 		<div className='text-black grid grid-cols-8 bg-gray w-full'>
-			<div></div>
+
+			<div><PageTitle title={"Profile"}></PageTitle></div>
 			<div className='col-span-6'>
 				<div className="mt-20 card  bg-white  shadow-xl w-full border">
 					<div className="card-body ">

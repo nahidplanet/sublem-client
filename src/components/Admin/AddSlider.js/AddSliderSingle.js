@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddSliderSingle = ({ item,index,handleDeleteData }) => {
 	
-console.log(item);
+
 
 	const {_id,  name, image } = item;
 

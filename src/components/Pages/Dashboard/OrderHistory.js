@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebaseAuth/firebase.init';
 import useOrder from '../../../hooks/useOrder';
 import Loader from '../../Shared/Loader';
+import PageTitle from '../../Shared/PageTitle';
 import OrderSingle from './OrderSingle';
 import UserOrderDetailsModal from './UserOrderDetailsModal';
 
@@ -22,6 +23,7 @@ const [orderDetails,setOrderDetails] = useState(null)
 	}
 	return (
 		<>
+		<PageTitle title={"Order History"}></PageTitle>
 		{
 			orderDetails && <UserOrderDetailsModal orderDetails={orderDetails} setOrderDetails={setOrderDetails}></UserOrderDetailsModal>
 		}

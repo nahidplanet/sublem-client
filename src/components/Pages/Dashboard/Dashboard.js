@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router';
-import { Link } from 'react-router-dom';
 import CustomLink from '../../Shared/CutomLink';
+import PageTitle from '../../Shared/PageTitle';
 
 
 const Dashboard = () => {
@@ -29,7 +29,7 @@ const Dashboard = () => {
 	]
 	return (
 		<>
-
+			<PageTitle title={"dashboard"}></PageTitle>
 			<div className="drawer drawer-mobile ">
 				<input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 				<div className="drawer-content ">

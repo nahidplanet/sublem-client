@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import CustomAdminLink from '../../Shared/CustomAdminLink';
 
 const MobileHeader = ({ handleLogOut }) => {
@@ -43,6 +42,10 @@ const MobileHeader = ({ handleLogOut }) => {
 				<CustomAdminLink to={"add-slider"}  className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
 					<i className="fas fa-fan mr-3"></i>
 					Add Slider
+				</CustomAdminLink>
+				<CustomAdminLink to={"links"}  className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+					<i className="fas fa-fan mr-3"></i>
+					Add Link
 				</CustomAdminLink>
 
 				<div className="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">

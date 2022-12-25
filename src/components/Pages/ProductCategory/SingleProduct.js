@@ -4,7 +4,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import useLoadCart from '../../../hooks/useLoadCart';
-import axiosInst from '../../axios';
+
 
 const SingleProduct = ({ data }) => {
 	const [products, totalProduct, totalPrice, isLoading, refetch] = useLoadCart();
@@ -75,9 +75,9 @@ const SingleProduct = ({ data }) => {
 					<div className="card-actions m-0 ">
 						<p onClick={() => handleHomeCategoryProductDetails(_id)}  className='py-1 my-1 text-lg w-full cursor-pointer' style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}>{name.length>40? `${name.slice(0,35)}...More`:name}</p>
 						<div className='text-xm md:text-md m-0 p-0 flex justify-between font-semibold w-full'>
-							<p className='text-red-700 font-semibold'>{parseInt(price) - parseInt(discount)}<span>AED</span></p>
+							<p className='text-red-700 font-semibold'>{parseInt(price) - parseInt(discount)}<span> AED</span></p>
 							<p className='font-normal'> <del>{price}</del> <span className='font-semibold'> AED</span> </p>
-							<p> <span className='text-gray-800 font-bold'>save:</span>{discount} AED</p>
+							<p> <span className='text-gray-800 font-bold'>save: </span>{discount} AED</p>
 						</div>
 						<div className='text-xm md:text-md flex justify-evenly gap-5  w-full'>
 							<button onClick={() => handleHomeCategoryProductDetails(_id)} className="mt-0 border hover:bg-slate-100 p-1 rounded-sm w-5/12" >View</button>

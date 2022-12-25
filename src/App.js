@@ -88,7 +88,7 @@ function App() {
             <Route path="all-order" element={<RequireAuth><RequireAdmin><Orders></Orders></RequireAdmin></RequireAuth>}></Route>
             <Route path="all-user" element={<RequireAuth><RequireAdmin><Users></Users></RequireAdmin></RequireAuth>}></Route>
             <Route path="add-slider" element={<RequireAuth><RequireAdmin><AddSlider></AddSlider></RequireAdmin></RequireAuth>}></Route>
-            <Route path="add-category-and-log" element={<RequireAuth><RequireAdmin><AddCategoryAndLogo></AddCategoryAndLogo></RequireAdmin></RequireAuth>}></Route>
+            <Route path="links" element={<RequireAuth><RequireAdmin><AddCategoryAndLogo></AddCategoryAndLogo></RequireAdmin></RequireAuth>}></Route>
           </Route>
 
 

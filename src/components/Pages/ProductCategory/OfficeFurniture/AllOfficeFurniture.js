@@ -17,7 +17,7 @@ const AllOfficeFurniture = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['AllProducts', page, limit], getFacts);
+	const { data, isLoading } = useQuery(['OfficeAll', page, limit], getFacts);
 
 	if (isLoading) {
 		return <Loader></Loader>

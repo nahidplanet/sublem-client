@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeartIcon, PhoneIcon, ShoppingBagIcon } from '@heroicons/react/24/solid'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseAuth/firebase.init';
 import useLoadCart from '../../hooks/useLoadCart';
@@ -9,7 +9,6 @@ import useLoadCart from '../../hooks/useLoadCart';
 const HeaderTop = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const location = useLocation();
     const [signOut, signOutLoading, signOutError] = useSignOut(auth);
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
     setTimeout(() => {

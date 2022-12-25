@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import axiosInst from '../../../axios';
 import Loader from '../../../Shared/Loader';
+import PageTitle from '../../../Shared/PageTitle';
 import SingleProduct from '../SingleProduct';
 
 const ArabicBed = () => {
@@ -15,7 +16,7 @@ const ArabicBed = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['AllProducts', page, limit], getFacts);
+	const { data, isLoading } = useQuery(['ArabicBed', page, limit], getFacts);
 
 	if (isLoading) {
 		return <Loader></Loader>
@@ -25,6 +26,7 @@ const ArabicBed = () => {
 	}
 	return (
 		<div className='min-h-screen'>
+			<PageTitle title={"Arabic Bed"}></PageTitle>
 			<div className=''>
 				<h1 className='capitalize text-3xl text-gray-900 text-center my-5 font-semibold'>Arabic Bed</h1>
 				<p className='text-md px-10 text-gray-900 my-3 text-center'><div className="my-5"></div></p>

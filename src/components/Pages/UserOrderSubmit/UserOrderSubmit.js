@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import order from '../../../assets/icon/order-place.svg';
 import Loader from '../../Shared/Loader';
+import PageTitle from '../../Shared/PageTitle';
 
 const UserOrderSubmit = () => {
 	const navigate = useNavigate()
@@ -31,7 +32,7 @@ const UserOrderSubmit = () => {
 	}
 	return (
 		<div>
-			
+			<PageTitle title={"Confirm-Order"}></PageTitle>
 			<div className='flex justify-center lg:items-center items-start mt-5 lg:mt-0 w-full h-screen bg-gray-50'>
 				<div className="card w-auto bg-white border shadow-xl">
 					<div className="card-body items-center justify-center">

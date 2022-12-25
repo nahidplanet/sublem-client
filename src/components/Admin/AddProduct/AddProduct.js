@@ -141,13 +141,6 @@ const AddProduct = () => {
 						{errors.color?.type === "required" && <span className="label-text-alt capitalize text-red-600">This field is required</span>}
 						{errors.color?.type === "minLength" && <span className="label-text-alt capitalize text-red-600">at lest 1 characters</span>}
 					</div>
-
-					{/* <div className="inline-block mt-2 ">
-						<label className="block text-sm text-gray-600" >Quantity </label>
-						<input {...register("quantity", { required: true, minLength: 1 })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" type="number" placeholder="Quantity" />
-						{errors.quantity?.type === "required" && <span className="inline-block ml-2 label-text-alt capitalize text-red-600">This field is required</span>}
-						{errors.quantity?.type === "minLength" && <span className="inline-block ml-2 label-text-alt capitalize text-red-600">at lest 1 characters</span>}
-					</div> */}
 					</div>
 
 					<div className="mt-2">

@@ -1,9 +1,9 @@
-import { ArrowUturnLeftIcon, TruckIcon } from '@heroicons/react/24/solid';
+
 import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import Slider from 'react-slick';
-import sliderPhoto from '../../../assets/slider/slider-1.jpg'
+import Loader from '../../Shared/Loader';
 
 const MainSlider = () => {
     const getFacts = () => {
@@ -12,9 +12,11 @@ const MainSlider = () => {
         })
         return res;
     };
-    const { data, isLoading, refetch } = useQuery(['Slider'], getFacts);
+    const { data, isLoading } = useQuery(['Slider'], getFacts);
     const slider = data?.data?.slider;
-
+if (isLoading) {
+    return <Loader></Loader>
+}
 
     var settings = {
         dots: false,
@@ -59,27 +61,7 @@ const MainSlider = () => {
         ]
     };
     return (
-        // <div>
-        //     <Slider {...settings}>
-        //     <div className="carousel ">
-
-        //         {
-        //             slider?.map((item,index) =>
-        //                 <div key={item._id} id={"slider"+index} className="carousel-item relative w-full">
-        //                     <img src={item.image} alt='slider' className="w-full" />
-        //                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        //                         <a href={`#slider${index}`} className="btn rounded-lg bg-transparent hover:bg-transparent text-gray-900 border-none"> ❮</a>
-        //                         <a href={`#slider${index}`} className="btn rounded-lg bg-transparent hover:bg-transparent text-gray-900 border-none"> ❯</a>
-        //                     </div>
-        //                 </div>
-        //             )
-        //         }
-        //         </div>
-        //     </Slider>
-
-
-            
-        // </div>
+        
         <div >
             <Slider {...settings} className="">
             {
@@ -87,16 +69,10 @@ const MainSlider = () => {
                         <div key={item._id} id={"slider"+index} className="h-64 lg:h-[425px]  carousel-item relative w-full">
                             <img style={{backgroundSize:"cover"}} src={item.image} alt='slider' className="w-full h-full" />
                             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                {/* <a href={`#slider${index}`} className="btn rounded-lg bg-transparent hover:bg-transparent text-gray-900 border-none"> ❮</a>
-                                <a href={`#slider${index}`} className="btn rounded-lg bg-transparent hover:bg-transparent text-gray-900 border-none"> ❯</a> */}
-                            </div>
+                               </div>
                         </div>
                     )
                 }
-                
-
-
-
             </Slider>
         </div>
     );

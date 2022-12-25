@@ -3,7 +3,6 @@ import React from 'react';
 import { useRef } from 'react';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
-import axiosInst from '../../axios';
 import AddSliderSingle from './AddSliderSingle';
 
 const AddSlider = () => {
@@ -19,7 +18,7 @@ const AddSlider = () => {
 	};
 	const { data, isLoading,refetch } = useQuery(['Slider'], getFacts);
 	const slider = data?.data?.slider;
-	console.log(slider);
+	
 
 
 	const handleSlider = (e) => {
@@ -28,7 +27,6 @@ const AddSlider = () => {
 		const image = imageRef.current.value;
 
 		const sliderData = { name, image }
-		console.log(sliderData);
 		const slider = {
 			method: 'POST',
 			headers: {

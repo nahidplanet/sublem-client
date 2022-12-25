@@ -1,7 +1,6 @@
-import React from 'react';
+
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { json } from 'react-router';
 
 const useAdmin = (user) => {
 	const [admin,setAdmin] = useState(false);

@@ -15,7 +15,7 @@ const ServicePanting = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['AllProducts', page, limit], getFacts);
+	const { data, isLoading } = useQuery(['Painting', page, limit], getFacts);
 
 	if (isLoading) {
 		return <Loader></Loader>

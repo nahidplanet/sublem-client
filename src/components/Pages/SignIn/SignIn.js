@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import {  useNavigate } from 'react-router-dom';
 import { useAuthState, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './SignIn.css'
 import auth from '../../../firebaseAuth/firebase.init';
 import google from '../../../assets/icon/google.svg'
 import facebook from '../../../assets/icon/facebookSocial.svg'
 import useToken from '../../../hooks/useToken';
+import PageTitle from '../../Shared/PageTitle';
 
 
 const SignIn = () => {
@@ -24,6 +25,7 @@ const SignIn = () => {
 
 	return (
 		<div>
+			<PageTitle title={"login"}></PageTitle>
 			<div className="container">
 				<div className="form-box shadow-lg border ">
 					<div className="header-form mt-10">

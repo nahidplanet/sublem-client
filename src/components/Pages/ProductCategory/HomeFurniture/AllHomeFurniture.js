@@ -15,7 +15,7 @@ const AllHomeFurniture = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['AllProducts', page, limit], getFacts);
+	const { data, isLoading } = useQuery(['HomeAll', page, limit], getFacts);
 
 	if (isLoading) {
 		return <Loader></Loader>
@@ -34,7 +34,8 @@ const AllHomeFurniture = () => {
 						data?.data?.data?.products.length < 1 && <div className=''><h1 className='font-bold text-gray-800 text-4xl capitalize'>Product empty </h1></div>
 					}
 					{
-						data?.data?.data?.products?.map(singleProduct => <SingleProduct key={singleProduct._id} data={singleProduct}></SingleProduct>)
+						data?.data?.data?.products?.map(singleProduct => <SingleProduct 
+							key={singleProduct._id} data={singleProduct}></SingleProduct>)
 					}
 				</div>
 				{/* data?.data?.data?.products.length < 1 && */}

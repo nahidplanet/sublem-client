@@ -2,7 +2,6 @@ import React from 'react';
 
 const userOrderModalSingleRow = ({ x }) => {
 
-	const { name, category, type, price, code, productImage, color, discount } = x?.productId;
 	return (
 		<table className='text-center text-gray-900'>
 			<tr className='border-b'>
@@ -24,14 +23,6 @@ const userOrderModalSingleRow = ({ x }) => {
 				<thead><th className='p-5'>Price</th></thead>
 				<td >{x?.productId?.price}</td>
 			</tr>
-			{/* <tr className='border-b'>
-									<thead><th className='p-5'>Quantity</th></thead>
-									<td >{quantity}</td>
-								</tr>
-								<tr className='border-b'>
-									<thead><th className='p-5'>Total Price</th></thead>
-									<td >{total}</td>
-								</tr> */}
 		</table>
 	);
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 const ProductSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit, handleUpdateFreeProduct }) => {
-	const ownStoragePath = "http://localhost:5000/images/product/";
+	
 
 	let pathIs = false;
 	if (item.productImage[0].productImagePath.includes("http")) {

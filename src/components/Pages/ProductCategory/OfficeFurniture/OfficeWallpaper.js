@@ -18,7 +18,7 @@ const OfficeWallpaper = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['AllProducts', page, limit], getFacts);
+	const { data, isLoading } = useQuery(['OfficeWallpaper', page, limit], getFacts);
 
 	if (isLoading) {
 		return <Loader></Loader>

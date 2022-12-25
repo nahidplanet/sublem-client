@@ -1,6 +1,5 @@
 import React from 'react';
 import LastStepOfMOdalShowDetails from './LastStepOfMOdalShowDetails';
-import userOrderModalSingleRow from './userOrderModalSingleRow';
 
 const UserOrderDetailsModal = ({ orderDetails, setOrderDetails }) => {
 	

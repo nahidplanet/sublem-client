@@ -8,11 +8,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebaseAuth/firebase.init';
 import useLoadCart from '../../../hooks/useLoadCart';
 import Loader from '../../Shared/Loader';
+import PageTitle from '../../Shared/PageTitle';
 
 const Cart = () => {
 	const [open, setOpen] = useState(false)
-	const [user] = useAuthState(auth);
-	// const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useCart(user)
 	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
 	const navigate = useNavigate()
 
@@ -25,7 +24,6 @@ const Cart = () => {
 
 
 	const handleProductIncrease = (id, price) => {
-		// cartIncrease(id, price)
 		const addToCartInfo = { productId: id, price }
 		fetch('http://localhost:5000/api/v1/product/cart/user', {
 			method: "POST",
@@ -50,7 +48,6 @@ const Cart = () => {
 	}
 	// product increment 
 	const handleProductDecrement = (id, price) => {
-		// cartDecrease(id, price)
 		const addToCartInfo = { productId: id, price }
 		fetch('http://localhost:5000/api/v1/product/cart/user/decrement', {
 			method: "POST",
@@ -97,6 +94,7 @@ const Cart = () => {
 	}
 	return (
 		<div className='min-h-screen'>
+			<PageTitle title={"Cart"}></PageTitle>
 			<h1 className='text-gray-900 font-bold capitalize text-4xl my-4 text-center'>My Bag</h1>
 			<div className='w-[85%] mx-auto'>
 				<div className='border border-black px-3 py-2'>

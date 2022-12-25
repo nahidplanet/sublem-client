@@ -8,7 +8,7 @@ const WishListSingle = ({ product, index, handleWishlistDeleteItem }) => {
 	}
 
 
-	const { _id, name, productImage, category, type, price } = product.productId;
+	const { _id, name, productImage, category, price } = product.productId;
 	let pathIs = false;
 	if (productImage[0].productImagePath.includes("http")) {
 		pathIs = true;

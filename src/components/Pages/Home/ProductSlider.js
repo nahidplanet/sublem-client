@@ -3,8 +3,6 @@ import React from "react";
 import { useQuery } from "react-query";
 import Slider from "react-slick";
 import axiosInst from "../../axios";
-// import SingleProduct from "../ProductCategory/SingleProduct";
-// import FeatureSingleProduct from "./FeatureSingleProduct";
 import SliderSingleProduct from "./SliderSingleProduct";
 
 const ProductSlider = () => {
@@ -79,7 +77,7 @@ const ProductSlider = () => {
 	return (
 		<div className=" mx-auto mt-14">
 			<div className="flex flex-col items-center">
-				<h1 className="text-2xl font-semibold text-gray-900 capitalize ">Our Service</h1>
+				<h1 className="text-3xl font-bold text-gray-900 capitalize ">Our Service</h1>
 				<div className="divider h-[1px] bg-gray-400"></div>
 			</div>
 			<Slider {...settings} className="mt-3 mb-20">

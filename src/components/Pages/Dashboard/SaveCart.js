@@ -1,9 +1,10 @@
 import React from 'react';
-import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router';
 import auth from '../../../firebaseAuth/firebase.init';
 import useLoadCart from '../../../hooks/useLoadCart';
 import Loader from '../../Shared/Loader';
+import PageTitle from '../../Shared/PageTitle';
 import SaveCartSingle from './SaveCartSingle';
 
 const SaveCart = () => {
@@ -21,6 +22,7 @@ const SaveCart = () => {
 	}
 	return (
 		<div>
+			<PageTitle title={"Save Cart"}></PageTitle>
 			<div className="overflow-x-auto w-full">
 				<table className="table table-compact w-full">
 					<thead>

@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
