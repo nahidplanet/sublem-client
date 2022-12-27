@@ -29,9 +29,9 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
     }
    
     return (
-        <div className='lg:hidden'>
+        <div className='lg:hidden w-full'>
             <div className='w-full h-22 pt-3 px-3 py-2 lg:py-0 flex items-center'>
-                <div className=' grid grid-cols-5 gap-10'>
+                <div className='w-full grid grid-cols-5 gap-10'>
                     <div className='flex flex-col justify-center items-center cursor-pointer' >
                         <label className=" swap swap-rotate">
                             <input type="checkbox" onClick={() => handelMobileMenu()} />

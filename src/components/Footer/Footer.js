@@ -21,7 +21,6 @@ const Footer = () => {
     }, [])
     let date = new Date();
     date = date.getFullYear();
-    socialLink?.links?.map(item => console.log(item.facebook))
     return (
         <div className=''>
             {/* footer top  */}
@@ -49,7 +48,7 @@ const Footer = () => {
             <div className=' text-gray-800 flex justify-between flex-col lg:flex-row gap-3 w-full'>
 
                 {
-                    socialLink?.links?.map(item => <FooterSocial item={item}></FooterSocial>)
+                    socialLink?.links?.map((item,i) => <FooterSocial item={item} key={i}></FooterSocial>)
                 }
                 {/* showing in mobile device */}
                 <div className='lg:hidden'>

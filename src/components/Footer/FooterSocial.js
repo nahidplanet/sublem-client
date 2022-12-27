@@ -7,7 +7,6 @@ import linkedin from "../../assets/icon/linkedin.svg";
 import whatsapp from "../../assets/icon/whatsapp.svg";
 
 const FooterSocial = ({item}) => {
-	console.log(item);
 	
 	return (
 		<div className="grid lg:grid-cols-3 grid-cols-6 lg:w-3/12 p-5 ">

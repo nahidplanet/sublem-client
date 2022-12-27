@@ -6,8 +6,6 @@ import { useEffect } from 'react';
 
 
 const AdminIndex = () => {
-	// const { data, isLoading, refetch } = useQuery(['totalProduct'],()=> axios.get(`/product`).then(res=>res));
-	// console.log(data?.data?.data?.totalProduct);
 	const [totalProduct, setTotalProduct] = useState(0);
 	const [totalOrder, setTotalOrder] = useState(0);
 	const [newOrder, setNewOrder] = useState(0);

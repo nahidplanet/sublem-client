@@ -13,8 +13,8 @@ const DesktopHeader = ({ handleLogOut }) => {
 				</div>
 
 				<div className={`${isOpen ? "block" : 'hidden'} z-20 absolute w-32 bg-[#1E1E1E] rounded-lg shadow-lg py-2 mt-16`}  >
-					<Link to="/aa" className="block px-4 py-2 account-link hover:text-white">Account</Link>
-					<Link to="/aa" className="block px-4 py-2 account-link hover:text-white">Support</Link>
+					<Link to="all-order" className="block px-4 py-2 account-link hover:text-white">New Order</Link>
+					<Link to="add-slider" className="block px-4 py-2 account-link hover:text-white">Add Slider</Link>
 					<button onClick={handleLogOut} className="link no-underline block py-0 px-4 my-0 account-button hover:text-white"> Sign Out <i className="fas fa-sign-out-alt "></i></button>
 				</div>
 			</div>

@@ -11,8 +11,9 @@ import Loader from '../../Shared/Loader';
 import PageTitle from '../../Shared/PageTitle';
 
 const Cart = () => {
+	const [user] = useAuthState(auth)
 	const [open, setOpen] = useState(false)
-	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
+	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart(user)
 	const navigate = useNavigate()
 
 	if (isLoading) {
