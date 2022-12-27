@@ -1,10 +1,13 @@
 import React from 'react';
+
 import PageTitle from '../../Shared/PageTitle';
 import Categories from './Categories';
 import MainSlider from './MainSlider';
 import ProductSlider from './ProductSlider';
 
 const Home = () => {
+
+   
     return (
         <>
             <div>

@@ -13,7 +13,7 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
 
 
     const [user] = useAuthState(auth)
-    const [signOut, signOutLoading, signOutError] = useSignOut(auth);
+    const [signOut, signOutLoading] = useSignOut(auth);
 
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart();
 

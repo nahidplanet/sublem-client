@@ -9,7 +9,7 @@ import useLoadCart from '../../hooks/useLoadCart';
 const HeaderTop = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const [signOut, signOutLoading, signOutError] = useSignOut(auth);
+    const [signOut] = useSignOut(auth);
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
     setTimeout(() => {
         // window.location.reload()
