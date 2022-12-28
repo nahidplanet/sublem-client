@@ -4,6 +4,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import useLoadCart from '../../../hooks/useLoadCart';
+import { api } from '../../../urlConfig';
 
 const SliderSingleProduct = ({ data }) => {
 	const [products, totalProduct, totalPrice, isLoading, refetch] = useLoadCart();
@@ -12,7 +13,7 @@ const SliderSingleProduct = ({ data }) => {
 
 	const handleAddToCart = (id, price) => {
 		const addToCartInfo = { productId: id, price }
-		fetch('http://localhost:5000/api/v1/product/cart/user', {
+		fetch(`${api}/product/cart/user`, {
 			method: "POST",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
@@ -36,9 +37,8 @@ const SliderSingleProduct = ({ data }) => {
 	}
 	const handleWishlist = (productId) => {
 
-		const url = `http://localhost:5000/api/v1/product/wishlist`;
 		const dataIs = { productId: productId }
-		fetch(url, {
+		fetch(`${api}/product/wishlist`, {
 			method: "POST",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
@@ -48,8 +48,11 @@ const SliderSingleProduct = ({ data }) => {
 		})
 			.then(res => res.json())
 			.then(data => {
+				console.log(data);
 				if (data.status) {
-					toast(data?.message)
+					toast.success(data?.message)
+				}else{
+					toast.error(data?.message+" login First")
 				}
 			})
 	}

@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import {useNavigate } from 'react-router';
 import auth from '../../../firebaseAuth/firebase.init';
+import { api } from '../../../urlConfig';
 import PageTitle from '../../Shared/PageTitle';
 
 const CheckOutDetails = () => {
@@ -12,7 +13,7 @@ const CheckOutDetails = () => {
 	const navigate = useNavigate()
 	const onSubmit = async (products) => {
 
-		fetch(`http://localhost:5000/api/v1/order-info`, {
+		fetch(`${api}/order-info`, {
 			method: "PUT",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,

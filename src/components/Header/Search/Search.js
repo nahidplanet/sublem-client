@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { api } from '../../../urlConfig';
 
 const Search = () => {
 
@@ -13,7 +14,7 @@ const Search = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/v1/search?search=${search}`)
+        fetch(`${api}/search?search=${search}`)
             .then(res => res.json())
             .then(data => {
                 if (data.status) {

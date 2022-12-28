@@ -3,13 +3,14 @@ import { CheckIcon } from '@heroicons/react/24/solid';
 import CustomLink from '../Shared/CutomLink';
 import FooterMobileMenu from './FooterMobileMenu';
 import FooterSocial from './FooterSocial';
+import { api } from '../../urlConfig';
 
 const Footer = () => {
 
     const [menuData, setMenuData] = useState([]);
     const [socialLink, setSocialLink] = useState("");
     useEffect(() => {
-        fetch("http://localhost:5000/api/v1/social-links")
+        fetch(`${api}/social-links`)
             .then(res => res.json())
             .then(data => setSocialLink(data))
     }, [])

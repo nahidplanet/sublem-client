@@ -10,6 +10,7 @@ import { useState } from 'react';
 import useLoadCart from '../../../hooks/useLoadCart';
 import { toast } from 'react-toastify';
 import PageTitle from '../../Shared/PageTitle';
+import { api, baseUrl } from '../../../urlConfig';
 
 const ProductDetails = () => {
 	const [cartCount, setCartCount] = useState(0)
@@ -17,10 +18,10 @@ const ProductDetails = () => {
 
 	let pathIs = false;
 
-	var baseUrl = `http://localhost:5000/images/product/`;
+	// var baseUrl = `http://localhost:5000/images/product/`;
 	const { id } = useParams();
 	const { isLoading, data } = useQuery(
-		['singleProduct'], () => axios.get(`http://localhost:5000/api/v1/product/${id}`)
+		['singleProduct'], () => axios.get(`${api}/product/${id}`)
 			.then(data => data)
 	)
 
@@ -50,7 +51,7 @@ const ProductDetails = () => {
 
 		const addToCartInfo = { productId: _id, price, quantity: cartCount }
 
-		fetch('http://localhost:5000/api/v1/product/cart/productDetails', {
+		fetch(`${api}/product/cart/productDetails`, {
 			method: "POST",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
@@ -73,7 +74,7 @@ const ProductDetails = () => {
 
 	const handleWishlist = (productId) => {
 
-		const url = `http://localhost:5000/api/v1/product/wishlist`;
+		const url = `${api}/product/wishlist`;
 		const dataIs = { productId: productId }
 		fetch(url, {
 			method: "POST",
@@ -86,7 +87,9 @@ const ProductDetails = () => {
 			.then(res => res.json())
 			.then(data => {
 				if (data.status) {
-					toast(data?.message)
+					toast.success(data?.message)
+				}else{
+					toast.error(data?.message)
 				}
 			})
 	}
@@ -97,7 +100,7 @@ const ProductDetails = () => {
 				<div >
 					{
 						pathIs ? <img src={`${productImage[0].productImagePath}`} alt={name} />
-							: <img src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
+							: <img src={`${baseUrl}${productImage[0].productImagePath}`} alt={name} />
 					}
 				</div>
 			);
@@ -125,7 +128,7 @@ const ProductDetails = () => {
 
 									{
 										pathIs ? <img className='w-full h-full' src={`${productImage[0].productImagePath}`} alt={name} />
-											: <img className='w-full h-full' src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
+											: <img className='w-full h-full' src={`${baseUrl}${productImage[0].productImagePath}`} alt={name} />
 									}
 								</div>)
 							}

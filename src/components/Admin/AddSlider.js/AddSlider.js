@@ -3,6 +3,7 @@ import React from 'react';
 import { useRef } from 'react';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
+import { api } from '../../../urlConfig';
 import AddSliderSingle from './AddSliderSingle';
 
 const AddSlider = () => {
@@ -11,7 +12,7 @@ const AddSlider = () => {
 	const imageRef = useRef('');
 
 	const getFacts = () => {
-		const res = axios.get(`http://localhost:5000/api/v1/slider`).then((res) => {
+		const res = axios.get(`${api}/slider`).then((res) => {
 			return res
 		})
 		return res;
@@ -35,7 +36,7 @@ const AddSlider = () => {
 			},
 			body: JSON.stringify(sliderData)
 		};
-		fetch(`http://localhost:5000/api/v1/slider`, slider)
+		fetch(`${api}/slider`, slider)
 			.then(response => response.json())
 			.then(data => {
 				if (!data.status) {
@@ -48,7 +49,7 @@ const AddSlider = () => {
 	}
 
 	const handleDeleteData =(id) =>{
-		 axios.delete(`http://localhost:5000/api/v1/slider?id=${id}`).then((res) => {
+		 axios.delete(`${api}/slider?id=${id}`).then((res) => {
 			if (res?.data?.status) {
 				refetch()
 					toast.success("Slider Delete successful");

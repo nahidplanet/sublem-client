@@ -11,9 +11,7 @@ const HeaderTop = () => {
     const navigate = useNavigate();
     const [signOut] = useSignOut(auth);
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
-    setTimeout(() => {
-        // window.location.reload()
-    }, 2000)
+    
 
 
 

@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebaseAuth/firebase.init';
 import useLoadWishlist from '../../../hooks/useLoadWishlist';
+import { api } from '../../../urlConfig';
 import Loader from '../../Shared/Loader';
 import PageTitle from '../../Shared/PageTitle';
 import WishListSingle from './WishListSingle';
@@ -16,13 +17,14 @@ const WishList = () => {
 	}
 	
 	const handleWishlistDeleteItem = (id) => {
-		fetch(`http://localhost:5000/api/v1/product/wishlist/delete/${id}`, {
+		fetch(`${api}/product/wishlist/delete/${id}`, {
 			method: 'DELETE',
 			headers: {
 				"authorization": `Bearer ${localStorage.getItem('activeToken')}`
 			},
 		}).then(response => response.json())
 			.then(data => {
+				
 				if (!data.status) {
 					toast.error("Delete failed")
 				} else {

@@ -3,11 +3,12 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import Slider from 'react-slick';
+import { api } from '../../../urlConfig';
 import Loader from '../../Shared/Loader';
 
 const MainSlider = () => {
     const getFacts = () => {
-        const res = axios.get(`http://localhost:5000/api/v1/slider`).then((res) => {
+        const res = axios.get(`${api}/slider`).then((res) => {
             return res
         })
         return res;

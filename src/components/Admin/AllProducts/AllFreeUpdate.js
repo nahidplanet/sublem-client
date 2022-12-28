@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 import { toast } from 'react-toastify';
+import { api } from '../../../urlConfig';
 
 
 const AllFreeUpdate = ({ updateFree, setUpdateFree ,refetch}) => {
@@ -57,7 +58,7 @@ const AllFreeUpdate = ({ updateFree, setUpdateFree ,refetch}) => {
 			},
 			body: JSON.stringify(formData)
 		};
-		fetch(`http://localhost:5000/api/v1/free?id=${updateFree._id}`, requestOptions)
+		fetch(`${api}/free?id=${updateFree._id}`, requestOptions)
 			.then(response => response.json())
 			.then(data => {
 				if (!data.status) {

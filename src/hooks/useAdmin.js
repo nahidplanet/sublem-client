@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { api } from '../urlConfig';
 
 const useAdmin = (user) => {
 	const [admin,setAdmin] = useState(false);
@@ -10,7 +11,7 @@ const useAdmin = (user) => {
 	useEffect(()=>{
 		const email = user?.email;
 		if (email) {
-			fetch('http://localhost:5000/api/v1/admin-login',{
+			fetch(`${api}/admin-login`,{
 				method:"GET",
 				headers:{
 					'authorization': `Bearer ${localStorage.getItem('activeToken')}`

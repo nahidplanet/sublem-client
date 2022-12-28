@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { api } from '../../../urlConfig';
 
 const AddCategoryAndLogo = () => {
 
@@ -29,7 +30,7 @@ const AddCategoryAndLogo = () => {
 			},
 			body: JSON.stringify(homeData)
 		};
-		fetch(`http://localhost:5000/api/v1/social-links`, data)
+		fetch(`${api}/social-links`, data)
 			.then(response => response.json())
 			.then(data => {
 				if (!data.status) {

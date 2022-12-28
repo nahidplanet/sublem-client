@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
-import {  useLocation, useNavigate } from 'react-router';
-import axiosInst from '../axios';
+import {  useNavigate } from 'react-router';
+import { api } from '../../urlConfig';
 import Loader from '../Shared/Loader';
 
 const RequireAdmin = ({ children }) => {
@@ -11,7 +11,7 @@ const RequireAdmin = ({ children }) => {
 	const [admin, setAdmin] = useState(false)
 
 	
-	const { data, isLoading } = useQuery('checkAdmin', () => fetch(`http://localhost:5000/api/v1/check-admin`, {
+	const { data, isLoading } = useQuery('checkAdmin', () => fetch(`${api}/check-admin`, {
 		method: "GET",
 		headers: {
 			"content-type": "application/json",

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
+import { api } from '../../../urlConfig';
 import axiosInst from '../../axios';
 import Loader from '../../Shared/Loader';
 import OrderSingleRow from './OrderSingleRow';
@@ -47,7 +48,7 @@ const Orders = () => {
 		setOrderStatus(item)
 	}
 	const handleDeleteOrder = (id) => {
-		fetch(`http://localhost:5000/api/v1/receive-all-order/${id}`,{
+		fetch(`${api}/receive-all-order/${id}`,{
 			method:"DELETE",
 			headers:{
 				"content-type":"application/json"

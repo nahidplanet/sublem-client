@@ -4,6 +4,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import useLoadCart from '../../../hooks/useLoadCart';
+import { api } from '../../../urlConfig';
 
 
 const SingleProduct = ({ data }) => {
@@ -19,7 +20,7 @@ const SingleProduct = ({ data }) => {
 	}
 	const handleAddToCart = (id, price) => {
 		const addToCartInfo = { productId: id, price }
-		fetch('http://localhost:5000/api/v1/product/cart/user', {
+		fetch(`${api}/product/cart/user`, {
 			method: "POST",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
@@ -44,7 +45,7 @@ const SingleProduct = ({ data }) => {
 	}
 	const handleWishlist = (productId) => {
 
-		const url = `http://localhost:5000/api/v1/product/wishlist`;
+		const url = `${api}/product/wishlist`;
 		const dataIs = { productId: productId }
 		fetch(url, {
 			method: "POST",
@@ -56,8 +57,12 @@ const SingleProduct = ({ data }) => {
 		})
 			.then(res => res.json())
 			.then(data => {
+				console.log(data);
 				if (data.status) {
-					toast(data?.message)
+					toast.success(data?.message)
+				}else{
+					toast.error(data?.message)
+
 				}
 			})
 	}

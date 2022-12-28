@@ -9,6 +9,7 @@ import auth from '../../../firebaseAuth/firebase.init';
 import useLoadCart from '../../../hooks/useLoadCart';
 import Loader from '../../Shared/Loader';
 import PageTitle from '../../Shared/PageTitle';
+import { api } from '../../../urlConfig';
 
 const Cart = () => {
 	const [user] = useAuthState(auth)
@@ -19,14 +20,12 @@ const Cart = () => {
 	if (isLoading) {
 		<Loader></Loader>
 	}
-	if(!catProduct){
-		navigate('/login')
-	}
+	
 
 
 	const handleProductIncrease = (id, price) => {
 		const addToCartInfo = { productId: id, price }
-		fetch('http://localhost:5000/api/v1/product/cart/user', {
+		fetch(`${api}/product/cart/user`, {
 			method: "POST",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
@@ -50,7 +49,7 @@ const Cart = () => {
 	// product increment 
 	const handleProductDecrement = (id, price) => {
 		const addToCartInfo = { productId: id, price }
-		fetch('http://localhost:5000/api/v1/product/cart/user/decrement', {
+		fetch(`${api}/product/cart/user/decrement`, {
 			method: "POST",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
@@ -73,7 +72,7 @@ const Cart = () => {
 
 	const handleCartDeleteItem = async (id) => {
 		// cartDelete(id)
-		fetch(`http://localhost:5000/api/v1/product/cart/delete/${id}`, {
+		fetch(`${api}/product/cart/delete/${id}`, {
 			method: 'DELETE',
 			headers: {
 				"authorization": `Bearer ${localStorage.getItem('activeToken')}`

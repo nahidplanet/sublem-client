@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import order from '../../../assets/icon/order-place.svg';
+import { api } from '../../../urlConfig';
 import Loader from '../../Shared/Loader';
 import PageTitle from '../../Shared/PageTitle';
 
@@ -15,7 +16,7 @@ const UserOrderSubmit = () => {
 	}
 	const handleOrder = () => {
 		setLoading(true)
-		fetch(`http://localhost:5000/api/v1/order-submitted`, {
+		fetch(`${api}/order-submitted`, {
 			method: "POST",
 			headers: {
 				'authorization': `Bearer ${localStorage.getItem('activeToken')}`,
@@ -25,7 +26,7 @@ const UserOrderSubmit = () => {
 		}).then(res => res.json()).then(data => {
 			if (data.status) {
 				setLoading(false)
-				toast(data.message)
+				toast.success(data.message)
 				navigate('/dashboard/order-history/')
 			}
 		})

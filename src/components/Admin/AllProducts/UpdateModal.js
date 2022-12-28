@@ -2,6 +2,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify'
+import { api } from '../../../urlConfig';
 
 
 const UpdateModal = ({ updateItem, refetch, setUpdateItem }) => {
@@ -35,7 +36,7 @@ const UpdateModal = ({ updateItem, refetch, setUpdateItem }) => {
 			},
 			body: formData
 		};
-		const url = `http://localhost:5000/api/v1/product/${updateItem._id}`;
+		const url = `${api}/product/${updateItem._id}`;
 
 		fetch(url, UPDATE_PRODUCT)
 			.then(response => response.json())

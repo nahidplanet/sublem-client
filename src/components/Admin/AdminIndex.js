@@ -2,6 +2,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { api } from '../../urlConfig';
+
 
 
 
@@ -12,27 +14,27 @@ const AdminIndex = () => {
 	const [completed, setCompleted] = useState(0);
 	const [totalUser, setTotalUser] = useState(0);
 	useEffect(() => {
-		fetch("http://localhost:5000/api/v1/product")
+		fetch(`${api}/product`)
 			.then(res => res.json())
 			.then(data => setTotalProduct(data?.data?.totalProduct))
 	}, [])
 	useEffect(() => {
-		fetch("http://localhost:5000/api/v1/receive-all-order")
+		fetch(`${api}/receive-all-order`)
 			.then(res => res.json())
 			.then(data => setTotalOrder(data?.orders?.totalProduct))
 	}, [])
 	useEffect(() => {
-		fetch("http://localhost:5000/api/v1/receive-all-order?orderStatus=pending")
+		fetch(`${api}/receive-all-order?orderStatus=pending`)
 			.then(res => res.json())
 			.then(data => setNewOrder(data?.orders?.totalProduct))
 	}, [])
 	useEffect(() => {
-		fetch("http://localhost:5000/api/v1/receive-all-order?orderStatus=delivered")
+		fetch(`${api}/receive-all-order?orderStatus=delivered`)
 			.then(res => res.json())
 			.then(data => setCompleted(data?.orders?.totalProduct))
 	}, [])
 	useEffect(() => {
-		fetch("http://localhost:5000/api/v1/all-users")
+		fetch(`${api}/all-users`)
 			.then(res => res.json())
 			.then(data => setTotalUser(data?.users?.totalUser))
 	}, [])

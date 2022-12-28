@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { api } from '../../../urlConfig';
 
 const UserUpdateRoleModal = ({ updateRole, setUpdateRole, refetch }) => {
 
 	const [role, setRole] = useState("user")
 	const handleMakeAdmin = () => {
-		const url = `http://localhost:5000/api/v1/all-users/${updateRole._id}?role=admin`;
+		const url = `${api}/all-users/${updateRole._id}?role=admin`;
 		fetch(url, {
 			method: "PUT"
 		}).then(res => res.json())
@@ -21,7 +22,7 @@ const UserUpdateRoleModal = ({ updateRole, setUpdateRole, refetch }) => {
 			})
 	}
 	const handleMakeUser = () => {
-		const url = `http://localhost:5000/api/v1/all-users/${updateRole._id}?role=user`;
+		const url = `${api}/all-users/${updateRole._id}?role=user`;
 		fetch(url, {
 			method: "PUT"
 		}).then(res => res.json())

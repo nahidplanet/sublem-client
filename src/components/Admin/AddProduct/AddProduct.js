@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import { api } from "../../../urlConfig";
 
 
 const AddProduct = () => {
@@ -33,7 +34,7 @@ const AddProduct = () => {
 			},
 			body: formData
 		};
-		fetch('http://localhost:5000/api/v1/product', requestOptions)
+		fetch(`${api}/product`, requestOptions)
 			.then(response => response.json())
 			.then(data => {
 				if (!data.status) {

@@ -1,10 +1,11 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import { api } from '../../../urlConfig';
 import axiosInst from '../../axios';
 
 const OrderUpdateModal = ({deleteItem,setDeleteItem,refetch}) => {
 	const handleDeleteProduct = () =>{
-		const url = `http://localhost:5000/api/v1/product/${deleteItem._id}`;
+		const url = `${api}/product/${deleteItem._id}`;
 		axiosInst.delete(url).then(res=>{
 			if (!res.data.status) {
 				toast.error("Product delete failed")
