@@ -4,6 +4,7 @@ import HeaderBottom from './HeaderBottom';
 import HeaderTop from './HeaderTop';
 import MainMenu from './MainMenu';
 import MobileMenu from './MobileMenu';
+import MobileToggleMenu from './MobileToggleMenu';
 
 
 
@@ -22,10 +23,11 @@ const Header = () => {
             <nav>
                 <HeaderTop></HeaderTop>
                 <div>
-                    <MobileMenu handelMobileMenu={handelMobileMenu} ></MobileMenu>
                     <MainMenu ></MainMenu>
+                    <MobileMenu handelMobileMenu={handelMobileMenu} ></MobileMenu>
                 </div>
                 <HeaderBottom></HeaderBottom>
+                <MobileToggleMenu open={open}></MobileToggleMenu>
             </nav>
         </div>
 

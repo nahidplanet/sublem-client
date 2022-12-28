@@ -60,7 +60,7 @@ const SliderSingleProduct = ({ data }) => {
 	return (
 		<div className='p-2'>
 			<div className="card rounded-none border text-gray-900 ">
-				<figure className='lg:h-[300px] h-[200px]'><img src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt="product_image" /></figure>
+				<figure onClick={() => handleHomeCategoryProductDetails(_id)} className='cursor-pointer lg:h-[300px] h-[200px]'><img src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt="product_image" /></figure>
 				<div className="card-body p-2">
 					<div className="card-actions  ">
 						<p style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }} className='py-1 my-1 font-semibold text-lg text-wrap' >{`${window.innerWidth < 600 ? name.slice(0, 40) : name.slice(0, 25)}`} </p>
