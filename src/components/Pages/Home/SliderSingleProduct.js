@@ -52,7 +52,7 @@ const SliderSingleProduct = ({ data }) => {
 				if (data.status) {
 					toast.success(data?.message)
 				}else{
-					toast.error(data?.message+" login First")
+					toast.error(data?.message)
 				}
 			})
 	}
