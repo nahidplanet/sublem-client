@@ -8,7 +8,8 @@ import { api } from '../../urlConfig';
 const Footer = () => {
 
     const [menuData, setMenuData] = useState([]);
-    const [socialLink, setSocialLink] = useState("");
+    const [socialLink, setSocialLink] = useState(null);
+
     useEffect(() => {
         fetch(`${api}/social-links`)
             .then(res => res.json())
@@ -49,7 +50,7 @@ const Footer = () => {
             <div className=' text-gray-800 flex justify-between flex-col lg:flex-row gap-3 w-full'>
 
                 {
-                    socialLink?.links?.map((item,i) => <FooterSocial item={item} key={i}></FooterSocial>)
+                 socialLink && socialLink?.links?.map((item,i) => <FooterSocial item={item} key={i}></FooterSocial>)
                 }
                 {/* showing in mobile device */}
                 <div className='lg:hidden'>
