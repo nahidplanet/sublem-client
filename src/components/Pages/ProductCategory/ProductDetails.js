@@ -99,8 +99,8 @@ const ProductDetails = () => {
 			return (
 				<div >
 					{
-						pathIs ? <img src={`${productImage[0].productImagePath}`} alt={name} />
-							: <img src={`${baseUrl}${productImage[0].productImagePath}`} alt={name} />
+						pathIs ? <img src={`${productImage[i].productImagePath}`} alt={name} />
+							: <img src={`${baseUrl}${productImage[i].productImagePath}`} alt={name} />
 					}
 				</div>
 			);
@@ -127,8 +127,8 @@ const ProductDetails = () => {
 								productImage.map((item, index) => <div className='lg:w-[600px] lg:h-[450px] border' key={index}>
 
 									{
-										pathIs ? <img className='w-full h-full' src={`${productImage[0].productImagePath}`} alt={name} />
-											: <img className='w-full h-full' src={`${baseUrl}${productImage[0].productImagePath}`} alt={name} />
+										pathIs ? <img className='w-full h-full' src={`${productImage[index].productImagePath}`} alt={name} />
+											: <img className='w-full h-full' src={`${baseUrl}${productImage[index].productImagePath}`} alt={name} />
 									}
 								</div>)
 							}

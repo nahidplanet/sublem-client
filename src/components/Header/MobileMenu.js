@@ -21,7 +21,7 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
     const handleSignOut = () => {
         signOut()
         localStorage.removeItem("activeToken");
-        window.location.reload()
+        // window.location.reload()
     }
     if (signOutLoading || isLoading) {
         return <Loader></Loader>

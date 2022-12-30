@@ -53,7 +53,7 @@ const HeaderTop = () => {
                                     {user ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={async () => {
                                         signOut()
                                         localStorage.removeItem("activeToken");
-                                        window.location.reload()
+                                        // window.location.reload()
 
                                         navigate('/login')
                                     }}> Sign Out</Link></li> :

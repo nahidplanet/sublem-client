@@ -1,4 +1,8 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebaseAuth/firebase.init';
+import useLoadCart from '../../../hooks/useLoadCart';
 
 import PageTitle from '../../Shared/PageTitle';
 import Categories from './Categories';
@@ -6,7 +10,19 @@ import MainSlider from './MainSlider';
 import ProductSlider from './ProductSlider';
 
 const Home = () => {
-
+    const [user] = useAuthState(auth)
+	const [catProduct, totalProduct, totalPrice, isLoading, refetch] =  useLoadCart()
+console.log("ddddddddd",catProduct);
+	useEffect(() => {
+		// window.location.reload();
+        console.log("user",user);
+        console.log("cart",catProduct);
+        if (user?.emailVerified) {
+            
+            refetch()
+            console.log("refetch");
+        }
+	}, [user])
    
     return (
         <>

@@ -16,10 +16,6 @@ const SaveCart = () => {
 	if (isLoading) {
 		<Loader></Loader>
 	}
-	if (!products) {
-		// navigate('/login');
-
-	}
 	return (
 		<div>
 			<PageTitle title={"Save Cart"}></PageTitle>
