@@ -8,11 +8,11 @@ const AddProductBb = () => {
 
 	const onSubmit = async (products) => {
 		const productImage = [
-			{ productImagePath: products.image1 },
-			{ productImagePath: products.image2 },
-			{ productImagePath: products.image3 },
-			{ productImagePath: products.image4 },
-			{ productImagePath: products.image5 },
+			{ productImagePath: products.image1 = undefined },
+			{ productImagePath: products.image2 = undefined },
+			{ productImagePath: products.image3 = undefined },
+			{ productImagePath: products.image4 = undefined },
+			{ productImagePath: products.image5 = undefined },
 		];
 		const status = "free";
 		const {name,code,sortDescription,longDescription,price,discount,category,type,color,feature}=products
@@ -136,6 +136,7 @@ const AddProductBb = () => {
 					</div>
 					</div>
 
+						<p className="text-sm block text-red-600 text-center" >Required all image</p>
 					<div className="mt-2">
 						<label className="text-sm block text-gray-600" >Product Images 1 Required (600x450)</label>
 						<input  type="text" {...register("image1", { required: true })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
@@ -143,22 +144,22 @@ const AddProductBb = () => {
 					</div>
 					<div className="mt-2">
 						<label className="text-sm block text-gray-600" >Product Images 2 (optional 600x450)</label>
-						<input  type="text" {...register("image2", { required: false })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
+						<input  type="text" {...register("image2", { required: true })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
 						{errors.image2?.type === "required" && <span className="label-text-alt capitalize text-red-600">This field is required</span>}
 					</div>
 					<div className="mt-2">
 						<label className="text-sm block text-gray-600" >Product Images 3 (optional 600x450)</label>
-						<input  type="text" {...register("image3", { required: false })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
+						<input  type="text" {...register("image3", { required: true })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
 						{errors.image3?.type === "required" && <span className="label-text-alt capitalize text-red-600">This field is required</span>}
 					</div>
 					<div className="mt-2">
 						<label className="text-sm block text-gray-600" >Product Images 4 (optional 600x450)</label>
-						<input  type="text" {...register("image4", { required: false })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
+						<input  type="text" {...register("image4", { required: true })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
 						{errors.image4?.type === "required" && <span className="label-text-alt capitalize text-red-600">This field is required</span>}
 					</div>
 					<div className="mt-2">
 						<label className="text-sm block text-gray-600" >Product Images 5 (optional 600x450)</label>
-						<input  type="text" {...register("image5", { required: false })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
+						<input  type="text" {...register("image5", { required: true })} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" placeholder="Product Images" />
 						{errors.image5?.type === "required" && <span className="label-text-alt capitalize text-red-600">This field is required</span>}
 					</div>
 

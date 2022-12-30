@@ -124,7 +124,7 @@ const ProductDetails = () => {
 					<div className=" col-span-3 p-10">
 						<Slider {...settings}>
 							{
-								productImage.map((item, index) => <div className='lg:w-[600px] lg:h-[450px] border' key={index}>
+								productImage?.map((item, index) => <div className='lg:w-[600px] lg:h-[450px] border' key={index}>
 
 									{
 										pathIs ? <img className='w-full h-full' src={`${productImage[index].productImagePath}`} alt={name} />
