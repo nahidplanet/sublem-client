@@ -58,5 +58,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-{/* <Link to={'/developer'} className="text-black p-5">admin</Link> */ }
