@@ -204,9 +204,6 @@ const ProductDetails = () => {
 						</div>
 					</div>
 				</div>
-				<div className='h-18'>
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, rem?
-				</div>
 			</div>
 		</>
 	);

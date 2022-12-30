@@ -12,15 +12,11 @@ import ProductSlider from './ProductSlider';
 const Home = () => {
     const [user] = useAuthState(auth)
 	const [catProduct, totalProduct, totalPrice, isLoading, refetch] =  useLoadCart()
-console.log("ddddddddd",catProduct);
+
 	useEffect(() => {
-		// window.location.reload();
-        console.log("user",user);
-        console.log("cart",catProduct);
         if (user?.emailVerified) {
             
             refetch()
-            console.log("refetch");
         }
 	}, [user])
    
