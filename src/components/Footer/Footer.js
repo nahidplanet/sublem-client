@@ -174,7 +174,7 @@ const Footer = () => {
             <div className="divider mx-0 h-[1px] bg-gray-400 font-bold my-5"></div>
             <div className=' pb-5 '>
                 <div className='flex flex-wrap justify-center sm:justify-between items-center text-sm px-10'>
-                    <p className='capitalize text-gray-900'>© {date} Sublem - Furnishings. All Rights Reserved || Abu Dhabi </p>
+                    <p className='capitalize text-gray-900'>Copyright &copy; {date} Sublem - Furniture. All Rights Reserved || Abu Dhabi </p>
                     <p className='text-gray-900 text-[5px]'>Developer: <a className='text-orange-400' href="https://linkedin.com/in/nahidplanet" target={'_blank'}>Nahid Hasan</a></p>
                 </div>
             </div>
