@@ -17,9 +17,9 @@ const ServiceGypsum = () => {
 	};
 	const { data, isLoading } = useQuery(['gypsum', page, limit], getFacts);
 
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	// if (isLoading) {
+	// 	return <Loader></Loader>
+	// }
 	const handlePageClick = (data) => {
 		setPage(data.selected + 1);
 	}

@@ -10,7 +10,7 @@ const LastStepOfMOdalShowDetails = ({ i, x }) => {
 	}
 	return (
 		<div className='text-center text-gray-900'>
-			<h1 className='text-xl text-center capitalize font-semibold my-3'> product {1 + (i++)}</h1>
+			<h1 className='text-xl text-center capitalize font-semibold my-3'>Order History</h1>
 			<div className='border-b w-full'>
 				{
 					pathIs ? <img src={`${images?.productImage[0].productImagePath}`} alt={images?.name} />

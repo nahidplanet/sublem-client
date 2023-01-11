@@ -4,7 +4,7 @@ import CustomAdminLink from '../../Shared/CustomAdminLink';
 const AdminSidebar = ({handleLogOut}) => {
 	
 	return (
-		<div className="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+		<div className="relative  bg-[#2A303C] h-screen w-64 hidden sm:block shadow-xl">
 			<div className="p-6">
 				<CustomAdminLink to={"/developer"} href="index.html" className="text-white text-2xl font-semibold uppercase hover:text-gray-300">sublem</CustomAdminLink>
 				

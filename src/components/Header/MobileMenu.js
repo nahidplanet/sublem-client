@@ -23,10 +23,10 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
         localStorage.removeItem("activeToken");
         // window.location.reload()
     }
-    if (signOutLoading || isLoading) {
-        return <Loader></Loader>
+    // if (signOutLoading || isLoading) {
+    //     return <Loader></Loader>
 
-    }
+    // }
    
     return (
         <div className='lg:hidden w-full'>

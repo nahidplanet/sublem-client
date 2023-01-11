@@ -11,7 +11,12 @@ const HeaderTop = () => {
     const navigate = useNavigate();
     const [signOut] = useSignOut(auth);
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
-    
+    const handleSignOut = () => {
+        signOut();
+        localStorage.removeItem("activeToken");
+        navigate('/login')
+    }
+
 
 
 
@@ -50,13 +55,7 @@ const HeaderTop = () => {
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/wishlist"}>Wishlist</Link></li>
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/save-cart"}>Save Cart</Link></li>
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/order-history"}>Order History</Link></li>
-                                    {user ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={async () => {
-                                        signOut()
-                                        localStorage.removeItem("activeToken");
-                                        // window.location.reload()
-
-                                        navigate('/login')
-                                    }}> Sign Out</Link></li> :
+                                    {user ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={handleSignOut}> Sign Out</Link></li> :
                                         <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"/login"}>Sign In</Link></li>
 
                                     }

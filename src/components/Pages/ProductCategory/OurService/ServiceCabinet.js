@@ -17,9 +17,9 @@ const ServiceCabinet = () => {
 	};
 	const { data, isLoading } = useQuery(['Cabinets', page, limit], getFacts);
 
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	// if (isLoading) {
+	// 	return <Loader></Loader>
+	// }
 	const handlePageClick = (data) => {
 		setPage(data.selected + 1);
 	}

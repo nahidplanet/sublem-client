@@ -27,9 +27,9 @@ const Orders = () => {
 	};
 	const { data, isLoading, refetch } = useQuery(['receiveAllOrder', limit, page], getFacts);
 	const orders = data?.data?.orders?.orders;
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	// if (isLoading) {
+	// 	return <Loader></Loader>
+	// }
 	const handleDelete = (item) => {
 		setDeleteItem(item)
 	}

@@ -20,9 +20,9 @@ const HomeCurtains = () => {
 	const { data, isLoading } = useQuery(['AllProducts'], getFacts);
 	// data?.data?.data?.products?.map
 
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	// if (isLoading) {
+	// 	return <Loader></Loader>
+	// }
 	const handlePageClick = (data) => {
 		setPage(data.selected +1);
 

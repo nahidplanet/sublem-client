@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import axiosInst from '../../axios';
-import Loader from '../../Shared/Loader';
 import UserSingleRow from './UserSingleRow';
 import UserUpdateRoleModal from './UserUpdateRoleModal';
 
@@ -19,9 +18,7 @@ const Users = () => {
 	};
 	const { data, isLoading, refetch } = useQuery(['allUsers', limit, page], getFacts);
 	const users = data?.data?.users?.users;
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	
 	const handleUserDelete = (user) => {
 		setUpdateRole(user)
 	}

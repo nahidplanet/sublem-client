@@ -4,12 +4,19 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import useLoadCart from '../../../hooks/useLoadCart';
-import { api } from '../../../urlConfig';
+import { api ,baseUrl} from '../../../urlConfig';
 
 const SliderSingleProduct = ({ data }) => {
 	const [products, totalProduct, totalPrice, isLoading, refetch] = useLoadCart();
 	const navigate = useNavigate();
 	const { _id, name, productImage, price, discount } = data;
+
+	let pathIs = false;
+	if (productImage[0].productImagePath.includes("http")) {
+		pathIs = true;
+	} else {
+		pathIs = false;
+	}
 
 	const handleAddToCart = (id, price) => {
 		const addToCartInfo = { productId: id, price }
@@ -59,13 +66,18 @@ const SliderSingleProduct = ({ data }) => {
 	return (
 		<div className='p-2'>
 			<div className="card rounded-none border text-gray-900 ">
-				<figure onClick={() => handleHomeCategoryProductDetails(_id)} className='cursor-pointer lg:h-[300px] h-[200px]'><img src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt="product_image" /></figure>
+				<figure onClick={() => handleHomeCategoryProductDetails(_id)} className='cursor-pointer lg:h-[300px] h-[200px]'>
+					{
+						pathIs ? <img className='w-full h-full mx-auto' src={`${productImage[0].productImagePath}`} alt={name} />
+							: <img className='w-full h-full mx-auto' src={`${baseUrl}${productImage[0].productImagePath}`} alt={name} />
+					}
+					</figure>
 				<div className="card-body p-2">
 					<div className="card-actions  ">
 						<p style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }} className='py-1 my-1 font-semibold text-lg text-wrap' >{`${window.innerWidth < 600 ? name.slice(0, 40) : name.slice(0, 25)}`} </p>
 						<div className='text-xm md:text-md flex justify-between font-semibold w-full'>
 							<p className='text-red-700 font-semibold text-xs md:text-md'>{parseInt(price) - parseInt(discount)}<span className=' text-sx md:text-md'>AED</span></p>
-							<p className='font-normal text-xs md:text-md mx-2'> <del>{price}</del> <span className='font-semibold text-sx md:text-md'> AED</span> </p>
+							<p className='font-normal text-xs md:text-md mx-2'> <del>{price} <span className='font-semibold text-sx md:text-md'> AED</span> </del></p>
 							<p className='text-gray-800 font-bold text-xs md:text-md'>save: {discount} AED</p>
 						</div>
 						<div className='text-xm md:text-md flex justify-evenly gap-5  w-full'>

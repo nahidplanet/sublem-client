@@ -4,6 +4,7 @@ import CustomLink from '../Shared/CutomLink';
 import FooterMobileMenu from './FooterMobileMenu';
 import FooterSocial from './FooterSocial';
 import { api } from '../../urlConfig';
+import { toast } from 'react-toastify';
 
 const Footer = () => {
 
@@ -23,6 +24,9 @@ const Footer = () => {
     }, [])
     let date = new Date();
     date = date.getFullYear();
+    const handleEmailFooter=()=>{
+        toast.success("Thanks For Submission")
+    }
     return (
         <div className=''>
             {/* footer top  */}
@@ -33,8 +37,8 @@ const Footer = () => {
                         <h1 className='text-gray-800 text-bold text-xl'>Sign up to receive updates and exclusive offers by email</h1>
                     </div>
                     <div className='flex justify-start items-center w-full lg:w-80 px-4 lg:px-0'>
-                        <input type="text" placeholder="Email Address..." className="font-semibold input input-bordered border-black  input-md w-full  bg-white border-r-0 rounded rounded-r-none" />
-                        <button className='border w-[40px] mt-[10px] border-l-0 bg-black text-white  border-black rounded rounded-l-none'>
+                        <input type="text" placeholder="Email Address..." className="text-gray-800 font-semibold input input-bordered border-black  input-md w-full  bg-white border-r-0 rounded rounded-r-none" />
+                        <button onClick={handleEmailFooter} className='border w-[40px] mt-[10px] border-l-0 bg-black text-white  border-black rounded rounded-l-none'>
                             <CheckIcon className='w-5 h-[46px] mx-2 ' />
                         </button>
                     </div>

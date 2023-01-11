@@ -18,9 +18,9 @@ const ArabicWallpaper = () => {
 	};
 	const { data, isLoading } = useQuery(['ArabicWallpaper', page, limit], getFacts);
 
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	// if (isLoading) {
+	// 	return <Loader></Loader>
+	// }
 	const handlePageClick = (data) => {
 		setPage(data.selected + 1);
 	}

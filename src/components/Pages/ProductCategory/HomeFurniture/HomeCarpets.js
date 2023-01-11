@@ -21,9 +21,9 @@ const HomeCarpets = () => {
 	const { data, isLoading } = useQuery(['homeCarpet',limit,page], getFacts);
 	// data?.data?.data?.products?.map
 
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	// if (isLoading) {
+	// 	return <Loader></Loader>
+	// }
 	const handlePageClick = (data) => {
 		setPage(data.selected +1);
 

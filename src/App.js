@@ -63,6 +63,7 @@ import Call from "./components/Shared/Call";
 import AddProductBb from "./components/Admin/AddProductBb/AddProductBb";
 import AddSlider from "./components/Admin/AddSlider.js/AddSlider";
 import AddCategoryAndLogo from "./components/Admin/AddCategoryAndLogo/AddCategoryAndLogo";
+import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 
 
 function App() {
@@ -103,6 +104,7 @@ function App() {
 
           {/* page  */}
           <Route path="/login" element={<SignIn></SignIn>}></Route>
+          <Route path="/developer/admin-login" element={<AdminLogin></AdminLogin>}></Route>
           {/* <Route path="/singup" element={<SignUp></SignUp>}></Route> */}
           <Route path="/single-product" element={<ProductDetails></ProductDetails>}></Route>
           <Route path="/cart" element={<RequireAuth><Cart></Cart></RequireAuth>}></Route>
@@ -167,6 +169,7 @@ function App() {
           <Route path="service-category/painting" element={<ServicePanting></ServicePanting>}></Route>
           <Route path="service-category/painting/:id" element={<ProductDetails></ProductDetails>}></Route>
           {/* wrong route  */}
+          <Route path="not-found" element={<NotFoundPage></NotFoundPage>}></Route>
           <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
         </Routes>
       </div>

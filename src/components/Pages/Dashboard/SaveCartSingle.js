@@ -14,14 +14,10 @@ const SaveCartSingle = ({ product }) => {
 
 	return (
 		<tr>
-			<th>
-				<label>
-					<input type="checkbox" className="checkbox" />
-				</label>
-			</th>
+			
 			<td>
 				<div className="flex items-center space-x-3">
-					<div className="avatar w-10 h-10">
+					<div className="avatar w-10 h-10 ml-3">
 						{
 						pathIs ? <img  src={`${productImage[0].productImagePath}`} alt={name} />
 							: <img  src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />

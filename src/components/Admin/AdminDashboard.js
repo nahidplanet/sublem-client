@@ -18,7 +18,7 @@ const AdminDashboard = () => {
 	const handleLogOut = () => {
 		localStorage.removeItem("activeToken")
 		signOut()
-		navigate('/login')
+		navigate('/developer/admin-login')
 
 	}
 	return (

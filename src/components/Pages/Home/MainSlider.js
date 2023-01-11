@@ -4,7 +4,6 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Slider from 'react-slick';
 import { api } from '../../../urlConfig';
-import Loader from '../../Shared/Loader';
 
 const MainSlider = () => {
     const getFacts = () => {
@@ -13,11 +12,9 @@ const MainSlider = () => {
         })
         return res;
     };
-    const { data, isLoading } = useQuery(['Slider'], getFacts);
+    const { data } = useQuery(['Slider'], getFacts);
     const slider = data?.data?.slider;
-if (isLoading) {
-    return <Loader></Loader>
-}
+
 
     var settings = {
         dots: false,

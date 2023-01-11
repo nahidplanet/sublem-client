@@ -2,20 +2,17 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './SignIn.css'
-import auth from '../../../firebaseAuth/firebase.init';
 import google from '../../../assets/icon/google.svg'
 import facebook from '../../../assets/icon/facebookSocial.svg'
 import useToken from '../../../hooks/useToken';
 import PageTitle from '../../Shared/PageTitle';
-import { toast } from 'react-toastify';
-import { useEffect } from 'react';
-import useLoadCart  from '../../../hooks/useLoadCart';
+import auth from '../../../firebaseAuth/firebase.init';
 
 
 const SignIn = () => {
 	const [user] = useAuthState(auth)
-	const [signInWithGoogle, suser, loading, error] = useSignInWithGoogle(auth);
-	const [signInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
+	const [signInWithGoogle,] = useSignInWithGoogle(auth);
+	const [signInWithFacebook, ] = useSignInWithFacebook(auth);
 	let navigate = useNavigate();
 
 	const [token] = useToken(user)
@@ -24,7 +21,6 @@ const SignIn = () => {
 	if (token) {
 		navigate("/")
 		window.location.reload()
-		// toast.success("Login Successful")
 	}
 
 	return (

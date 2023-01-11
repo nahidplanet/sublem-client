@@ -39,7 +39,7 @@ const Cart = () => {
 					toast.success("Product added successful");
 					refetch()
 				} else {
-					toast.error("Product added failed");
+					toast.error("Login Required");
 					
 				}
 			})
@@ -63,7 +63,7 @@ const Cart = () => {
 					toast.success("Product added successful");
 					refetch()
 				} else {
-					toast.error("Product added failed");
+					toast.error("Login Required");
 					navigate('/login')
 				}
 			})

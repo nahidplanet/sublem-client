@@ -1,36 +1,42 @@
 import { HeartIcon } from '@heroicons/react/24/solid';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
 import { useParams } from 'react-router';
-import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loader from '../../Shared/Loader';
 import './ProductDetails.css'
-import { useState } from 'react';
 import useLoadCart from '../../../hooks/useLoadCart';
 import { toast } from 'react-toastify';
 import PageTitle from '../../Shared/PageTitle';
 import { api, baseUrl } from '../../../urlConfig';
 
 const ProductDetails = () => {
+	const [loading, setLoading] = useState(false)
+	const [product, setProduct] = useState([])
 	const [cartCount, setCartCount] = useState(0)
 	const [catProduct, totalProduct, totalPrice, sisLoading, refetch] = useLoadCart()
+
 
 	let pathIs = false;
 
 	// var baseUrl = `http://localhost:5000/images/product/`;
 	const { id } = useParams();
-	const { isLoading, data } = useQuery(
-		['singleProduct'], () => axios.get(`${api}/product/${id}`)
-			.then(data => data)
-	)
+
+	useEffect(() => {
+		setLoading(true)
+		axios.get(`${api}/product/${id}`)
+			.then(data => {
+				setProduct(data?.data?.data)
+				setLoading(false)
+
+			})
+	}, [id])
 
 
-
-	if (isLoading) {
+	if (loading || product.length < 1) {
 		return <Loader></Loader>
 	}
-	const { _id, name, productImage, code, color, feature, category, type, sortDescription, longDescription, price, discount } = data?.data?.data[0];
+	const { _id, name, productImage, code, color, feature, category, type, sortDescription, longDescription, price, discount } = product[0];
 	if (productImage[0].productImagePath.includes("http")) {
 		pathIs = true;
 	} else {
@@ -66,7 +72,7 @@ const ProductDetails = () => {
 
 					refetch()
 				} else {
-					toast.error("Product added failed");
+					toast.error("Login Required");
 
 				}
 			})
@@ -88,7 +94,7 @@ const ProductDetails = () => {
 			.then(data => {
 				if (data.status) {
 					toast.success(data?.message)
-				}else{
+				} else {
 					toast.error(data?.message)
 				}
 			})
@@ -114,7 +120,7 @@ const ProductDetails = () => {
 	};
 	return (
 		<>
-		<PageTitle title={"Product Details"}></PageTitle>
+			<PageTitle title={"Product Details"}></PageTitle>
 			<div className='min-h-screen w-full'>
 				<div className='h-10 flex items-center mx-10 capitalize text-md font-semibold border-b'>
 					<span className=' text-normal capitalize italic text-gray-600'>Product/ {category}/ {type}/ {name}</span>
@@ -163,8 +169,8 @@ const ProductDetails = () => {
 													<input value={cartCount} readOnly onChange={(e) => setCartCount(toString(e.target.value))} className='mt-[-13px] border w-12 h-10 bg-white text-gray-900 text-xl font-bold rounded-sm mr-2 px-2' type="number" />
 												</div>
 												<div>
-													
-													<button  onClick={() => handleCartIncrease(_id, price)} className='mt-0 border w-10 h-10 bg-white text-gray-900 text-2xl font-bold rounded-sm mr-2 hover:bg-gray-200  '>+</button>
+
+													<button onClick={() => handleCartIncrease(_id, price)} className='mt-0 border w-10 h-10 bg-white text-gray-900 text-2xl font-bold rounded-sm mr-2 hover:bg-gray-200  '>+</button>
 												</div>
 											</div>
 										</div>

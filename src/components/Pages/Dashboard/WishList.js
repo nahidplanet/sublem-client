@@ -37,7 +37,7 @@ const WishList = () => {
 	return (
 		<div>
 			<PageTitle title={"Wishlist"}></PageTitle>
-			<div className="overflow-x-auto w-full">
+			<div className="overflow-x-auto w-full ">
 				<table className="table table-compact w-full">
 					<thead>
 						<tr>

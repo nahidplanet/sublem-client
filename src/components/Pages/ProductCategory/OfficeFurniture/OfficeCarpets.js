@@ -19,9 +19,9 @@ const OfficeCarpets = () => {
 	};
 	const { data, isLoading } = useQuery(['OfficeCarpets', page, limit], getFacts);
 
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	// if (isLoading) {
+	// 	return <Loader></Loader>
+	// }
 	const handlePageClick = (data) => {
 		setPage(data.selected + 1);
 	}

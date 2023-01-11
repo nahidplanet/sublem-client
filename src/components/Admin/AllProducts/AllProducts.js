@@ -30,9 +30,9 @@ const AllProducts = () => {
 	const { data, isLoading, refetch } = useQuery(['AllProducts', limit, page], getFacts);
 	
 	const products = data?.data?.data;
-	if (isLoading) {
-		return <Loader></Loader>
-	}
+	// if (isLoading) {
+	// 	return <Loader></Loader>
+	// }
 	const handleDelete = (item) => {
 		setDeleteItem(item)
 	}

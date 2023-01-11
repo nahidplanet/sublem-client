@@ -43,7 +43,7 @@ const UserOrderSubmit = () => {
 							<img src={order} alt="order place" />
 						</div>
 						<div className="card-actions w-full">
-							<button onClick={handleOrder} className="btn btn-primary w-full block">Confirm Order</button>
+							<button onClick={handleOrder} className="btn btn-primary w-full block">Click To Confirm Order</button>
 						</div>
 					</div>
 				</div>

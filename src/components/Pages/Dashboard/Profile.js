@@ -16,11 +16,11 @@ const Profile = () => {
 		<div className='text-black grid grid-cols-8 bg-gray w-full'>
 
 			<div><PageTitle title={"Profile"}></PageTitle></div>
-			<div className='col-span-6'>
+			<div className='col-span-8 md:col-span-6'>
 				<div className="mt-20 card  bg-white  shadow-xl w-full border">
 					<div className="card-body ">
-						<h1 className='text-center mb-5 text-4xl capitalize'>Profile Info</h1>
-						<table className='text-center'>
+						<h1 className='text-center mb-5 text-2xl md:text-4xl capitalize'>Profile Info</h1>
+						<table className='text-left md:text-center '>
 								<tr className='border-b'>
 									<thead><th className='p-5'>Full Name</th></thead>
 									<td >{user?.fullName}</td>

@@ -23,11 +23,7 @@ const SaveCart = () => {
 				<table className="table table-compact w-full">
 					<thead>
 						<tr>
-							<th>
-								<label>
-									<input type="checkbox" className="checkbox" />
-								</label>
-							</th>
+							
 							<th>Product Image</th>
 							<th>Product Name</th>
 							<th>Quantity</th>

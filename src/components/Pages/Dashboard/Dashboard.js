@@ -44,7 +44,7 @@ const Dashboard = () => {
 				</div>
 				<div className="drawer-side">
 					<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-					<ul className="menu p-4 w-60 bg-gray-300 text-white">
+					<ul className="menu p-4 w-60  bg-[#2A303C] text-white">
 						{/* <!-- Sidebar content here --> */}
 						{
 							dashBoardMenuData.map(route => <li className='text-white font-semibold' key={route.id}><CustomLink to={route.path}> {route.name} </CustomLink> </li>)
