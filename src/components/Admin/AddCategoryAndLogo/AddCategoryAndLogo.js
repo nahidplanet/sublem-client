@@ -52,44 +52,44 @@ const AddCategoryAndLogo = () => {
 
 					<div className="mt-3">
 						<label className="block text-sm text-gray-600" >Facebook</label>
-						<input onChange={(e) => setfacebook(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+						<input required onChange={(e) => setfacebook(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
 							type="text"
 							placeholder="Facebook" />
 					</div>
 					<div className="mt-3">
 						<label className="block text-sm text-gray-600" >Instagram </label>
-						<input onChange={(e) => setinstagram(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+						<input required onChange={(e) => setinstagram(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
 							type="text"
 							placeholder="Instagram" />
 					</div>
 					<div className="mt-3">
 						<label className="block text-sm text-gray-600" >Youtube </label>
-						<input onChange={(e) => setyoutube(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+						<input required onChange={(e) => setyoutube(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
 							type="text"
 							placeholder="Youtube" />
 					</div>
 					<div className="mt-3">
 						<label className="block text-sm text-gray-600" >Twitter </label>
-						<input onChange={(e) => settwitter(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+						<input required onChange={(e) => settwitter(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
 							type="text"
 							placeholder="Home Bed" />
 					</div>
 					<div className="mt-3">
 						<label className="block text-sm text-gray-600" >LinkeDin </label>
-						<input onChange={(e) => setlinkedin(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+						<input required onChange={(e) => setlinkedin(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
 							type="text"
 							placeholder="LinkeDin" />
 					</div>
 					<div className="mt-3">
 						<label className="block text-sm text-gray-600" >WhatsApp </label>
-						<input onChange={(e) => setwhatsApp(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+						<input required onChange={(e) => setwhatsApp(e.target.value)} className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
 							type="text"
 							placeholder="WhatsApp" />
 					</div>
 
 					<div className='flex justify-start items-center'>
 						<div className="mt-6 mr-6">
-							<input type="submit" value="Save Links" className="px-4 py-1 cursor-pointer text-white font-light tracking-wider bg-gray-900 rounded" ></input>
+							<input  type="submit" value="Save Links" className="px-4 py-1 cursor-pointer text-white font-light tracking-wider bg-gray-900 rounded" />
 						</div>
 						<div className="mt-6">
 							<input type="reset" value="Reset" className="px-4 py-1 cursor-pointer text-white font-light tracking-wider bg-gray-900 rounded" ></input>
