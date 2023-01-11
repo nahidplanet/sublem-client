@@ -12,7 +12,7 @@ const ProductSlider = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['ServiceSlider'], getFacts);
+	const { data} = useQuery(['ServiceSlider'], getFacts);
 	var settings = {
 		dots: false,
         prevArrow: <></>,
@@ -74,6 +74,7 @@ const ProductSlider = () => {
 			}
 		]
 	};
+	
 	return (
 		<div className=" mx-auto mt-14">
 			<div className="flex flex-col items-center">
@@ -83,7 +84,7 @@ const ProductSlider = () => {
 			<Slider {...settings} className="mt-3 mb-20">
 				
 				{
-					data?.data?.data?.products?.map(service =>
+					data?.data?.data?.products?.reverse()?.map(service =>
 						<div key={service._id} className=" ">
 							<SliderSingleProduct  key={service._id}  data={service}></SliderSingleProduct>
 						</div>

@@ -37,7 +37,7 @@ const ProductDetails = () => {
 		return <Loader></Loader>
 	}
 	const { _id, name, productImage, code, color, feature, category, type, sortDescription, longDescription, price, discount } = product[0];
-	if (productImage[0].productImagePath.includes("http")) {
+	if (productImage[0].productImagePath?.includes("http")) {
 		pathIs = true;
 	} else {
 		pathIs = false;

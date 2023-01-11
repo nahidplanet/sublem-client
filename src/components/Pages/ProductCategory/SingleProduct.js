@@ -13,7 +13,7 @@ const SingleProduct = ({ data }) => {
 	const { _id, name, productImage, price, discount } = data;
 
 	let pathIs = false;
-	if (productImage[0].productImagePath.includes("http")) {
+	if (productImage[0].productImagePath?.includes("http")) {
 		pathIs = true;
 	} else {
 		pathIs = false;
@@ -81,7 +81,7 @@ const SingleProduct = ({ data }) => {
 						<div className='text-xm md:text-md m-0 p-0 flex justify-between font-semibold w-full'>
 							<p className='text-red-700 font-semibold'>{parseInt(price) - parseInt(discount)}<span> AED</span></p>
 							<p className='font-normal'> <del>{price} <span className='font-semibold'> AED</span> </del></p>
-							<p> <span className='text-gray-800 font-bold'>save: </span>{discount} AED</p>
+							<p> <span className='text-gray-800 font-bold'>Save: </span>{discount} AED</p>
 						</div>
 						<div className='text-xm md:text-md flex justify-evenly gap-5  w-full'>
 							<button onClick={() => handleHomeCategoryProductDetails(_id)} className="mt-0 border hover:bg-slate-100 p-1 rounded-sm w-5/12" >View</button>

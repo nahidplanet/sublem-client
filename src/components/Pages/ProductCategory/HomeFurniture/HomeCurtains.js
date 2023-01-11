@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import axiosInst from '../../../axios';
-import Loader from '../../../Shared/Loader';
 import SingleProduct from '../SingleProduct';
 
 const HomeCurtains = () => {
@@ -17,12 +16,8 @@ const HomeCurtains = () => {
 		return res;
 	};
 
-	const { data, isLoading } = useQuery(['AllProducts'], getFacts);
-	// data?.data?.data?.products?.map
-
-	// if (isLoading) {
-	// 	return <Loader></Loader>
-	// }
+	const { data } = useQuery(['AllProducts'], getFacts);
+	
 	const handlePageClick = (data) => {
 		setPage(data.selected +1);
 
@@ -35,10 +30,10 @@ const HomeCurtains = () => {
 				<p className='text-md px-10 text-gray-900 my-3 text-center'><div className="my-5"></div></p>
 				<div className="divider"></div>
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '>
-					{/* <h1 className='text-black'>{products.length}</h1> */}
+					
 					{
 
-						data?.data?.data?.products?.map(singleProduct => <SingleProduct key={singleProduct._id} data={singleProduct}></SingleProduct>)
+						data?.data?.data?.products?.reverse()?.map(singleProduct => <SingleProduct key={singleProduct._id} data={singleProduct}></SingleProduct>)
 					}
 				</div>
 				<div className={`${data?.data?.data?.products.length < 1 ? 'hidden' : 'block'}`}  >

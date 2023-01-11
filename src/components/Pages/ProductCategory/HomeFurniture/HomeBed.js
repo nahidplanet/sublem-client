@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import axiosInst from '../../../axios';
-import Loader from '../../../Shared/Loader';
 import SingleProduct from '../SingleProduct';
 
 const HomeBed = () => {
@@ -17,11 +16,9 @@ const HomeBed = () => {
 		return res;
 	};
 
-	const { data, isLoading } = useQuery(['AllProducts',limit,page], getFacts);
+	const { data } = useQuery(['AllProducts',limit,page], getFacts);
 
-	// if (isLoading) {
-	// 	return <Loader></Loader>
-	// }
+	
 	const handlePageClick = (data) => {
 		setPage(data.selected +1);
 
@@ -35,7 +32,7 @@ const HomeBed = () => {
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '>
 					{
 
-						data?.data?.data?.products?.map(singleProduct => <SingleProduct key={singleProduct._id} data={singleProduct}></SingleProduct>)
+						data?.data?.data?.products?.reverse()?.map(singleProduct => <SingleProduct key={singleProduct._id} data={singleProduct}></SingleProduct>)
 					}
 				</div>
 				<div className={`${data?.data?.data?.products.length < 1 ? 'hidden' : 'block'}`}  >

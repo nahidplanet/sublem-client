@@ -92,7 +92,7 @@ const AllProducts = () => {
 					</thead>
 					<tbody className=' text-white'>
 						{
-							products?.products?.map((item, index) =>
+							products?.products?.reverse()?.map((item, index) =>
 								<ProductSingleRow 
 								key={item._id}
 								 page={page} 

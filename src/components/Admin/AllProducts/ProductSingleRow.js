@@ -3,7 +3,7 @@ const ProductSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit
 	
 
 	let pathIs = false;
-	if (item.productImage[0].productImagePath.includes("http")) {
+	if (item.productImage[0].productImagePath?.includes("http")) {
 		pathIs = true;
 	} else {
 		pathIs = false;

@@ -7,7 +7,7 @@ const SingleCart = ({ data, handleCartDeleteItem, handleProductIncrease, handleP
 	const { price, productId, quantity } = data;
 	const { name, productImage, category, type } = data.productId;
 	let pathIs = false;
-	if (productImage[0].productImagePath.includes("http")) {
+	if (productImage[0].productImagePath?.includes("http")) {
 		pathIs = true;
 	} else {
 		pathIs = false;

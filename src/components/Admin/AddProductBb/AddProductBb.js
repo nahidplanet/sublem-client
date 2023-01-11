@@ -8,11 +8,11 @@ const AddProductBb = () => {
 
 	const onSubmit = async (products) => {
 		const productImage = [
-			{ productImagePath: products.image1 = undefined },
-			{ productImagePath: products.image2 = undefined },
-			{ productImagePath: products.image3 = undefined },
-			{ productImagePath: products.image4 = undefined },
-			{ productImagePath: products.image5 = undefined },
+			{ productImagePath: products.image1 },
+			{ productImagePath: products.image2 },
+			{ productImagePath: products.image3 },
+			{ productImagePath: products.image4 },
+			{ productImagePath: products.image5 },
 		];
 		const status = "free";
 		const {name,code,sortDescription,longDescription,price,discount,category,type,color,feature}=products

@@ -3,7 +3,7 @@ import React from 'react';
 const LastStepOfMOdalShowDetails = ({ i, x }) => {
 	const images = x?.productId;
 	let pathIs = false;
-	if (images?.productImage[0].productImagePath.includes("http")) {
+	if (images?.productImage[0].productImagePath?.includes("http")) {
 		pathIs = true;
 	} else {
 		pathIs = false;

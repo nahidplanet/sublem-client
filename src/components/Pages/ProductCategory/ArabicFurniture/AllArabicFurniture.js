@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
 import axiosInst from '../../../axios';
-import Loader from '../../../Shared/Loader';
 import PageTitle from '../../../Shared/PageTitle';
 import SingleProduct from '../SingleProduct';
 
@@ -16,11 +15,8 @@ const AllArabicFurniture = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['arabicAll', page, limit], getFacts);
+	const { data } = useQuery(['arabicAll', page, limit], getFacts);
 
-	// if (isLoading) {
-	// 	return <Loader></Loader>
-	// }
 	const handlePageClick = (data) => {
 		setPage(data.selected + 1);
 	}
@@ -36,7 +32,7 @@ const AllArabicFurniture = () => {
 						data?.data?.data?.products.length < 1 && <div className=''><h1 className='font-bold text-gray-800 text-4xl capitalize'>Product empty </h1></div>
 					}
 					{
-						data?.data?.data?.products?.map(singleProduct => <SingleProduct key={singleProduct._id} data={singleProduct}></SingleProduct>)
+						data?.data?.data?.products?.reverse()?.map(singleProduct => <SingleProduct key={singleProduct._id} data={singleProduct}></SingleProduct>)
 					}
 				</div>
 				<div className={`${data?.data?.data?.products.length < 1 ? 'hidden' : 'block'}`}  >

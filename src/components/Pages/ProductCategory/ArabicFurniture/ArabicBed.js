@@ -16,11 +16,8 @@ const ArabicBed = () => {
 		})
 		return res;
 	};
-	const { data, isLoading } = useQuery(['ArabicBed', page, limit], getFacts);
+	const { data } = useQuery(['ArabicBed', page, limit], getFacts);
 
-	// if (isLoading) {
-	// 	return <Loader></Loader>
-	// }
 	const handlePageClick = (data) => {
 		setPage(data.selected + 1);
 	}

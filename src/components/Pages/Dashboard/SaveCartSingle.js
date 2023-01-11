@@ -6,7 +6,7 @@ const SaveCartSingle = ({ product }) => {
 	const { name, productImage, category, type } = product.productId;
 
 	let pathIs = false;
-	if (productImage[0].productImagePath.includes("http")) {
+	if (productImage[0].productImagePath?.includes("http")) {
 		pathIs = true;
 	} else {
 		pathIs = false;

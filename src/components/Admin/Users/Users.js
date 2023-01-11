@@ -16,7 +16,7 @@ const Users = () => {
 		const res = axiosInst.get(`/all-users?limit=${limit}&page=${page}`).then(res => res);
 		return res;
 	};
-	const { data, isLoading, refetch } = useQuery(['allUsers', limit, page], getFacts);
+	const { data, refetch } = useQuery(['allUsers', limit, page], getFacts);
 	const users = data?.data?.users?.users;
 	
 	const handleUserDelete = (user) => {
@@ -69,7 +69,7 @@ const Users = () => {
 					</thead>
 					<tbody className=' text-white'>
 						{
-							users?.map((user,index) => <UserSingleRow key={user._id} page={page} limit={limit} index={index}  user={user} handleUserDelete={handleUserDelete} UserToAdminModal={UserToAdminModal}></UserSingleRow>)
+							users?.reverse()?.map((user,index) => <UserSingleRow key={user._id} page={page} limit={limit} index={index}  user={user} handleUserDelete={handleUserDelete} UserToAdminModal={UserToAdminModal}></UserSingleRow>)
 						}
 
 					</tbody>

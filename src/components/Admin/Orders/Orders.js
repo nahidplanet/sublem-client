@@ -109,7 +109,7 @@ const Orders = () => {
 					<tbody className=' text-white'>
 
 						{
-							orders?.map((item, index) => <OrderSingleRow
+							orders?.reverse()?.map((item, index) => <OrderSingleRow
 								key={item._id}
 								page={page}
 								limit={limit}

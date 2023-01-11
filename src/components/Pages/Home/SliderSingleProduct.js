@@ -12,7 +12,7 @@ const SliderSingleProduct = ({ data }) => {
 	const { _id, name, productImage, price, discount } = data;
 
 	let pathIs = false;
-	if (productImage[0].productImagePath.includes("http")) {
+	if (productImage[0].productImagePath?.includes("http")) {
 		pathIs = true;
 	} else {
 		pathIs = false;

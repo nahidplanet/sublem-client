@@ -38,7 +38,7 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
                             <svg className="text-gray-800 swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" /></svg>
                             <svg className="text-gray-800 swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" /></svg>
                         </label>
-                        <p className='text-gray-800 text-sm'>Menu</p>
+                        <p className='text-gray-800 text-xs sm:text-sm'>Menu</p>
                     </div>
                     <div className='flex flex-col justify-center items-center cursor-pointer'>
                         <div className='w-6 h-6 text-gray-800'>
@@ -50,7 +50,7 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
                             ><img className='w-full h-full text-gray-800' src={whatsApp} alt="whatsapp" />
                             </a>
                         </div>
-                        <p className='text-gray-800 text-sm mt-2'>WhatsApp</p>
+                        <p className='text-gray-800 text-xs sm:text-sm mt-2'>WhatsApp</p>
                     </div>
 
                     <div className='w-[55px] h-[55px]'>
@@ -63,7 +63,7 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
                                     <ShoppingBagIcon className='w-7 h-7  text-normal text-gray-800' />
                                     <span className="badge badge-sm indicator-item">{totalProduct ? totalProduct : 0}</span>
                                 </div>
-                                <p className='text-gray-800 text-sm  font-normal capitalize'>Cart</p>
+                                <p className='text-gray-800 text-xs sm:text-sm  font-normal capitalize'>Cart</p>
 
 
                             </label>
@@ -117,7 +117,7 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
                             :
                             <Link to="/login" className='flex flex-col justify-center items-center cursor-pointer'>
                                 <p><UserCircleIcon className='w-8 -h-8 text-gray-800  font-bold'></UserCircleIcon></p>
-                                <p className='text-gray-800 text-sm '>Sign In</p>
+                                <p className='text-gray-800 text-xs sm:text-sm '>Sign In</p>
                             </Link >
                     }
                 </div>
