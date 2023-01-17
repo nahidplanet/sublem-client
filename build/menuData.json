@@ -1,0 +1,106 @@
+[
+	{
+		"id": 1,
+		"route": "arabic-category",
+		"category": "arabian furniture",
+		"routes": [
+			{
+				"name": "arabic curtains",
+				"route": "curtains"
+			},
+			{
+				"name": "arabic carpets",
+				"route": "carpets"
+			},
+			{
+				"name": "arabic sofa",
+				"route": "sofa"
+			},
+			{
+				"name": "arabic wallpaper",
+				"route": "wallpaper"
+			},
+			{
+				"name": "arabic bed",
+				"route": "bed"
+			},
+			{
+				"name": "bed mattress",
+				"route": "bed_mattress"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"route": "home-category",
+		"category": "home furniture",
+		"routes": [
+			{
+				"name": "home curtains",
+				"route": "curtains"
+			},
+			{
+				"name": "home carpets",
+				"route": "carpets"
+			},
+			{
+				"name": "home sofa",
+				"route": "sofa"
+			},
+			{
+				"name": "home wallpaper",
+				"route": "wallpaper"
+			},
+			{
+				"name": "home bed",
+				"route": "bed"
+			},
+			{
+				"name": "home bed mattress",
+				"route": "bed_mattress"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"route": "office-category",
+		"category": "office furniture",
+		"routes": [
+			{
+				"name": "office curtains",
+				"route": "curtains"
+			},
+			{
+				"name": "office carpets",
+				"route": "carpets"
+			},
+			{
+				"name": "office sofa",
+				"route": "sofa"
+			},
+			{
+				"name": "office wallpaper",
+				"route": "wallpaper"
+			}
+		]
+	},
+	{
+		"id": 4,
+		"route": "service-category",
+		"category": "services",
+		"routes": [
+			{
+				"name": "Wall painting",
+				"route": "wall_painting"
+			},
+			{
+				"name": "Cabinets design",
+				"route": "cabinets_design"
+			},
+			{
+				"name": "gypsum design",
+				"route": "gypsum_design"
+			}
+		]
+	}
+]
