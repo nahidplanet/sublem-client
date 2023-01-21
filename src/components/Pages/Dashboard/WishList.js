@@ -1,7 +1,5 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
-import auth from '../../../firebaseAuth/firebase.init';
 import useLoadWishlist from '../../../hooks/useLoadWishlist';
 import { api } from '../../../urlConfig';
 import Loader from '../../Shared/Loader';
@@ -9,7 +7,8 @@ import PageTitle from '../../Shared/PageTitle';
 import WishListSingle from './WishListSingle';
 
 const WishList = () => {
-	const [user] = useAuthState(auth)
+	const localUser = localStorage.getItem("Auth_credentials")
+	const user = JSON.parse(localUser)
 	const [userinfo, isLoading, refetch] = useLoadWishlist(user);
 	
 	if (isLoading) {

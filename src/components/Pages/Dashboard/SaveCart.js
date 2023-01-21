@@ -1,16 +1,15 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router';
-import auth from '../../../firebaseAuth/firebase.init';
 import useLoadCart from '../../../hooks/useLoadCart';
 import Loader from '../../Shared/Loader';
 import PageTitle from '../../Shared/PageTitle';
 import SaveCartSingle from './SaveCartSingle';
 
 const SaveCart = () => {
-	const [user] = useAuthState(auth);
+	const localUser = localStorage.getItem("Auth_credentials")
+	const user = JSON.parse(localUser)
 	const navigate = useNavigate()
-	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
+	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart(user)
 
 	const products = catProduct?.cartItems;
 	if (isLoading) {

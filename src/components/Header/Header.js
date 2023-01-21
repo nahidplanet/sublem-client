@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import HeaderBottom from './HeaderBottom';
 import HeaderTop from './HeaderTop';
 import MainMenu from './MainMenu';

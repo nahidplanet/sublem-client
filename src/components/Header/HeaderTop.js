@@ -14,10 +14,11 @@ const HeaderTop = () => {
     const user = JSON.parse(localUser)
  
 
-    const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
+    const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart(user)
     const handleSignOut = () => {
         localStorage.removeItem("activeToken");
         localStorage.removeItem("Auth_credentials");
+        refetch()
         navigate('/login')
     }
 

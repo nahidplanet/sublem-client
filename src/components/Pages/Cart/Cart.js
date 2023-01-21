@@ -4,15 +4,14 @@ import SingleCart from './SingleCart';
 import { ChevronDownIcon, ChevronRightIcon, ShoppingBagIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebaseAuth/firebase.init';
 import useLoadCart from '../../../hooks/useLoadCart';
 import Loader from '../../Shared/Loader';
 import PageTitle from '../../Shared/PageTitle';
 import { api } from '../../../urlConfig';
 
 const Cart = () => {
-	const [user] = useAuthState(auth)
+	const localUser = localStorage.getItem("Auth_credentials")
+	const user = JSON.parse(localUser)
 	const [open, setOpen] = useState(false)
 	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart(user)
 	const navigate = useNavigate()
@@ -20,7 +19,7 @@ const Cart = () => {
 	if (isLoading) {
 		<Loader></Loader>
 	}
-	
+
 
 
 	const handleProductIncrease = (id, price) => {
@@ -40,7 +39,7 @@ const Cart = () => {
 					refetch()
 				} else {
 					toast.error("Login Required");
-					
+
 				}
 			})
 
@@ -105,7 +104,7 @@ const Cart = () => {
 					<div className='col-span-3 m-2'>
 						{/* single cart  */}
 
-						{catProduct?.cartItems.length <1 &&
+						{catProduct?.cartItems.length < 1 &&
 							<div className='h-full'>
 								<div className='border flex flex-col justify-center items-center h-full'>
 									<h1 className='text-gray-800 capitalize text-3xl font-bold'>Your Bag is blank</h1>
@@ -153,7 +152,7 @@ const Cart = () => {
 								<input type="text" placeholder='Please Enter Your Voucher Code' className='p-1 w-full  bg-white text-gray-800 border border-r-0 rounded-l' /> <button className='bg-black ml-[-2px] text-white text-md p-1  my-6 rounded-r'>Apply</button>
 							</div>
 							{/* { ? } */}
-							<button disabled={catProduct?.cartItems.length <1} onClick={handlePressOrder} className='text-white text-center rounded-sm bg-green-600 hover:bg-green-700 w-full px-3 py-2 border border-gray-500 font-bold text-lg block' >Continue</button>
+							<button disabled={catProduct?.cartItems.length < 1} onClick={handlePressOrder} className='text-white text-center rounded-sm bg-green-600 hover:bg-green-700 w-full px-3 py-2 border border-gray-500 font-bold text-lg block' >Continue</button>
 						</div>
 					</div>
 				</div>

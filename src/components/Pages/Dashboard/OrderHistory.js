@@ -1,7 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebaseAuth/firebase.init';
 import useOrder from '../../../hooks/useOrder';
 import Loader from '../../Shared/Loader';
 import PageTitle from '../../Shared/PageTitle';
@@ -11,8 +9,8 @@ import UserOrderDetailsModal from './UserOrderDetailsModal';
 
 
 const OrderHistory = () => {
-	
-	const [user] = useAuthState(auth)
+	const localUser = localStorage.getItem("Auth_credentials")
+	const user = JSON.parse(localUser)
 	const [firstStep,isLoading, refetch] = useOrder(user)
 const [orderDetails,setOrderDetails] = useState(null)
 	if (isLoading) {

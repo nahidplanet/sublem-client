@@ -1,9 +1,7 @@
 
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import {useNavigate } from 'react-router';
-import auth from '../../../firebaseAuth/firebase.init';
 import { api } from '../../../urlConfig';
 import PageTitle from '../../Shared/PageTitle';
 
