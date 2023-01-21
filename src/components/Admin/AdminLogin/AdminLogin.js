@@ -64,11 +64,12 @@ const SignIn = () => {
 						<div className="image">
 						</div>
 					</div>
-					<div className="body-form mt-17 ">
+					<div className="body-form mt-17 items-center ">
+						<h1 className='text-xl capitalize text-gray-800 text-center font-bold'>Click below to login</h1>
 						<div >
-							<GoogleLogin className='w-full text-center'
+							<GoogleLogin className='w-full text-center text-black font-bold mx-auto'
 								clientId={clientId}
-								buttonText="Login"
+								buttonText="Login With Google"
 								onSuccess={responseGoogle}
 								onFailure={responseGoogle}
 								cookiePolicy={'single_host_origin'}

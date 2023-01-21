@@ -23,31 +23,31 @@ const SignIn = () => {
 		const username = response?.profileObj?.name
 		const sortName = response?.profileObj?.givenName
 		const image = response?.profileObj?.imageUrl
-		const userData= {email,username}
+		const userData = { email, username }
 		const setAuth = { e: email, u: username, s: sortName, url: image, };
 
-		if (response?.profileObj?.email){
+		if (response?.profileObj?.email) {
 			setTimeout(() => {
-				fetch(`${api}/create-user`,{
-					method:"POST",
-					headers:{
+				fetch(`${api}/create-user`, {
+					method: "POST",
+					headers: {
 						'Content-Type': 'application/json'
 					},
-					body:JSON.stringify(userData)
+					body: JSON.stringify(userData)
 				})
-				.then(res=>res.json())
-				.then(data=>{
-					if(data.status){
-						localStorage.setItem("activeToken", data.activeToken);
-						setIsSignedIn(true)
-					}
-				})
-				.catch(error=>{
-					navigate("/login")
-				})
+					.then(res => res.json())
+					.then(data => {
+						if (data.status) {
+							localStorage.setItem("activeToken", data.activeToken);
+							setIsSignedIn(true)
+						}
+					})
+					.catch(error => {
+						navigate("/login")
+					})
 				localStorage.setItem("Auth_credentials", JSON.stringify(setAuth));
 			}, 200)
-		}else{
+		} else {
 			navigate("/login")
 			toast.error("login Failed")
 		}
@@ -77,11 +77,12 @@ const SignIn = () => {
 						<div className="image">
 						</div>
 					</div>
-					<div className="body-form mt-17 ">
+					<div className="body-form mt-17 items-center ">
+						<h1 className='text-xl capitalize text-gray-800 text-center font-bold'>Click below to login</h1>
 						<div >
-							<GoogleLogin className='w-full text-center'
+							<GoogleLogin className='w-full text-center text-black font-bold mx-auto'
 								clientId={clientId}
-								buttonText="Login"
+								buttonText="Login With Google"
 								onSuccess={responseGoogle}
 								onFailure={responseGoogle}
 								cookiePolicy={'single_host_origin'}
