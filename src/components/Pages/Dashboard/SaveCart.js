@@ -12,6 +12,7 @@ const SaveCart = () => {
 	const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart(user)
 
 	const products = catProduct?.cartItems;
+	console.log(products);
 	if (isLoading) {
 		<Loader></Loader>
 	}
@@ -22,7 +23,7 @@ const SaveCart = () => {
 				<table className="table table-compact w-full">
 					<thead>
 						<tr>
-							
+
 							<th>Product Image</th>
 							<th>Product Name</th>
 							<th>Quantity</th>
@@ -43,7 +44,7 @@ const SaveCart = () => {
 
 				</table>
 				{
-					products.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> Your cart is blank</p>
+					products?.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> Your cart is blank</p>
 				}
 			</div>
 		</div>

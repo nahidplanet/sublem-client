@@ -16,37 +16,37 @@ const FooterMobileMenu = () => {
 				</div>
 				<ul className="collapse-content">
 
-					<li >
+					<li  className='my-3'>
 						<Link to={"home-category/curtains"} className="capitalize ml-6 flex items-center justify-between px-5">
 							<p > Home curtains</p>
 							<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 						</Link>
 					</li>
-					<li >
+					<li  className='my-3'>
 						<Link to={"home-category/carpets"} className="capitalize ml-6 flex items-center justify-between px-5">
 							<p > Home carpets</p>
 							<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 						</Link>
 					</li>
-					<li >
+					<li  className='my-3'>
 						<Link to={"home-category/sofa"} className="capitalize ml-6 flex items-center justify-between px-5">
 							<p > Home sofa</p>
 							<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 						</Link>
 					</li>
-					<li >
+					<li  className='my-3'>
 						<Link to={"home-category/wallpaper"} className="capitalize ml-6 flex items-center justify-between px-5">
 							<p > Home wallpaper</p>
 							<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 						</Link>
 					</li>
-					<li >
+					<li  className='my-3'>
 						<Link to={"home-category/bed"} className="capitalize ml-6 flex items-center justify-between px-5">
 							<p > Home bed</p>
 							<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 						</Link>
 					</li>
-					<li >
+					<li  className='my-3'>
 						<Link to={"home-category/bed_mattress"} className="capitalize ml-6 flex items-center justify-between px-5">
 							<p > Home bed mattress</p>
 							<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
@@ -63,25 +63,25 @@ const FooterMobileMenu = () => {
 
 					<ul className="collapse-content">
 
-						<li >
+						<li  className='my-3'>
 							<Link to={"office-category/curtains"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > office curtains</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"office-category/carpets"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > office carpets</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"office-category/sofa"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > office sofa</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"office-category/wallpaper"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > office wallpaper</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
@@ -100,37 +100,37 @@ const FooterMobileMenu = () => {
 
 					<ul className="collapse-content">
 
-						<li >
+						<li  className='my-3'>
 							<Link to={"arabic-category/curtains"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > arabic curtains</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"arabic-category/carpets"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > arabic carpets</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"arabic-category/sofa"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > arabic sofa</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"arabic-category/wallpaper"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > arabic wallpaper</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"arabic-category/bed"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > arabic bed</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"arabic-category/bed_mattress"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > arabic bed mattress</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
@@ -149,19 +149,19 @@ const FooterMobileMenu = () => {
 
 					<ul className="collapse-content">
 
-						<li >
+						<li  className='my-3'>
 							<Link to={"/service-category/painting"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > Wall painting</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"/service-category/cabinets"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > Cabinets design</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>
 							</Link>
 						</li>
-						<li >
+						<li  className='my-3'>
 							<Link to={"/service-category/gypsum"} className="capitalize ml-6 flex items-center justify-between px-5">
 								<p > gypsum design</p>
 								<p ><ArrowLongRightIcon className='w-4 h-4 text-gray-700 ml-2'></ArrowLongRightIcon></p>

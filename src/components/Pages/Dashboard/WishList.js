@@ -2,7 +2,6 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import useLoadWishlist from '../../../hooks/useLoadWishlist';
 import { api } from '../../../urlConfig';
-import Loader from '../../Shared/Loader';
 import PageTitle from '../../Shared/PageTitle';
 import WishListSingle from './WishListSingle';
 
@@ -11,9 +10,7 @@ const WishList = () => {
 	const user = JSON.parse(localUser)
 	const [userinfo, isLoading, refetch] = useLoadWishlist(user);
 	
-	if (isLoading) {
-		<Loader></Loader>
-	}
+	
 	
 	const handleWishlistDeleteItem = (id) => {
 		fetch(`${api}/product/wishlist/delete/${id}`, {
@@ -54,6 +51,7 @@ const WishList = () => {
 						{
 							userinfo?.wishlist?.map((item, index) => <WishListSingle key={item._id} index={index} product={item} handleWishlistDeleteItem={handleWishlistDeleteItem}></WishListSingle>)
 						}
+						
 					</tbody>
 
 					<tfoot>
