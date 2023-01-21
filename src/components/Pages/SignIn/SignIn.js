@@ -70,7 +70,7 @@ const SignIn = () => {
 	return (
 		<div>
 			<PageTitle title={"login"}></PageTitle>
-			<div className="container">
+			<div className="container flex justify-center items-center">
 				<div className="form-box shadow-lg border ">
 					<div className="header-form mt-10">
 						<h4 className="text-gray-600 text-center"><i className="fa fa-user-circle" style={{ fontSize: "110px" }}></i></h4>
