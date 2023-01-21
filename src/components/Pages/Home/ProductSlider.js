@@ -12,11 +12,11 @@ const ProductSlider = () => {
 		})
 		return res;
 	};
-	const { data} = useQuery(['ServiceSlider'], getFacts);
+	const { data } = useQuery(['ServiceSlider'], getFacts);
 	var settings = {
 		dots: false,
-        prevArrow: <></>,
-		nextArrow:<></>,
+		prevArrow: <></>,
+		nextArrow: <></>,
 		speed: 800,
 		initialSlide: 0,
 		infinite: true,
@@ -26,7 +26,7 @@ const ProductSlider = () => {
 		autoplaySpeed: 3000,
 		cssEase: "linear",
 		responsive: [
-			
+
 			{
 				breakpoint: 1280,
 				settings: {
@@ -74,25 +74,28 @@ const ProductSlider = () => {
 			}
 		]
 	};
-	
+
 	return (
-		<div className=" mx-auto mt-14">
-			<div className="flex flex-col items-center">
-				<h1 className="text-3xl font-bold text-gray-900 capitalize ">Our Service</h1>
-				<div className="divider h-[1px] bg-gray-400"></div>
+		<>
+			<div className=" mx-auto mt-14">
+
+				<div className="flex flex-col items-center">
+					<h1 className="text-3xl font-bold text-gray-900 capitalize ">Our Service</h1>
+					<div className="divider h-[1px] bg-gray-400"></div>
+				</div>
+				<Slider {...settings} className="mt-3 mb-20">
+
+					{
+						data?.data?.data?.products?.reverse()?.map(service =>
+							<div key={service._id} className=" ">
+								<SliderSingleProduct key={service._id} data={service}></SliderSingleProduct>
+							</div>
+						)
+					}
+				</Slider>
 			</div>
-			<Slider {...settings} className="mt-3 mb-20">
-				
-				{
-					data?.data?.data?.products?.reverse()?.map(service =>
-						<div key={service._id} className=" ">
-							<SliderSingleProduct  key={service._id}  data={service}></SliderSingleProduct>
-						</div>
-					)
-				}
-			</Slider>
-		</div>
-	
+		</>
+
 	);
 };
 
