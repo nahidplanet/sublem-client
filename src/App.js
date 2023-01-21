@@ -66,51 +66,50 @@ import AddCategoryAndLogo from "./components/Admin/AddCategoryAndLogo/AddCategor
 import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 
 
+
+
 function App() {
   const location = useLocation();
+ 
   return (
     <div className="App bg-white relative ">
       {location.pathname === '/developer' && '/developer/login' ? <></> : <Header></Header>}
-
       <div className="max-w-[1430px] mx-auto">
         <Routes>
           {/* default route  */}
           <Route path="/" element={<Home></Home>}></Route>
+         
+            {/* admin dashboard  */}
+            <Route path="/developer" element={<RequireAuth><RequireAdmin><AdminDashboard></AdminDashboard></RequireAdmin></RequireAuth>}>
+              <Route index element={<RequireAuth><RequireAdmin><AdminIndex></AdminIndex></RequireAdmin></RequireAuth>}></Route>
+              <Route path="add-product" element={<RequireAuth><RequireAdmin><AddProduct></AddProduct></RequireAdmin></RequireAuth>}></Route>
+              <Route path="add-product-bb" element={<RequireAuth><RequireAdmin><AddProductBb></AddProductBb></RequireAdmin></RequireAuth>}></Route>
+              <Route path="all-product" element={<RequireAuth><RequireAdmin><AllProducts></AllProducts></RequireAdmin></RequireAuth>}></Route>
+              <Route path="all-order" element={<RequireAuth><RequireAdmin><Orders></Orders></RequireAdmin></RequireAuth>}></Route>
+              <Route path="all-user" element={<RequireAuth><RequireAdmin><Users></Users></RequireAdmin></RequireAuth>}></Route>
+              <Route path="add-slider" element={<RequireAuth><RequireAdmin><AddSlider></AddSlider></RequireAdmin></RequireAuth>}></Route>
+              <Route path="links" element={<RequireAuth><RequireAdmin><AddCategoryAndLogo></AddCategoryAndLogo></RequireAdmin></RequireAuth>}></Route>
+            </Route>
 
+
+            {/* user dashboard  */}
+            <Route path="/dashboard" element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
+              <Route index element={<RequireAuth><Profile></Profile></RequireAuth>}></Route>
+              <Route path="profile" element={<RequireAuth><Profile></Profile></RequireAuth>}></Route>
+              <Route path="wishlist" element={<RequireAuth><WishList></WishList></RequireAuth>}></Route>
+              <Route path="order-history" element={<RequireAuth><OrderHistory></OrderHistory></RequireAuth>}></Route>
+              <Route path="save-cart" element={<RequireAuth><SaveCart></SaveCart></RequireAuth>}></Route>
+            </Route>
+
+            {/* page  */}
+            <Route path="/login" element={<SignIn></SignIn>}></Route>
+            <Route path="/developer/admin-login" element={<AdminLogin></AdminLogin>}></Route>
+            {/* <Route path="/singup" element={<SignUp></SignUp>}></Route> */}
+            <Route path="/single-product" element={<ProductDetails></ProductDetails>}></Route>
+            <Route path="/cart" element={<RequireAuth><Cart></Cart></RequireAuth>}></Route>
+            <Route path="/checkout/details" element={<RequireAuth><CheckOutDetails></CheckOutDetails></RequireAuth>}></Route>
+            <Route path="/checkout/order" element={<RequireAuth><UserOrderSubmit></UserOrderSubmit></RequireAuth>}></Route>
           
-     
-
-          {/* admin dashboard  */}
-          <Route path="/developer" element={<RequireAuth><RequireAdmin><AdminDashboard></AdminDashboard></RequireAdmin></RequireAuth>}>
-            <Route index element={<RequireAuth><RequireAdmin><AdminIndex></AdminIndex></RequireAdmin></RequireAuth>}></Route>
-            <Route path="add-product" element={<RequireAuth><RequireAdmin><AddProduct></AddProduct></RequireAdmin></RequireAuth>}></Route>
-            <Route path="add-product-bb" element={<RequireAuth><RequireAdmin><AddProductBb></AddProductBb></RequireAdmin></RequireAuth>}></Route>
-            <Route path="all-product" element={<RequireAuth><RequireAdmin><AllProducts></AllProducts></RequireAdmin></RequireAuth>}></Route>
-            <Route path="all-order" element={<RequireAuth><RequireAdmin><Orders></Orders></RequireAdmin></RequireAuth>}></Route>
-            <Route path="all-user" element={<RequireAuth><RequireAdmin><Users></Users></RequireAdmin></RequireAuth>}></Route>
-            <Route path="add-slider" element={<RequireAuth><RequireAdmin><AddSlider></AddSlider></RequireAdmin></RequireAuth>}></Route>
-            <Route path="links" element={<RequireAuth><RequireAdmin><AddCategoryAndLogo></AddCategoryAndLogo></RequireAdmin></RequireAuth>}></Route>
-          </Route>
-
-
-          {/* user dashboard  */}
-          <Route path="/dashboard" element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-            <Route index element={<RequireAuth><Profile></Profile></RequireAuth>}></Route>
-            <Route path="profile" element={<RequireAuth><Profile></Profile></RequireAuth>}></Route>
-            <Route path="wishlist" element={<RequireAuth><WishList></WishList></RequireAuth>}></Route>
-            <Route path="order-history" element={<RequireAuth><OrderHistory></OrderHistory></RequireAuth>}></Route>
-            <Route path="save-cart" element={<RequireAuth><SaveCart></SaveCart></RequireAuth>}></Route>
-          </Route>
-
-          {/* page  */}
-          <Route path="/login" element={<SignIn></SignIn>}></Route>
-          <Route path="/developer/admin-login" element={<AdminLogin></AdminLogin>}></Route>
-          {/* <Route path="/singup" element={<SignUp></SignUp>}></Route> */}
-          <Route path="/single-product" element={<ProductDetails></ProductDetails>}></Route>
-          <Route path="/cart" element={<RequireAuth><Cart></Cart></RequireAuth>}></Route>
-          <Route path="/checkout/details" element={<RequireAuth><CheckOutDetails></CheckOutDetails></RequireAuth>}></Route>
-          <Route path="/checkout/order" element={<RequireAuth><UserOrderSubmit></UserOrderSubmit></RequireAuth>}></Route>
-
 
           {/* home category  */}
           <Route path="/home-category" element={<AllHomeFurniture></AllHomeFurniture>}></Route>
@@ -140,10 +139,7 @@ function App() {
           <Route path="office-category/sofa/:id" element={<ProductDetails></ProductDetails>}></Route>
           <Route path="office-category/wallpaper" element={<OfficeWallpaper></OfficeWallpaper>}></Route>
           <Route path="office-category/wallpaper/:id" element={<ProductDetails></ProductDetails>}></Route>
-          {/* <Route path="office-category/bed" element={<OfficeBed></OfficeBed>}></Route>
-          <Route path="office-category/bed/:id" element={<ProductDetails></ProductDetails>}></Route>
-          <Route path="office-category/bed_mattress" element={<OfficeBedMattress></OfficeBedMattress>}></Route>
-          <Route path="office-category/bed_mattress/:id" element={<ProductDetails></ProductDetails>}></Route> */}
+
           {/* arabic category  */}
           <Route path="arabic-category/" element={<AllArabicFurniture></AllArabicFurniture>}></Route>
           <Route path="arabic-category/:id" element={<ProductDetails></ProductDetails>}></Route>
@@ -177,9 +173,9 @@ function App() {
       {location.pathname === '/developer' && '/developer/login' ? <></> : <Footer></Footer>}
 
       <ToastContainer></ToastContainer>
-      <div className="flex"> 
-      <WhatsApp></WhatsApp>
-      <Call></Call>
+      <div className="flex">
+        <WhatsApp></WhatsApp>
+        <Call></Call>
       </div>
     </div>
   );

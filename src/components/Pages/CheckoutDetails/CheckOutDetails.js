@@ -9,10 +9,11 @@ import PageTitle from '../../Shared/PageTitle';
 
 const CheckOutDetails = () => {
 	const { register, handleSubmit, formState: { errors }, reset } = useForm();
-	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate()
-	const onSubmit = async (products) => {
+	const localUser = localStorage.getItem("Auth_credentials")
+    const user = JSON.parse(localUser)
 
+	const onSubmit = async (products) => {
 		fetch(`${api}/order-info`, {
 			method: "PUT",
 			headers: {
@@ -49,14 +50,14 @@ const CheckOutDetails = () => {
 						{/* username */}
 						<div className="mt-2">
 							<label className="text-sm block text-gray-600" >User Name</label>
-							<input readOnly value={user?.displayName ? user.displayName : user?.email.slice(0, 5)}{...register("username", { required: false })} className="w-full px-5  py-1  text-gray-700 bg-gray-200 rounded" type="text" placeholder="User Name" />
+							<input readOnly value={user?.s ? user.s : user?.email.slice(0, 5)}{...register("username", { required: false })} className="w-full px-5  py-1  text-gray-700 bg-gray-200 rounded" type="text" placeholder="User Name" />
 							{errors.username?.type === "required" && <span className="label-text-alt capitalize text-red-600">User Name is required</span>}
 						</div>
 
 						{/* email */}
 						<div className="mt-2">
 							<label className="block text-sm text-gray-600" >Your Email</label>
-							<input readOnly value={user?.email}  {...register("email", { required: false })} className="w-full  px-2 py-1 text-gray-700 bg-gray-200 rounded" type="email" placeholder="Your Email" />
+							<input readOnly value={user?.e}  {...register("email", { required: false })} className="w-full  px-2 py-1 text-gray-700 bg-gray-200 rounded" type="email" placeholder="Your Email" />
 							{errors.email?.type === "required" && <span className="label-text-alt capitalize text-red-600">Email is required</span>}
 							{errors.email?.type === "minLength" && <span className="label-text-alt capitalize text-red-600">at lest 4 characters</span>}
 						</div>

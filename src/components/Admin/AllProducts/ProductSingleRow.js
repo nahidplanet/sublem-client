@@ -1,6 +1,8 @@
 import React from 'react';
+import { baseUrl } from '../../../urlConfig';
+
 const ProductSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit, handleUpdateFreeProduct }) => {
-	
+
 
 	let pathIs = false;
 	if (item.productImage[0].productImagePath?.includes("http")) {
@@ -19,7 +21,7 @@ const ProductSingleRow = ({ handleDelete, handleUpdate, item, index, page, limit
 						<div className="mask mask-squircle w-12 h-12">
 							{
 								pathIs ? <img src={`${item.productImage[0].productImagePath}`} alt={item.name} />
-									: <img src={`http://localhost:5000/images/product/${item.productImage[0].productImagePath}`} alt={item.name} />
+									: <img src={`${baseUrl}/${item.productImage[0].productImagePath}`} alt={item.name} />
 							}
 						</div>
 					</div>

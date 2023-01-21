@@ -1,8 +1,8 @@
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Search from './Search/Search';
-import Logo from '../Header/Logo/Logo';
+import Search from '../src/components/Header/Search/Search';
+import Logo from '../src/components/Header/Logo/Logo';
 
 const MainMenu = () => {
 

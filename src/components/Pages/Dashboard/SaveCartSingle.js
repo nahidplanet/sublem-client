@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../../../urlConfig';
 
 const SaveCartSingle = ({ product }) => {
 	const { price, productId, quantity } = product;
@@ -20,7 +21,7 @@ const SaveCartSingle = ({ product }) => {
 					<div className="avatar w-10 h-10 ml-3">
 						{
 						pathIs ? <img  src={`${productImage[0].productImagePath}`} alt={name} />
-							: <img  src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
+							: <img  src={`${baseUrl}/${productImage[0].productImagePath}`} alt={name} />
 					}
 					</div>
 				</div>

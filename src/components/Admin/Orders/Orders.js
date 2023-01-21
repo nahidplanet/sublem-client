@@ -5,7 +5,6 @@ import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 import { api } from '../../../urlConfig';
 import axiosInst from '../../axios';
-import Loader from '../../Shared/Loader';
 import OrderSingleRow from './OrderSingleRow';
 import OrderStatusModal from './OrderStatusModal';
 import OrderUpdateModal from './OrderUpdateModal';
@@ -130,7 +129,7 @@ const Orders = () => {
 				</table>
 			</div>
 			{
-				orders.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> No Order Found</p>
+				orders?.length < 1 && <p className='text-3xl font-bold text-red-400 text-center my-20 w-full'> No Order Found</p>
 			}
 			<div className={`${data?.data?.data?.products.length < 1 ? 'hidden' : 'block'}`}  >
 				<div className="paginationContainer block bg-gray-50 px-3 py-1 rounded-sm">

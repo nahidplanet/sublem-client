@@ -1,4 +1,5 @@
 import React from 'react';
+import { baseUrl } from '../../../urlConfig';
 
 const LastStepOfMOdalShowDetails = ({ i, x }) => {
 	const images = x?.productId;
@@ -14,7 +15,7 @@ const LastStepOfMOdalShowDetails = ({ i, x }) => {
 			<div className='border-b w-full'>
 				{
 					pathIs ? <img src={`${images?.productImage[0].productImagePath}`} alt={images?.name} />
-						: <img src={`http://localhost:5000/images/product/${images?.productImage[0].productImagePath}`} alt={images?.name} />
+						: <img src={`${baseUrl}/${images?.productImage[0].productImagePath}`} alt={images?.name} />
 				}
 			</div>
 			<div className='border-b flex justify-between items-center'>

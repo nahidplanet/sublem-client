@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CustomAdminLink from '../../Shared/CustomAdminLink';
 
 const AdminSidebar = ({handleLogOut}) => {
@@ -52,10 +53,10 @@ const AdminSidebar = ({handleLogOut}) => {
 				</CustomAdminLink>
 
 			</nav>
-			<a onClick={handleLogOut}  className="link absolute w-full upgrade-btn bottom-0  text-white no-underline flex items-center justify-center py-4">
+			<Link onClick={handleLogOut}  className="link absolute w-full upgrade-btn bottom-0  text-white no-underline flex items-center justify-center py-4">
 				<i className="fas fa-arrow-circle-up mr-3"></i>
 				Sign Out
-			</a>
+			</Link>
 		</div>
 	);
 };

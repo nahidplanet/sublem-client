@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { ArrowLongRightIcon, TrashIcon } from '@heroicons/react/24/solid';
+import { baseUrl } from '../../../urlConfig';
 
 const SingleCart = ({ data, handleCartDeleteItem, handleProductIncrease, handleProductDecrement }) => {
 	const [cartCount, setCartCount] = useState(data.quantity);
@@ -28,7 +29,7 @@ const SingleCart = ({ data, handleCartDeleteItem, handleProductIncrease, handleP
 			<div className=' flex flex-col justify-center '>
 				{
 					pathIs ? <img src={`${productImage[0].productImagePath}`} alt={name} />
-						: <img src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
+						: <img src={`${baseUrl}/${productImage[0].productImagePath}`} alt={name} />
 				}
 			</div>
 			<div className='col-span-3'>

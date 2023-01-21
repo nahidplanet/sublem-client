@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import { useSignOut } from 'react-firebase-hooks/auth';
+
 import { useNavigate } from 'react-router';
-import auth from '../../../firebaseAuth/firebase.init';
 import CustomAdminLink from '../../Shared/CustomAdminLink';
-import Loader from '../../Shared/Loader';
 
 const MobileHeader = () => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [signOut, signOutLoading] = useSignOut(auth);
+	// const [signOut, signOutLoading] = useSignOut(auth);
+	
 	const navigate = useNavigate();
-	if (signOutLoading) {
-		return <Loader></Loader>
-	}
+	
 	const handleLogOut = () => {
-		signOut()
-		localStorage.removeItem("activeToken")
-		navigate('/login')
+		localStorage.removeItem("activeToken");
+        localStorage.removeItem("Auth_credentials");
+		navigate('/developer/admin-login')
 	}
 	return (
 		<header className="w-full bg-sidebar  sm:hidden bg-slate-800">

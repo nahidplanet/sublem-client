@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import { baseUrl } from '../../../urlConfig';
+
 
 const WishListSingle = ({ product, index, handleWishlistDeleteItem }) => {
 	const navigate = useNavigate()
@@ -25,7 +27,7 @@ const WishListSingle = ({ product, index, handleWishlistDeleteItem }) => {
 					<div className="avatar w-10 h-10">
 						{
 							pathIs ? <img src={`${productImage[0].productImagePath}`} alt={name} />
-								: <img src={`http://localhost:5000/images/product/${productImage[0].productImagePath}`} alt={name} />
+								: <img src={`${baseUrl}/${productImage[0].productImagePath}`} alt={name} />
 						}
 					</div>
 					<div>

@@ -3,21 +3,14 @@ import { Outlet, useNavigate } from 'react-router';
 import DesktopHeader from './AdminHeader/DesktopHeader';
 import MobileHeader from './AdminHeader/MobileHeader';
 import AdminSidebar from './AdminSidebar/AdminSidebar';
-import { useSignOut } from 'react-firebase-hooks/auth';
-import auth from '../../firebaseAuth/firebase.init';
-import Loader from '../Shared/Loader';
+
 
 const AdminDashboard = () => {
 	const navigate = useNavigate();
-	const [signOut, signOutLoading] = useSignOut(auth);
 	
-	if (signOutLoading) {
-		return <Loader></Loader>
-	}
-
 	const handleLogOut = () => {
 		localStorage.removeItem("activeToken")
-		signOut()
+		localStorage.removeItem("Auth_credentials")
 		navigate('/developer/admin-login')
 
 	}

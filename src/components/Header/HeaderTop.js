@@ -1,19 +1,23 @@
 import React from 'react';
 import { HeartIcon, PhoneIcon, ShoppingBagIcon } from '@heroicons/react/24/solid'
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
-import auth from '../../firebaseAuth/firebase.init';
 import useLoadCart from '../../hooks/useLoadCart';
+import { GoogleLogout } from 'react-google-login';
 
 
 const HeaderTop = () => {
-    const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const [signOut] = useSignOut(auth);
+    const clientId = '625485533795-l18f07it1fdssjfhqoeenq788vpgq1q1.apps.googleusercontent.com'
+
+    const token = localStorage.getItem("activeToken")
+    const localUser = localStorage.getItem("Auth_credentials")
+    const user = JSON.parse(localUser)
+ 
+
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart()
     const handleSignOut = () => {
-        signOut();
         localStorage.removeItem("activeToken");
+        localStorage.removeItem("Auth_credentials");
         navigate('/login')
     }
 
@@ -55,7 +59,12 @@ const HeaderTop = () => {
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/wishlist"}>Wishlist</Link></li>
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/save-cart"}>Save Cart</Link></li>
                                     <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"dashboard/order-history"}>Order History</Link></li>
-                                    {user ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={handleSignOut}> Sign Out</Link></li> :
+                                    {user?.e && token ? <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link onClick={handleSignOut}> <GoogleLogout
+                                        className='m-0 p-0 w-full text-sm'
+                                        clientId={clientId}
+                                        buttonText="Logout"
+                                        onLogoutSuccess={handleSignOut}
+                                    /></Link></li> :
                                         <li className='hover:bg-slate-200 text-gray-900 rounded-md'><Link to={"/login"}>Sign In</Link></li>
 
                                     }

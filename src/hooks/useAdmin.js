@@ -9,7 +9,7 @@ const useAdmin = (user) => {
 
 
 	useEffect(()=>{
-		const email = user?.email;
+		const email = user?.e;
 		if (email) {
 			fetch(`${api}/admin-login`,{
 				method:"GET",

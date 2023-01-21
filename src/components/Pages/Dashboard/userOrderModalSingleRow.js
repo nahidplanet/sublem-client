@@ -1,11 +1,12 @@
 import React from 'react';
+import { baseUrl } from '../../../urlConfig';
 
 const userOrderModalSingleRow = ({ x }) => {
 
 	return (
 		<table className='text-center text-gray-900'>
 			<tr className='border-b'>
-				<img src={`http://localhost:5000/images/product/${x?.productId?.productImage[0].productImagePath}`} alt={x?.productId?.name} />
+				<img src={`${baseUrl}/${x?.productId?.productImage[0].productImagePath}`} alt={x?.productId?.name} />
 			</tr>
 			<tr className='border-b'>
 				<thead><th className='p-5'>Product Name</th></thead>

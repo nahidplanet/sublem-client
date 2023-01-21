@@ -2,17 +2,17 @@
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import auth from '../../firebaseAuth/firebase.init';
 
 const MobileToggleMenu = ({ open }) => {
-	const [user] = useAuthState(auth);
+	// const [user] = useAuthState(auth);
 	const [profile, setProfile] = useState(false)
 	const [home, setHome] = useState(false)
 	const [office, setOffice] = useState(false)
 	const [arabic, setArabic] = useState(false)
 	const [service, setService] = useState(false)
+    const localUser = localStorage.getItem("Auth_credentials")
+    const user = JSON.parse(localUser)
 	return (
 		<>
 			{

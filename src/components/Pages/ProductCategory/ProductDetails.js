@@ -19,7 +19,6 @@ const ProductDetails = () => {
 
 	let pathIs = false;
 
-	// var baseUrl = `http://localhost:5000/images/product/`;
 	const { id } = useParams();
 
 	useEffect(() => {

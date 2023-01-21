@@ -1,32 +1,28 @@
 import React from 'react';
 import { ShoppingBagIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Search from './Search/Search';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useLoadCart from '../../hooks/useLoadCart';
 import whatsApp from '../../assets/icon/whatsapp-menu.svg';
-import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
-import auth from '../../firebaseAuth/firebase.init';
-import Loader from '../Shared/Loader';
 import Logo from '..//Header/Logo/Logo';
 
 const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
 
-
-    const [user] = useAuthState(auth)
-    const [signOut, signOutLoading] = useSignOut(auth);
+    const navigate = useNavigate()
 
     const [catProduct, totalProduct, totalPrice, isLoading, refetch] = useLoadCart();
 
+    const token = localStorage.getItem("activeToken")
+    const localUser = localStorage.getItem("Auth_credentials")
+    const user = JSON.parse(localUser)
 
     const handleSignOut = () => {
-        signOut()
-        localStorage.removeItem("activeToken");
-        // window.location.reload()
-    }
-    // if (signOutLoading || isLoading) {
-    //     return <Loader></Loader>
 
-    // }
+        localStorage.removeItem("activeToken");
+        localStorage.removeItem("Auth_credentials");
+        navigate("/login")
+		window.location.reload()
+    }
    
     return (
         <div className='lg:hidden w-full'>
@@ -83,15 +79,15 @@ const MobileMenu = ({ handelMobileMenu, mobileLogo }) => {
 
 
                     {
-                        user ?
+                        user && token ?
                             <div className=''>
                                 <div className="dropdown  dropdown-end">
                                     <label tabIndex={0} className="btn btn-ghost hover:bg-transparent btn-circle">
                                         <div className="indicator ">
                                             <div className=" relative z-10 w-8 h-8 cursor-pointer rounded-full overflow-hidden border-2 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none ">
                                                 {
-                                                    user?.photoURL ? <img className='bg-gray-300' src={user?.photoURL} alt='profile' />
-                                                        : <img className='bg-gray-300' src="https://i.ibb.co/v1TLgZn/pngegg-removebg-preview.png" alt='profile' />}
+                                                    user?.url ? <img className='bg-gray-300' src={user?.url} alt={user.s} />
+                                                        : <img className='bg-gray-300' src={user?.url} alt='profile' />}
                                             </div>
 
                                         </div>
