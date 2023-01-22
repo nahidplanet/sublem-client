@@ -169,13 +169,13 @@ const ProductDetails = () => {
 												</div>
 												<div>
 
-													<button onClick={() => handleCartIncrease(_id, price)} className='mt-0 border w-10 h-10 bg-white text-gray-900 text-2xl font-bold rounded-sm mr-2 hover:bg-gray-200  '>+</button>
+													<button onClick={() => handleCartIncrease(_id, (parseInt(price) - parseInt(discount)))} className='mt-0 border w-10 h-10 bg-white text-gray-900 text-2xl font-bold rounded-sm mr-2 hover:bg-gray-200  '>+</button>
 												</div>
 											</div>
 										</div>
 									</div>
 									{/* add to cart button */}
-									<button disabled={cartCount === 0} onClick={() => handleAddToCart(_id, price, cartCount)} className='block mx-auto my-5 rounded-sm hover:bg-gray-300 bg-gray-200 w-7/12 py-4 text-lg text-gray-800 capitalize font-semibold text-center'>add to cart</button>
+									<button disabled={cartCount === 0} onClick={() => handleAddToCart(_id, (parseInt(price) - parseInt(discount)), cartCount)} className='block mx-auto my-5 rounded-sm hover:bg-gray-300 bg-gray-200 w-7/12 py-4 text-lg text-gray-800 capitalize font-semibold text-center'>add to cart</button>
 									{/* WishList */}
 									<div className='w-full'>
 										<button onClick={() => handleWishlist(_id)} className='flex items-center mx-auto text-green-600 underline font-normal px-3 py-2 text-xl'>

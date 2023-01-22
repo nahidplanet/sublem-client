@@ -85,7 +85,7 @@ const SingleProduct = ({ data }) => {
 						</div>
 						<div className='text-xm md:text-md flex justify-evenly gap-5  w-full'>
 							<button onClick={() => handleHomeCategoryProductDetails(_id)} className="mt-0 border hover:bg-slate-100 p-1 rounded-sm w-5/12" >View</button>
-							<button onClick={() => handleAddToCart(_id, price)} className="mt-0 border hover:bg-slate-100 p-1 rounded-sm w-5/12">Add Cart</button>
+							<button onClick={() => handleAddToCart(_id, (parseInt(price) - parseInt(discount)))} className="mt-0 border hover:bg-slate-100 p-1 rounded-sm w-5/12">Add Cart</button>
 							<button onClick={() => handleWishlist(_id)} className=" mt-0  w-2/12">
 								<HeartIcon className='text-gray-600 w-6 h-6'></HeartIcon>
 							</button>
