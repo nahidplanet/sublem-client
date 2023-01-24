@@ -57,7 +57,7 @@ const Footer = () => {
                  socialLink && socialLink?.links?.map((item,i) => <FooterSocial item={item} key={i}></FooterSocial>)
                 }
                 {/* showing in mobile device */}
-                <div className='lg:hidden'>
+                <div className='lg:hidden z-10 '>
                     <FooterMobileMenu></FooterMobileMenu>
 
                 </div>

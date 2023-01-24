@@ -10,7 +10,7 @@ const LastStepOfMOdalShowDetails = ({ i, x }) => {
 		pathIs = false;
 	}
 	return (
-		<div className='text-center text-gray-900'>
+		<div className='text-center text-gray-900 z-100'>
 			<h1 className='text-xl text-center capitalize font-semibold my-3'>Order History</h1>
 			<div className='border-b w-full'>
 				{

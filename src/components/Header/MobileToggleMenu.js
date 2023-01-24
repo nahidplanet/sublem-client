@@ -16,7 +16,7 @@ const MobileToggleMenu = ({ open }) => {
 	return (
 		<>
 			{
-				open && <div className='lg:hidden'>
+				open && <div className='lg:hidden z-0'>
 					{user && <div onClick={() => setProfile(!profile)} className={`lg:hidden border  collapse collapse-plus ${profile ? 'collapse-open' : 'collapse-close'}`}>
 						<div className="collapse-title text-xl font-medium">
 							<p className='capitalize text-gray-900 font-semibold mt-2 ml-5 cursor-pointer'>Profile</p>

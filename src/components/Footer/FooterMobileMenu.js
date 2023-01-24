@@ -9,7 +9,7 @@ const FooterMobileMenu = () => {
 	const [arabic, setArabic] = useState(false)
 	const [service, setService] = useState(false)
 	return (
-		<div className='lg:hidden'>
+		<div className='lg:hidden z-10'>
 			<div onClick={() => setHome(!home)} className={`lg:hidden border  collapse collapse-plus ${home ? 'collapse-open' : 'collapse-close'}`}>
 				<div className="collapse-title text-xl font-medium">
 					<Link to={"/home-category"} className='capitalize text-gray-900 font-semibold mt-2 ml-5'>Home</Link>

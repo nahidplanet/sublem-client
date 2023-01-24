@@ -46,7 +46,7 @@ const SignIn = () => {
 						navigate("/login")
 					})
 				localStorage.setItem("Auth_credentials", JSON.stringify(setAuth));
-			}, 200)
+			}, 100)
 		} else {
 			navigate("/login")
 			toast.error("login Failed")
